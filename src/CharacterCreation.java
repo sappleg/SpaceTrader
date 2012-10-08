@@ -16,7 +16,7 @@ public class CharacterCreation {
 	private Text text;
 	private int pointsAvailable = 15;
 	private int traderUsed = 0;
-	private int explorerUsed = 0;
+	private int engineerUsed = 0;
 	private int pilotUsed = 0;
 	private int fighterUsed = 0;
 	protected boolean status = true;
@@ -95,7 +95,7 @@ public class CharacterCreation {
 		spinner_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseDown(MouseEvent e) {
-				explorerUsed = Integer.parseInt(spinner_1.getText());
+				engineerUsed = Integer.parseInt(spinner_1.getText());
 				status = canAddMorePoints();
 				spinner.setEnabled(status);
 				spinner_1.setEnabled(status);
@@ -144,7 +144,7 @@ public class CharacterCreation {
 		
 		Label lblExplorer = new Label(shell, SWT.NONE);
 		lblExplorer.setBounds(149, 114, 47, 15);
-		lblExplorer.setText("Explorer");
+		lblExplorer.setText("Engineer");
 		
 		Label lblPilot = new Label(shell, SWT.NONE);
 		lblPilot.setBounds(149, 142, 55, 15);
@@ -187,8 +187,10 @@ public class CharacterCreation {
 				}
 				else
 				{
-					shell.close();
+					Driver driver = new Driver();
+					driver.createPlayer(text.getText(), traderUsed, engineerUsed, pilotUsed, fighterUsed);
 					MainApplication main = new MainApplication();
+					shell.close();
 					main.open();
 				}
 			}
@@ -204,7 +206,7 @@ public class CharacterCreation {
 			{
 				pointsAvailable = 15;
 				traderUsed = 0;
-				explorerUsed = 0;
+				engineerUsed = 0;
 				pilotUsed = 0;
 				fighterUsed = 0;
 				status = true;
@@ -238,7 +240,7 @@ public class CharacterCreation {
 	 */
 	protected boolean canAddMorePoints() {
 		// TODO Auto-generated method stub
-		int totalPoints = traderUsed + explorerUsed + pilotUsed + fighterUsed;
+		int totalPoints = traderUsed + engineerUsed + pilotUsed + fighterUsed;
 		if(totalPoints <= 14)
 		{
 			return true;
@@ -254,7 +256,7 @@ public class CharacterCreation {
 	
 	protected int calculatePoints()
 	{
-		int totalPoints = traderUsed + explorerUsed + pilotUsed + fighterUsed;
+		int totalPoints = traderUsed + engineerUsed + pilotUsed + fighterUsed;
 		return pointsAvailable - totalPoints;
 	}
 }
