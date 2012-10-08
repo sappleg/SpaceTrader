@@ -19,9 +19,7 @@ public class Ship {
         FLEA, GNAT, FIREFLY, MOSQUITO, BUMBLEBEE, BEETLE, HORNET, GRASSHOPPER, TERMITE, WASP
     }
 
-	public Ship()
-	{
-        this.currentShip = FLEA;
+	public Ship(ShipType ship) {
+        this.currentShip = ship;
 	}
-
 }
