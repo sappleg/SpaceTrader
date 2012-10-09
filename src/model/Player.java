@@ -1,4 +1,6 @@
 package model;
+import java.util.ArrayList;
+
 import main.Ship;
 import main.Ship.ShipType;
 
@@ -7,10 +9,10 @@ public class Player {
 	private static int currency;
 	private Ship.ShipType ship;
 	private static String name;
-	private int pilot;
-	private int fighter;
-	private int trader;
-	private int engineer;
+	private static int pilot;
+	private static int fighter;
+	private static int trader;
+	private static int engineer;
 	
 	public Player(int amount, Ship.ShipType sh, String nm, int pi, int fi, int tr, int en)
 	{
@@ -90,5 +92,15 @@ public class Player {
 		fighter = fi;
 		trader = tr;
 		engineer = en;
+	}
+	
+	public static ArrayList<Integer> getSkills()
+	{
+	    ArrayList<Integer> skills = new ArrayList<Integer>();
+	    skills.add(pilot);
+	    skills.add(fighter);
+	    skills.add(trader);
+	    skills.add(engineer);
+	    return skills;
 	}
 }

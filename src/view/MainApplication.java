@@ -1,4 +1,7 @@
 package view;
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Label;
@@ -33,6 +36,10 @@ public class MainApplication {
 	private Label lblLocalPlanets;
 	private presenter.Driver driver;
 	private TableItem tableItem;
+	private Table table_4;
+	private TableItem tableItem_1;
+	private TableItem tableItem_2;
+	
 	/**
 	 * Launch the application.
 	 * @param args
@@ -86,7 +93,7 @@ public class MainApplication {
 		lblShipStatistics.setText("Ship Statistics");
 		
 		table = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
-		table.setBounds(0, 21, 190, 393);
+		table.setBounds(0, 21, 190, 198);
 		table.setHeaderVisible(true);
 		table.setLinesVisible(true);
 		
@@ -99,6 +106,51 @@ public class MainApplication {
 		tblclmnQuantity.setText("Quantity");
 		
 		tableCursor = new TableCursor(table, SWT.NONE);
+		
+		Label lblTeamStatistics = new Label(shell, SWT.NONE);
+		lblTeamStatistics.setBounds(53, 231, 94, 15);
+		lblTeamStatistics.setText("Team Statistics");
+		
+		table_4 = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
+		table_4.setBounds(0, 252, 190, 165);
+		table_4.setHeaderVisible(true);
+		table_4.setLinesVisible(true);
+		
+		TableColumn tblclmnAttribute_1 = new TableColumn(table_4, SWT.NONE);
+		tblclmnAttribute_1.setWidth(85);
+		tblclmnAttribute_1.setText("Attribute");
+		
+		TableColumn tblclmnPoints = new TableColumn(table_4, SWT.NONE);
+		tblclmnPoints.setWidth(87);
+		tblclmnPoints.setText("Points");
+		
+		/*
+		 * Get the player skills, the skills are in the order 
+		 * located inside the player class.
+		 */
+		
+		ArrayList<Integer> skills = model.Player.getSkills();
+		
+		
+		tableItem_1 = new TableItem(table_4, SWT.NONE);
+		String[] traderArray = {"Trader", skills.get(2).toString()};
+		tableItem_1.setText(traderArray);
+		
+		tableItem_2 = new TableItem(table_4, SWT.NONE);
+		String[] engineerArray = {"Engineer", skills.get(3).toString()};
+		tableItem_2.setText(engineerArray);
+		
+		TableItem tableItem_3 = new TableItem(table_4, SWT.NONE);
+		String[] pilotArray = {"Pilot", skills.get(0).toString()};
+		tableItem_3.setText(pilotArray);
+		
+		TableItem tableItem_4 = new TableItem(table_4, SWT.NONE);
+		String[] fighterArray = {"Fighter", skills.get(1).toString()};
+		tableItem_4.setText(fighterArray);
+		
+		Label lblNewLabel = new Label(shell, SWT.NONE);
+		lblNewLabel.setBounds(53, 423, 94, 15);
+		lblNewLabel.setText("Solar System List");
 		
 		List list = new List(shell, SWT.BORDER | SWT.V_SCROLL);
 		list.setBounds(0, 444, 190, 286);
@@ -182,10 +234,6 @@ public class MainApplication {
 		
 		list_2 = new List(shell, SWT.BORDER);
 		list_2.setBounds(855, 625, 143, 99);
-		
-		Label lblNewLabel = new Label(shell, SWT.NONE);
-		lblNewLabel.setBounds(53, 423, 94, 15);
-		lblNewLabel.setText("Solar System List");
 	}
 	
 	public void setDriver(presenter.Driver driver)
