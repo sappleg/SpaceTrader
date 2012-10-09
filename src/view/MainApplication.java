@@ -1,6 +1,5 @@
 package view;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
