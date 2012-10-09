@@ -1,3 +1,4 @@
+package view;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Label;
@@ -6,6 +7,7 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.List;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.custom.TableCursor;
+import org.eclipse.swt.widgets.TableItem;
 
 
 public class MainApplication {
@@ -29,18 +31,29 @@ public class MainApplication {
 	private TableColumn tblclmnWeight_1;
 	private Label lblNotifications;
 	private Label lblLocalPlanets;
-
+	private presenter.Driver driver;
+	private TableItem tableItem;
 	/**
 	 * Launch the application.
 	 * @param args
 	 */
+	
 	public static void main(String[] args) {
 		try {
-			MainApplication window = new MainApplication();
-			window.open();
+			MainApplication main = new MainApplication();
+			main.open();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public MainApplication(presenter.Driver dr){
+	    driver = dr;
+	}
+	
+	public MainApplication() 
+	{
+	    
 	}
 
 	/**
@@ -128,11 +141,16 @@ public class MainApplication {
 		tblclmnCurrency.setWidth(70);
 		tblclmnCurrency.setText("Currency");
 		
+		
+		
 		tblclmnWeight = new TableColumn(table_2, SWT.CENTER);
 		tblclmnWeight.setWidth(69);
 		tblclmnWeight.setText("Fuel");
 		
 		tableCursor_2 = new TableCursor(table_2, SWT.NONE);
+		
+		tableItem = new TableItem(table_2, SWT.NONE);
+		tableItem.setText(Integer.toString(model.Player.getCurrency()));
 		
 		table_3 = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
 		table_3.setBounds(855, 119, 143, 480);
@@ -156,6 +174,7 @@ public class MainApplication {
 		
 		List list_1 = new List(shell, SWT.BORDER);
 		list_1.setBounds(196, 628, 653, 96);
+		list_1.add("Welcome to Space Trader " + model.Player.getName());
 		
 		lblLocalPlanets = new Label(shell, SWT.NONE);
 		lblLocalPlanets.setBounds(891, 604, 77, 15);
@@ -167,6 +186,11 @@ public class MainApplication {
 		Label lblNewLabel = new Label(shell, SWT.NONE);
 		lblNewLabel.setBounds(53, 423, 94, 15);
 		lblNewLabel.setText("Solar System List");
-
+	}
+	
+	public void setDriver(presenter.Driver driver)
+	{
+	    
+	    return ;
 	}
 }

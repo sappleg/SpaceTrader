@@ -1,15 +1,18 @@
+package model;
+import main.Ship;
+import main.Ship.ShipType;
 
 public class Player {
 	
-	private int currency;
-	private int ship;
-	private String name;
+	private static int currency;
+	private Ship.ShipType ship;
+	private static String name;
 	private int pilot;
 	private int fighter;
 	private int trader;
 	private int engineer;
 	
-	public Player(int amount, int sh, String nm, int pi, int fi, int tr, int en)
+	public Player(int amount, Ship.ShipType sh, String nm, int pi, int fi, int tr, int en)
 	{
 		currency = amount;
 		ship = sh;
@@ -20,17 +23,17 @@ public class Player {
 		engineer = en;
 	}
 	
-	public void setShip(int sh)
+	public void setShip(ShipType sh)
 	{
 		ship = sh;
 	}
 	
-	public int getShip()
+	public ShipType getShip()
 	{
 		return ship;
 	}
 	
-	public int getCurrency()
+	public static int getCurrency()
 	{
 		return currency;
 	}
@@ -40,7 +43,7 @@ public class Player {
 		currency = curr;
 	}
 	
-	public String getName()
+	public static String getName()
 	{
 		return name;
 	}

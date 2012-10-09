@@ -1,3 +1,4 @@
+package view;
 import javax.swing.JOptionPane;
 
 import org.eclipse.swt.widgets.Display;
@@ -77,6 +78,15 @@ public class CharacterCreation {
 		
 		spinner.setMaximum(15);
 		spinner.addMouseListener(new MouseAdapter() {
+		    /*
+		     * (non-Javadoc)
+		     * @see org.eclipse.swt.events.MouseAdapter#mouseDown(org.eclipse.swt.events.MouseEvent)
+		     * So incase you are wondering the reason this is here is so that we can see the amount 
+		     * of points in the spinner and then we can check to see with canAddMorePoints() if 
+		     * there can be more points added. Afterwards it will set the spinners to enabled 
+		     * or disabled depending on whether or not the status is true or false.
+		     * - Shawn
+		     */
 			@Override
 			public void mouseDown(MouseEvent e) 
 			{
@@ -160,7 +170,12 @@ public class CharacterCreation {
 		
 		label.setBounds(250, 208, 55, 15);
 		label.setText(Integer.toString(calculatePoints()));
-
+		
+		Button btnBeginner = new Button(shell, SWT.RADIO);
+		btnBeginner.setBounds(180, 253, 90, 16);
+		btnBeginner.setText("Beginner");
+		btnBeginner.setSelection(true);
+		
 		Button btnRadioButton = new Button(shell, SWT.RADIO);
 		btnRadioButton.setBounds(180, 275, 90, 16);
 		btnRadioButton.setText("Easy");
@@ -172,6 +187,10 @@ public class CharacterCreation {
 		Button btnHard = new Button(shell, SWT.RADIO);
 		btnHard.setBounds(180, 319, 90, 16);
 		btnHard.setText("Hard");
+		
+		Button btnImpossible = new Button(shell, SWT.RADIO);
+		btnImpossible.setBounds(180, 341, 90, 16);
+		btnImpossible.setText("Impossible");
 	
 		
 		Button btnStartGame = new Button(shell, SWT.NONE);
@@ -181,15 +200,20 @@ public class CharacterCreation {
 			public void mouseDown(MouseEvent e) 
 			{
 				status = canAddMorePoints();
+				String name = text.getText();
 				if(status)
 				{
 					JOptionPane.showMessageDialog(null, "You have not assigned all of your skill points", "Unused Skill Points", 2);
 				}
+				else if (name == "")
+				{
+				    JOptionPane.showMessageDialog(null, "Please enter a player name.");
+				}
 				else
 				{
-					Driver driver = new Driver();
-					driver.createPlayer(text.getText(), traderUsed, engineerUsed, pilotUsed, fighterUsed);
-					MainApplication main = new MainApplication();
+					presenter.Driver driver = new presenter.Driver();
+					driver.createPlayer(name, traderUsed, engineerUsed, pilotUsed, fighterUsed);
+					MainApplication main = new MainApplication(driver);
 					shell.close();
 					main.open();
 				}
@@ -222,14 +246,6 @@ public class CharacterCreation {
 		});
 		btnResetSkillPoints.setBounds(250, 389, 100, 25);
 		btnResetSkillPoints.setText("Reset Skill Points");
-		
-		Button btnBeginner = new Button(shell, SWT.RADIO);
-		btnBeginner.setBounds(180, 253, 90, 16);
-		btnBeginner.setText("Beginner");
-		
-		Button btnImpossible = new Button(shell, SWT.RADIO);
-		btnImpossible.setBounds(180, 341, 90, 16);
-		btnImpossible.setText("Impossible");
 	}
 
 	/**
