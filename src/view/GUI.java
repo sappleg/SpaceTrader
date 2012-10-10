@@ -24,6 +24,7 @@ import org.eclipse.swt.events.MouseEvent;
 public class GUI {
 
     protected Shell shell;
+    protected Display display;
 
     /**
      * Launch the application.
@@ -43,7 +44,7 @@ public class GUI {
      * Open the window.
      */
     private void openLoader() {
-	Display display = Display.getDefault();
+	display = Display.getDefault();
 	createContents();
 	shell.open();
 	shell.layout();
@@ -58,7 +59,7 @@ public class GUI {
      * Create contents of the window.
      */
     private void createContents() {
-	shell = new Shell();
+	shell = new Shell(display, SWT.TITLE | SWT.CLOSE);
 	shell.setSize(381, 253);
 	shell.setText("Space Trader - CS 2340");
 	shell.setLayout(null);
