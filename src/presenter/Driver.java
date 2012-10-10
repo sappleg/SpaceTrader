@@ -25,6 +25,6 @@ public class Driver
 	public void createPlayer(String name, int traderUsed, int engineerUsed, int pilotUsed, int fighterUsed)
 	{
 		playerOne = new Player(1000, Ship.ShipType.GNAT, name, pilotUsed, fighterUsed, traderUsed, engineerUsed);
-		
 	}
+	
 }
