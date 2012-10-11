@@ -117,6 +117,8 @@ public class GUI {
 
     Label label;
 
+    String name;
+
     /**
      * Create contents of the window.
      */
@@ -204,6 +206,11 @@ public class GUI {
 	    @Override
 	    public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
+		if (spinner.getText() == "")
+		{
+		    
+		}
+		else{
 		traderUsed = Integer.parseInt(spinner.getText());
 		status = canAddMorePoints();
 		spinner.setEnabled(status);
@@ -211,6 +218,7 @@ public class GUI {
 		spinner_2.setEnabled(status);
 		spinner_3.setEnabled(status);
 		checkValidityOfPoints();
+		}
 	    }
 
 	});
@@ -239,6 +247,11 @@ public class GUI {
 	    @Override
 	    public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
+		if (spinner_1.getText() == "")
+		{
+		    
+		}
+		else{
 		engineerUsed = Integer.parseInt(spinner_1.getText());
 		status = canAddMorePoints();
 		spinner.setEnabled(status);
@@ -246,6 +259,7 @@ public class GUI {
 		spinner_2.setEnabled(status);
 		spinner_3.setEnabled(status);
 		checkValidityOfPoints();
+		}
 	    }
 
 	});
@@ -274,6 +288,11 @@ public class GUI {
 	    @Override
 	    public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
+		if (spinner_2.getText() == "")
+		{
+		    
+		}
+		else{
 		pilotUsed = Integer.parseInt(spinner_2.getText());
 		status = canAddMorePoints();
 		spinner.setEnabled(status);
@@ -281,6 +300,7 @@ public class GUI {
 		spinner_2.setEnabled(status);
 		spinner_3.setEnabled(status);
 		checkValidityOfPoints();
+		}
 	    }
 	});
 
@@ -308,6 +328,11 @@ public class GUI {
 	    @Override
 	    public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
+		if (spinner_3.getText() == "")
+		{
+		    
+		}
+		else{
 		fighterUsed = Integer.parseInt(spinner_3.getText());
 		status = canAddMorePoints();
 		spinner.setEnabled(status);
@@ -315,6 +340,7 @@ public class GUI {
 		spinner_2.setEnabled(status);
 		spinner_3.setEnabled(status);
 		checkValidityOfPoints();
+		}
 	    }
 	});
 
@@ -400,7 +426,7 @@ public class GUI {
 	    @Override
 	    public void mouseDown(MouseEvent e) {
 		status = canAddMorePoints();
-		String name = text.getText();
+		name = text.getText();
 		if (status) {
 		    JOptionPane.showMessageDialog(null,
 			    "You have not assigned all of your skill points",
@@ -410,8 +436,8 @@ public class GUI {
 			    "Please enter a player name.");
 		} else {
 		    presenter.Driver driver = new presenter.Driver();
-		    driver.createPlayer(name, traderUsed, engineerUsed,
-			    pilotUsed, fighterUsed);
+		    driver.createPlayer(name, pilotUsed, fighterUsed,
+			    traderUsed, engineerUsed);
 		    driver.generateUniverse();
 		    text.setVisible(false);
 		    spinner.setVisible(false);
@@ -469,19 +495,6 @@ public class GUI {
     private int calculatePoints() {
 	int totalPoints = traderUsed + engineerUsed + pilotUsed + fighterUsed;
 	return pointsAvailable - totalPoints;
-    }
-
-    /**
-     * This is the method that checks the points to make sure they are not over
-     * 15.
-     * 
-     * @return boolean true if the points are less than 15 false otherwise.
-     */
-    private boolean checkPoints() {
-	int noOfPoints = calculatePoints();
-	if (noOfPoints > 15)
-	    return false;
-	return true;
     }
 
     /**
@@ -583,7 +596,7 @@ public class GUI {
 	tblclmnAttribute_1.setText("Attribute");
 
 	TableColumn tblclmnPoints = new TableColumn(table_4, SWT.NONE);
-	tblclmnPoints.setWidth(87);
+	tblclmnPoints.setWidth(100);
 	tblclmnPoints.setText("Points");
 
 	/*
@@ -591,7 +604,7 @@ public class GUI {
 	 * player class.
 	 */
 
-	ArrayList<Integer> skills = model.Player.getSkills();
+	ArrayList<Integer> skills = presenter.Driver.getSkills();
 
 	tableItem_1 = new TableItem(table_4, SWT.NONE);
 	String[] traderArray = { "Trader", skills.get(2).toString() };
@@ -602,11 +615,11 @@ public class GUI {
 	tableItem_2.setText(engineerArray);
 
 	TableItem tableItem_3 = new TableItem(table_4, SWT.NONE);
-	String[] pilotArray = { "Pilot", skills.get(0).toString() };
+	String[] pilotArray = { "Pilot", skills.get(1).toString() };
 	tableItem_3.setText(pilotArray);
 
 	TableItem tableItem_4 = new TableItem(table_4, SWT.NONE);
-	String[] fighterArray = { "Fighter", skills.get(1).toString() };
+	String[] fighterArray = { "Fighter", skills.get(0).toString() };
 	tableItem_4.setText(fighterArray);
 
 	Label lblNewLabel = new Label(shell, SWT.NONE);
@@ -661,7 +674,7 @@ public class GUI {
 	tableCursor_2 = new TableCursor(table_2, SWT.NONE);
 
 	tableItem = new TableItem(table_2, SWT.NONE);
-	tableItem.setText(Integer.toString(model.Player.getCurrency()));
+	tableItem.setText(Integer.toString(presenter.Driver.getCurrency()));
 
 	table_3 = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
 	table_3.setBounds(855, 119, 143, 480);
@@ -685,7 +698,7 @@ public class GUI {
 
 	List list_1 = new List(shell, SWT.BORDER);
 	list_1.setBounds(196, 628, 653, 96);
-	list_1.add("Welcome to Space Trader " + model.Player.getName());
+	list_1.add("Welcome to Space Trader " + name);
 
 	lblLocalPlanets = new Label(shell, SWT.NONE);
 	lblLocalPlanets.setBounds(891, 604, 77, 15);
