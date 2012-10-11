@@ -1,4 +1,8 @@
+# compiled files
 *.class
+
+# classpath to prevent cross-platform problems
+.classpath
 
 # Package Files #
 *.jar
