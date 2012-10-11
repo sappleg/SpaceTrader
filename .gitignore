@@ -1,8 +1,12 @@
 # compiled files
 *.class
 
-# classpath to prevent cross-platform problems
+# Eclipse
+.cache
 .classpath
+.project
+.settings*
+.buildpath
 
 # Package Files #
 *.jar
