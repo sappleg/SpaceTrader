@@ -1,5 +1,6 @@
 package view;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
@@ -438,7 +439,12 @@ public class GUI {
 		    presenter.Driver driver = new presenter.Driver();
 		    driver.createPlayer(name, pilotUsed, fighterUsed,
 			    traderUsed, engineerUsed);
-		    driver.generateUniverse();
+		    try {
+				driver.generateUniverse();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		    text.setVisible(false);
 		    spinner.setVisible(false);
 		    spinner_1.setVisible(false);

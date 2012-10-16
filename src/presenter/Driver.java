@@ -1,5 +1,7 @@
 package presenter;
 
+import model.Planet;
+import model.SolarSystem;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -15,9 +17,12 @@ public class Driver {
 	static int currCurrency = 1000;
 	static ArrayList<Integer> totalSkills;
 	ArrayList<Integer> partySkills;
-	private static ArrayList<Integer> X; 			//Contains randomly generated X
-	private static ArrayList<Integer> Y;			//Contains randomly generated Y
-	private static ArrayList<String> listOfNames;	//Contains randomly picked names
+	private static ArrayList<Integer> X; // Contains randomly generated X
+	private static ArrayList<Integer> Y; // Contains randomly generated Y
+	private static ArrayList<String> listOfNames; // Contains randomly picked
+													// names
+	//Contains list of all SolarSystems
+	private static ArrayList<SolarSystem> listOfSystems;  
 
 	public Driver() {
 		totalSkills = new ArrayList<Integer>();
@@ -26,8 +31,35 @@ public class Driver {
 
 	/**
 	 * Creates the universe that the game will be played in.
+	 * 
+	 * @throws IOException
 	 */
-	public void generateUniverse() {
+	public static void generateUniverse() throws IOException {
+
+		generateCoordinates(); 
+		generateNames();
+		
+		//copies global variables into local
+		ArrayList<Integer> xList = X; 
+		ArrayList<Integer> yList = Y;
+		ArrayList<String> namesList = listOfNames;
+		ArrayList<SolarSystem> systemsList = new ArrayList<SolarSystem>();
+
+		//Generates a SolarSystem object using the generated
+		// coordinates and names.
+		for (int i = 0; i < namesList.size(); i++) {
+			int techLevel = (int) (Math.random() * 8);
+			int resourceLevel = (int) (Math.random() * 10);
+			String holdName = namesList.get(i);
+			int holdX = xList.get(i); 
+			int holdY = yList.get(i);
+			Planet planetName = new Planet(holdName);
+			SolarSystem system = new SolarSystem(holdName, planetName,
+					techLevel, resourceLevel, holdX, holdY);
+			systemsList.add(system);
+		}
+		
+		listOfSystems = systemsList;
 
 	}
 
@@ -151,6 +183,7 @@ public class Driver {
 		}
 		totalSkills = newTotalSkills;
 	}
+
 	/**
 	 * Generates a list of 150 planet names from an existing text file.
 	 * 
@@ -159,13 +192,14 @@ public class Driver {
 	public static void generateNames() throws IOException {
 		Scanner s = new Scanner(new File("PlanetNames.txt"));
 		ArrayList<String> planetNames = new ArrayList<String>();
-		while (s.hasNextLine()) {  // pulls all possible system names from 
+		while (s.hasNextLine()) { // pulls all possible system names from
 			String temp = s.nextLine(); // file and puts them into ArrayList
 			planetNames.add(temp);
 		}
 		ArrayList<String> chosenNames = new ArrayList<String>();
 		int amtOfStrings = 150;
-		for (int i = 0; i < amtOfStrings; i++) { // randomly selects 150 system names
+		for (int i = 0; i < amtOfStrings; i++) { // randomly selects 150 system
+													// names
 			boolean check = true;
 			while (check == true) {
 				int random = (int) (Math.random() * 451);
@@ -174,8 +208,8 @@ public class Driver {
 					chosenNames.add(hold);
 					check = false;
 				}
-			} //end of while-loop
-		} //end of for-loop
+			} // end of while-loop
+		} // end of for-loop
 		listOfNames = chosenNames;
 	}
 }
