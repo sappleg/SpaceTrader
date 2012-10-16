@@ -146,15 +146,28 @@ public class Driver {
 		totalSkills = newTotalSkills;
 	}
 	
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public void generateNames() throws IOException{
-		
-		Scanner s = new Scanner(new File("PlanetNames"));
-		ArrayList PlanetNames = new ArrayList();
-		while(s.hasNextLine()){
+	public static void generateNames() throws IOException {
+		Scanner s = new Scanner(new File("PlanetNames.txt"));
+		ArrayList<String> planetNames = new ArrayList<String>();
+		while (s.hasNextLine()) {
 			String temp = s.nextLine();
-			PlanetNames.add(temp);
-			
+			planetNames.add(temp);
 		}
+		ArrayList<String> chosenNames = new ArrayList<String>();
+		int amtOfStrings = 150;
+		for(int i=0; i<amtOfStrings; i++){
+			boolean check = true;
+			while(check == true){
+				int random = (int) (Math.random() * 450);
+				String hold = planetNames.get(random);
+				if(chosenNames.contains(hold)==false){
+					chosenNames.add(hold);
+					System.out.println(hold);
+					System.out.println(chosenNames.size());
+					check = false;
+				}
+			}
+		}
+
 	}
 }
