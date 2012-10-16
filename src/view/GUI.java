@@ -183,9 +183,12 @@ public class GUI {
 			 * be more points added. Afterwards it will set the spinners to
 			 * enabled or disabled depending on whether or not the status is
 			 * true or false. - Shawn
+			 * 
+			 * Edit: I changed to mouseUp due to a bug that would allow a player
+			 * to be created with over 15 points.
 			 */
 			@Override
-			public void mouseDown(MouseEvent e) {
+			public void mouseUp(MouseEvent e) {
 				traderUsed = Integer.parseInt(spinner.getText());
 				status = canAddMorePoints();
 				spinner.setEnabled(status);
@@ -224,7 +227,7 @@ public class GUI {
 
 		spinner_1.addMouseListener(new MouseAdapter() {
 			@Override
-			public void mouseDown(MouseEvent e) {
+			public void mouseUp(MouseEvent e) {
 				engineerUsed = Integer.parseInt(spinner_1.getText());
 				status = canAddMorePoints();
 				spinner.setEnabled(status);
@@ -263,7 +266,7 @@ public class GUI {
 
 		spinner_2.addMouseListener(new MouseAdapter() {
 			@Override
-			public void mouseDown(MouseEvent e) {
+			public void mouseUp(MouseEvent e) {
 				pilotUsed = Integer.parseInt(spinner_2.getText());
 				status = canAddMorePoints();
 				spinner.setEnabled(status);
@@ -301,7 +304,7 @@ public class GUI {
 
 		spinner_3.addMouseListener(new MouseAdapter() {
 			@Override
-			public void mouseDown(MouseEvent e) {
+			public void mouseUp(MouseEvent e) {
 				fighterUsed = Integer.parseInt(spinner_3.getText());
 				status = canAddMorePoints();
 				spinner.setEnabled(status);
