@@ -15,8 +15,9 @@ public class Driver {
 	static int currCurrency = 1000;
 	static ArrayList<Integer> totalSkills;
 	ArrayList<Integer> partySkills;
-	private static ArrayList<Integer> X;
-	private static ArrayList<Integer> Y;
+	private static ArrayList<Integer> X; 			//Contains randomly generated X
+	private static ArrayList<Integer> Y;			//Contains randomly generated Y
+	private static ArrayList<String> listOfNames;	//Contains randomly picked names
 
 	public Driver() {
 		totalSkills = new ArrayList<Integer>();
@@ -36,22 +37,27 @@ public class Driver {
 	 */
 	public void generateCoordinates() {
 
-		int amtOfCoordinates = 150; //Amount of coordinates to generate
-		ArrayList<Integer> holdX = new ArrayList<Integer>(); //List to hold X coordinates
-		ArrayList<Integer> holdY = new ArrayList<Integer>(); //Lost to hold Y coordinates
+		int amtOfCoordinates = 150; // Amount of coordinates to generate
+		ArrayList<Integer> holdX = new ArrayList<Integer>(); // List to hold X
+																// coordinates
+		ArrayList<Integer> holdY = new ArrayList<Integer>(); // Lost to hold Y
+																// coordinates
 
-		
-		while (amtOfCoordinates > 0) { //Will loop until proper amt of coordinates have been generated.
+		while (amtOfCoordinates > 0) { // Will loop until proper amt of
+										// coordinates have been generated.
 			boolean goodCoords = false;
-			int arrayLength = holdX.size(); //Updates the length of the ArrayList
+			int arrayLength = holdX.size(); // Updates the length of the
+											// ArrayList
 
-			while (goodCoords != true) { //Will loop until good coordinates have been found.
+			while (goodCoords != true) { // Will loop until good coordinates
+											// have been found.
 				int trueCounter = 0;
-				//Randomly picks two integers for X and Y.
+				// Randomly picks two integers for X and Y.
 				int testX = (int) (Math.random() * 201);
 				int testY = (int) (Math.random() * 201);
-					//Goes through current array to make sure randomly picked X and Y are 
-					// at a distance of 10 or more then all other coordinates.
+				// Goes through current array to make sure randomly picked X and
+				// Y are
+				// at a distance of 10 or more then all other coordinates.
 				for (int i = 0; i < arrayLength; i++) {
 					int tempX = holdX.get(i);
 					int tempY = holdY.get(i);
@@ -59,12 +65,12 @@ public class Driver {
 					int distance = (int) ((Math.pow(tempX - testX, 2)) + (Math
 							.pow(tempY - testY, 2)));
 					distance = (int) (Math.sqrt(distance));
-					//The randomly picked numbers are >= to coordinates at index i then add to
-					//the trueCounter. Else break and generate new coordinates.
+					// The randomly picked numbers are >= to coordinates at
+					// index i then add to
+					// the trueCounter. Else break and generate new coordinates.
 					if (distance >= 10) {
 						trueCounter++;
-					}
-					else{
+					} else {
 						break;
 					}
 				}
@@ -77,7 +83,7 @@ public class Driver {
 			amtOfCoordinates--;
 		}
 
-		X = holdX; 
+		X = holdX;
 		Y = holdY;
 
 	}
@@ -145,7 +151,7 @@ public class Driver {
 		}
 		totalSkills = newTotalSkills;
 	}
-	
+
 	public static void generateNames() throws IOException {
 		Scanner s = new Scanner(new File("PlanetNames.txt"));
 		ArrayList<String> planetNames = new ArrayList<String>();
@@ -155,19 +161,17 @@ public class Driver {
 		}
 		ArrayList<String> chosenNames = new ArrayList<String>();
 		int amtOfStrings = 150;
-		for(int i=0; i<amtOfStrings; i++){
+		for (int i = 0; i < amtOfStrings; i++) {
 			boolean check = true;
-			while(check == true){
-				int random = (int) (Math.random() * 450);
+			while (check == true) {
+				int random = (int) (Math.random() * 451);
 				String hold = planetNames.get(random);
-				if(chosenNames.contains(hold)==false){
+				if (chosenNames.contains(hold) == false) {
 					chosenNames.add(hold);
-					System.out.println(hold);
-					System.out.println(chosenNames.size());
 					check = false;
 				}
-			}
-		}
-
+			} //end of while-loop
+		} //end of for-loop
+		listOfNames = chosenNames;
 	}
 }
