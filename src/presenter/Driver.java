@@ -21,10 +21,11 @@ public class Driver {
 	private static ArrayList<Integer> Y; // Contains randomly generated Y
 	private static ArrayList<String> listOfNames; // Contains randomly picked
 													// names
-	//Contains list of all SolarSystems
-	private static ArrayList<SolarSystem> listOfSystems;  
+	// Contains list of all SolarSystems
+	private static ArrayList<SolarSystem> listOfSystems;
 
-	public Driver() {
+	public Driver() throws IOException {
+		generateUniverse();
 		totalSkills = new ArrayList<Integer>();
 		partySkills = new ArrayList<Integer>();
 	}
@@ -36,29 +37,34 @@ public class Driver {
 	 */
 	public static void generateUniverse() throws IOException {
 
-		generateCoordinates(); 
+		generateCoordinates();
+
 		generateNames();
-		
-		//copies global variables into local
-		ArrayList<Integer> xList = X; 
+
+		// copies global variables into local
+		ArrayList<Integer> xList = X;
 		ArrayList<Integer> yList = Y;
 		ArrayList<String> namesList = listOfNames;
 		ArrayList<SolarSystem> systemsList = new ArrayList<SolarSystem>();
 
-		//Generates a SolarSystem object using the generated
+		// Generates a SolarSystem object using the generated
 		// coordinates and names.
 		for (int i = 0; i < namesList.size(); i++) {
 			int techLevel = (int) (Math.random() * 8);
 			int resourceLevel = (int) (Math.random() * 10);
 			String holdName = namesList.get(i);
-			int holdX = xList.get(i); 
+			int holdX = xList.get(i);
 			int holdY = yList.get(i);
 			Planet planetName = new Planet(holdName);
 			SolarSystem system = new SolarSystem(holdName, planetName,
 					techLevel, resourceLevel, holdX, holdY);
 			systemsList.add(system);
+			// **TEMP PRINTS TO CONSOLE**
+			SolarSystem printThis = systemsList.get(i);
+			System.out.println(printThis.toString() + "\n");
+
 		}
-		
+
 		listOfSystems = systemsList;
 
 	}
@@ -202,7 +208,7 @@ public class Driver {
 													// names
 			boolean check = true;
 			while (check == true) {
-				int random = (int) (Math.random() * 451);
+				int random = (int) (Math.random() * 450);
 				String hold = planetNames.get(random);
 				if (chosenNames.contains(hold) == false) {
 					chosenNames.add(hold);

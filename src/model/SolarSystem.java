@@ -34,9 +34,9 @@ public class SolarSystem {
 	 * @return Information of the SolarSystem in a String.
 	 */
 	public String toString() {
-		return ("SystemName: " + systemName + "/n" + planet.toString()
-				+ "TechLevel: " + techLevel + "/n" + "ResourceLevel: "
-				+ resourceLevel + "/n" + "X-Position: " + xLocation + "/n"
-				+ "Y-Position: " + yLocation + "/n");
+		return ("SystemName: " + systemName + "\n" + planet.toString()
+				+ "TechLevel: " + techLevel + "\n" + "ResourceLevel: "
+				+ resourceLevel + "\n" + "X-Position: " + xLocation + "\n"
+				+ "Y-Position: " + yLocation + "\n");
 	}
 }

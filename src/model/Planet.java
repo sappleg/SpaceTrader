@@ -5,10 +5,11 @@ public class Planet {
 	private static String planetName;
 
 	/**
-	 * Class constructor using listed parameters. 
+	 * Class constructor using listed parameters.
+	 * 
 	 * @param planetName
 	 */
-	
+
 	public Planet(String planetName) {
 		this.planetName = planetName;
 	}
