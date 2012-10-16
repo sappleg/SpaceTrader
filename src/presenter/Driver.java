@@ -1,6 +1,7 @@
 package presenter;
 
 import model.Planet;
+import model.Ship;
 import model.SolarSystem;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -9,7 +10,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
 
-import main.Ship;
 import model.Player;
 
 public class Driver {

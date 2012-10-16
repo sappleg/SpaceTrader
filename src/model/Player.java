@@ -2,8 +2,7 @@ package model;
 
 import java.util.ArrayList;
 
-import main.Ship;
-import main.Ship.ShipType;
+import model.Ship.ShipType;
 
 public class Player {
 
