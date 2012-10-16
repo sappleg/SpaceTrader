@@ -35,7 +35,7 @@ public class Driver {
 	 * Creates list of usable X and Y coordinates for solar systems. That are at
 	 * least 10 units away from any other coordinate.
 	 */
-	public void generateCoordinates() {
+	public static void generateCoordinates() {
 
 		int amtOfCoordinates = 150; // Amount of coordinates to generate
 		ArrayList<Integer> holdX = new ArrayList<Integer>(); // List to hold X
@@ -151,17 +151,21 @@ public class Driver {
 		}
 		totalSkills = newTotalSkills;
 	}
+	/**
+	 * Generates a list of 150 planet names from an existing text file.
+	 * 
+	 */
 
 	public static void generateNames() throws IOException {
 		Scanner s = new Scanner(new File("PlanetNames.txt"));
 		ArrayList<String> planetNames = new ArrayList<String>();
-		while (s.hasNextLine()) {
-			String temp = s.nextLine();
+		while (s.hasNextLine()) {  // pulls all possible system names from 
+			String temp = s.nextLine(); // file and puts them into ArrayList
 			planetNames.add(temp);
 		}
 		ArrayList<String> chosenNames = new ArrayList<String>();
 		int amtOfStrings = 150;
-		for (int i = 0; i < amtOfStrings; i++) {
+		for (int i = 0; i < amtOfStrings; i++) { // randomly selects 150 system names
 			boolean check = true;
 			while (check == true) {
 				int random = (int) (Math.random() * 451);
