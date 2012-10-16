@@ -1,7 +1,11 @@
 package presenter;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Scanner;
 
 import main.Ship;
 import model.Player;
@@ -140,5 +144,17 @@ public class Driver {
 			newTotalSkills.add(totalSkills.get(i) + boostPoints[i]);
 		}
 		totalSkills = newTotalSkills;
+	}
+	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public void generateNames() throws IOException{
+		
+		Scanner s = new Scanner(new File("PlanetNames"));
+		ArrayList PlanetNames = new ArrayList();
+		while(s.hasNextLine()){
+			String temp = s.nextLine();
+			PlanetNames.add(temp);
+			
+		}
 	}
 }
