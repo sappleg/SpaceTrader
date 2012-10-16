@@ -15,8 +15,8 @@ public class Driver {
 	static int currCurrency = 1000;
 	static ArrayList<Integer> totalSkills;
 	ArrayList<Integer> partySkills;
-	ArrayList<Integer> X;
-	ArrayList<Integer> Y;
+	private static ArrayList<Integer> X;
+	private static ArrayList<Integer> Y;
 
 	public Driver() {
 		totalSkills = new ArrayList<Integer>();
@@ -37,13 +37,13 @@ public class Driver {
 	public void generateCoordinates() {
 
 		int amtOfCoordinates = 150; //Amount of coordinates to generate
-		ArrayList<Integer> X = new ArrayList<Integer>(); //List to hold X coordinates
-		ArrayList<Integer> Y = new ArrayList<Integer>(); //Lost to hold Y coordinates
+		ArrayList<Integer> holdX = new ArrayList<Integer>(); //List to hold X coordinates
+		ArrayList<Integer> holdY = new ArrayList<Integer>(); //Lost to hold Y coordinates
 
 		
 		while (amtOfCoordinates > 0) { //Will loop until proper amt of coordinates have been generated.
 			boolean goodCoords = false;
-			int arrayLength = X.size(); //Updates the length of the ArrayList
+			int arrayLength = holdX.size(); //Updates the length of the ArrayList
 
 			while (goodCoords != true) { //Will loop until good coordinates have been found.
 				int trueCounter = 0;
@@ -53,8 +53,8 @@ public class Driver {
 					//Goes through current array to make sure randomly picked X and Y are 
 					// at a distance of 10 or more then all other coordinates.
 				for (int i = 0; i < arrayLength; i++) {
-					int tempX = X.get(i);
-					int tempY = Y.get(i);
+					int tempX = holdX.get(i);
+					int tempY = holdY.get(i);
 
 					int distance = (int) ((Math.pow(tempX - testX, 2)) + (Math
 							.pow(tempY - testY, 2)));
@@ -69,16 +69,16 @@ public class Driver {
 					}
 				}
 				if (trueCounter == arrayLength) {
-					X.add(testX);
-					Y.add(testY);
+					holdX.add(testX);
+					holdY.add(testY);
 					goodCoords = true;
 				}
 			}
 			amtOfCoordinates--;
 		}
 
-		this.X = X; 
-		this.Y = Y;
+		X = holdX; 
+		Y = holdY;
 
 	}
 
