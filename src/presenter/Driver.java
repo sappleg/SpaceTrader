@@ -11,6 +11,9 @@ public class Driver {
     static int currCurrency = 1000;
     static ArrayList<Integer> totalSkills;
     ArrayList<Integer> partySkills;
+    ArrayList<Integer> X;
+    ArrayList<Integer> Y;
+    
     
     public Driver()
     {
@@ -24,6 +27,54 @@ public class Driver {
 
     }
 
+    /**
+     * Creates list of usable X and Y coordinates for solar systems.
+     * That are at least 10 units away from any other System.
+     */
+    public void generateCoordinates(){
+    	
+    	int amtOfCoordinates = 150;			//Amount of coordinates to generate
+        ArrayList<Integer> X = new ArrayList<Integer>();
+        ArrayList<Integer> Y = new ArrayList<Integer>();
+
+    	
+    	
+    	while(amtOfCoordinates > 0){
+    		boolean goodCoords = false;
+        	int arrayLength = X.size();				//List of arrayLength 
+        	
+    		while(goodCoords!=true){
+    			int trueCounter = 0;
+    			int testX = (int) (Math.random()*201);
+    			int testY = (int) (Math.random()*201);
+    		
+    			for(int i=0; i<arrayLength; i++){
+    				int tempX = X.get(i);
+    				int tempY = Y.get(i);
+    			
+    				int distance = (int)((Math.pow(tempX-testX, 2)) +(Math.pow(tempY-testY, 2)));
+    				distance = (int) (Math.sqrt(distance));
+    				
+    				if (distance >= 10){
+    					trueCounter++;
+    				}
+    			}
+    			
+    			if (trueCounter==arrayLength){
+    				X.add(testX);
+    				Y.add(testY);
+    				goodCoords=true;
+    			}
+    		}
+    		amtOfCoordinates++;
+    	}
+    	
+    	
+    	
+    	
+    }
+    
+    
     /**
      * Creates the player
      * 
