@@ -432,7 +432,12 @@ public class GUI {
 				} else if (name == "") {
 					JOptionPane.showMessageDialog(null,
 							"Please enter a player name.");
-				} else {
+				} 
+				else if(calculatePoints() < 0)
+				{
+				    checkValidityOfPoints();
+				}
+				else {
 
 					// ***********TRY CATCH**********
 					Driver driver = null;
@@ -513,7 +518,7 @@ public class GUI {
 	 */
 
 	private int calculatePoints() {
-		int totalPoints = traderUsed + engineerUsed + pilotUsed + fighterUsed;
+		int totalPoints = Integer.parseInt(spinner.getText()) + Integer.parseInt(spinner_1.getText()) + Integer.parseInt(spinner_2.getText()) + Integer.parseInt(spinner_3.getText());
 		return pointsAvailable - totalPoints;
 	}
 
