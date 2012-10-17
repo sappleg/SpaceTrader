@@ -22,6 +22,7 @@ import org.eclipse.swt.events.KeyListener;
 import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.MouseEvent;
 
+import edu.gatech.statusquo.spacetrader.driver.Driver;
 import edu.gatech.statusquo.spacetrader.presenter.*;
 
 public class GUI {
