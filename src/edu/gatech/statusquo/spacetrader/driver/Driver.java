@@ -204,7 +204,7 @@ public class Driver {
 													// names
 			boolean check = true;
 			while (check == true) {
-				int random = (int) (Math.random() * 450);
+				int random = (int) (Math.random() * planetNames.size());
 				String hold = planetNames.get(random);
 				if (chosenNames.contains(hold) == false) {
 					chosenNames.add(hold);

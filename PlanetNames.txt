@@ -1,60 +1,61 @@
 4-X-Alpha-4
 Abydos
-Adipose3
+Adipose 3
 Agora
-AlfavaMetraxis
-AlphaCanisOne
+Alfava Metraxis
+Alpha Canis One
 Althrace
 Alvega
 Alzarius
 Amanopia
 Anagonia
 Anathema
-AndrozaniMajor
+Androzani Major
+Androzani Minor
 Aneth
-AnimaPersis
+Anima Persis
 Anura
 Apalapucia
 Aractus
 Arcadia
-ArcateenV
+Arcateen V
 Archetryx
 Arden
 Argolis
 Aridius
-ArkannisMajor
+Arkannis Major
 Arkheon
 Artaris
 Asgard
 Astra
-AsylumPlanet
+Asylum Planet
 Atrios
 Augea
 Auros
 Avalon
-AxistaFour
+Axista Four
 Azure
 Balhoon
-Bandraginus5
+Bandraginus 5
 Bandril
-BaneWorld
+Bane World
 Barcelona
 Baydafarn
 Bel
-BelanniaII
-BelanniaIV
+Belannia II
+Belannia IV
 Belepheron
 Bellaphores
 Bessan
-BetaTwo
+Beta Two
 Betelgeuse
 Betrushia
 Biblios
-BlenhormOgin
+Blenhorm Ogin
 Blestinu
 Blini-Gaar
 Bliss
-BonarchaAnarda
+Bonarcha Anarda
 Boromeo
 Bortresoye
 Bruydac
@@ -62,44 +63,44 @@ Brus
 Bouken
 Calliopticon
 Calufrax
-CalufraxMinor
+Calufrax Minor
 Carsus
 Cassius
-Castor36
+Castor 36
 Castrovalva
 Catastrophea
-CatriganNova
-CentauriSeven
-CepCassalon
-ChavicFive
+Catrigan Nova
+Centauri Seven
+Cep Cassalon
+Chavic Five
 Cheem
-CheetahPlanet
+Cheetah Planet
 Chelonia
 Chimeria
-ChimeraIV
+Chimera IV
 Chloris
 Chronos
 Cinethon
 Clom
-ColanoAlpha
+Colano Alpha
 Collabria
 Collactin
 Colony
-CotterPalluni
-CrafeTecHeydra
+Cotter Palluni
+Crafe Tec Heydra
 Crespallion
 Crestus
 Crinoth
-CyrennisMinima
+Cyrennis Minima
 Darbodia
 Darkheart
 Darp
-Darillium(aka.Durillium)
+Darillium
 Delphon
-DeltaMagna
+Delta Magna
 Demon
 Desperus
-DevaLoka
+Deva Loka
 Dhakan
 Diadem
 Dido
@@ -111,81 +112,79 @@ Dramos
 Drahva
 Dravidia
 Dronid
-Duchamp331
+Duchamp 331
 Dulkis
 Eden
-EphteMajor
-EpsilonFourZeroGamma
+Ephte Major
+Epsilon Four Zero Gamma
 Esto
 Eudamus
 Exarius
 Exxilon
-EyeofOrion
+Eye of Orion
 Fagiros
 Felspoon
-TheFifthPlanet
+The Fifth Planet
 Fisar
 Flane
 Florana
 Freytus
-GalaxisBright
-GalsecSeven
-GameworldGamma
-GaudaPrime
+Galaxis Bright
+Galsec Seven
+Gameworld Gamma
+Gauda Prime
 Gidu
-GlassonMinor
+Glasson Minor
 Golobus
-GondHomeworld
-GrajickMajor
+Gond Homeworld
+Grajick Major
 Granados
 Griffoth
 Griophos
-GroldHomeworld
+Grold Homeworld
 Grolon
 Grundle
 Hakol
 Halcya
-HalerganThree
-HastusMinor
+Halergan Three
+Hastus Minor
 Heaven
 Hedron
 Heiradi
 Hell
 Hermethica
-unnamedplanetonwhich
 House
 Hurala
 Hyspero
-HydropellicaHydroxi
-Indigo3
-InterMinor
+Hydropellica Hydroxi
+Indigo 3
+Inter Minor
 Iphitus
 Jaconda
 Jahoo
-Jalian17
-JanFrancisIX
+Jalian 17
+Jan Francis IX
 Junk
 Justicia
-direct3|Kembel|Seealso
 Kala
 Kalakiki
 Kalaya
 Kaldor
 Kantra
 Kanval
-Kapteyn5
+Kapteyn 5
 Kar-Charrat
 Karfel
 Karn
-KarasdonKazradonSlava
+Karasdon Kazradon Slava
 Karris
 Kas
-KastopheriaAKACatastrophea
+Kastopheria
 Kastria
-KataaFloko
+Kataa Floko
 Katakiki
 Katuria
-KegronPluva
+Kegron Pluva
 Kembel
 Kinjana
 Kirith
@@ -193,7 +192,7 @@ Klechton
 Kolkokron
 Koorharn
 Kosnax
-KrassDonSlava
+Krass Don Slava
 Kreme
 Krillia
 Krontep
@@ -206,14 +205,13 @@ Leela
 Lelex
 Leophantos
 Levithia
-TheLibrary
-Limus4
+The Library
+Limus 4
 Livonia
 Loam
 Lobos
 Logopolis
 Lonsis
-ostMoonofPoosh
 Lowitelom
 Lucifer
 Lurma
@@ -227,44 +225,42 @@ Marinus
 Marpesia
 Mechanus
 Melagophon
-MelissaMajoria
+Melissa Majoria
 Mer
 Mesmerus
 Messaline
-Metallurgis5
-MetaSigmafolio
-MetaVorka6
-MetazulaBeta
-MetebelisThree
+Metallurgis 5
+Meta Sigmafolio
+Meta Vorka 6
+Metazula Beta
+Metebelis Three
 Metralubit
-MiasimiaGoria
+Miasimia Goria
 Midnight
 Minyos
 Mira
-MirabilisMajor
-MoboxHomeworld
+Mirabilis Major
+Mobox Homeworld
 Mogar
 Mondaran
 Morestra
 Morok
-MuseumoftheLastOnes
+Museum of the Last Ones
 Muscolane
 Myarr
 Navaros
 Necros
 Nefrin
 Neogorgon
-NewAlexandria
-NewEarth
-therplanetnamed
-NewSavannah
-NewVenus
+New Alexandria
+New Earth
+New Savannah
+New Venus
 Nooma
-Nyrruh4
+Nyrruh 4
 Oberon
 Oblivion
 Ockora
-otherwiseunnamed
 Ogros
 Olympus
 Omphalos
@@ -273,55 +269,53 @@ Oseidon
 Oskerion
 Othrys
 Overod
-PadrivoleRegency9
+Padrivole Regency 9
 Pandatorea
 Parakon
 Paradost
 Peladon
-PenHaxico2
+Pen Haxico 2
 Periboea
-PhaesterOsiris
+Phaester Osiris
 Pheros
 Phryxus
 Pictos
-Planet1
 Polymos
 Polongus
 Poosh
 Ponton
 Posikar
 Proamon
-PyroShika
+Pyro Shika
 Pyrovilia
 Qualactin
 Quinnis
 Raaga
-RagoRagoFiveSixRago
+Rago Rago Five Six Rago
 Ralafea
 Ranx
 Ravolox
 Raxacoricofallapatorius
-ReblaisBeta
-RedRocketRising
-RedSkyLost
-RefusisII
-RejaMagnum
-RexVoxJax
-Rexel4
+Reblais Beta
+Red Rocket Rising
+Red Sky Lost
+Refusis II
+Reja Magnum
+Rex Vox Jax
+Rexel 4
 Ribos
-RiftanFive
-RigelBeta5
+Riftan Five
+Rigel Beta 5
 Rit
-Ruta3
-RutaMagnum
+Ruta 3
+Ruta Magnum
 Ry
-Deletedimageremoved:
 S14
 Salarius
 Salostophus
 Salvak
-SanHelios
-SanKaloon
+San Helios
+San Kaloon
 Santiny
 Sant
 Sarn
@@ -335,26 +329,26 @@ Sense-Sphere
 Shada
 Shadmoch
 Shallacatop
-ShanShen
-ShantellaPrime
+Shan Shen
+Shantella Prime
 Shallanna
 Sigma
-SindaCallesta
+Sinda Callesta
 Siralos
 Sireen
-SiriusIV
-SiriusV
+Sirius IV
+Sirius V
 Skaar
 Skonnos
 Skythros
-TheSlough
-Sol3anothernameforEarth
+The Slough
+Sol
 Solos
 Sontar
 Spiridon
 Splendurosa
 Starfall
-StellaStora
+Stella Stora
 Sto
 Stormcage
 Strepto
@@ -367,11 +361,11 @@ Szabo
 Ta
 Tara
 Tarsius
-TaureanNomeworld
-Tenten10
+Taurean Homeworld
+Tenten 10
 Terileptus
-TerraAlpha
-TerraBeta
+Terra Alpha
+Terra Beta
 Terradon
 Tersurus
 Tetrapyriarbus
@@ -380,7 +374,7 @@ Therabenas
 Therka
 Therra
 Thordon
-ThorosAlpha
+Thoros Alpha
 Thrace
 Thuron
 Tiermann
@@ -388,12 +382,12 @@ Tigella
 Tigus
 Tisar
 Titan
-Titan3
+Titan 3
 Titania
 Tivoli
 Tokl
 Toop
-TorajiiAlpha
+Torajii Alpha
 Traken
 Trieste
 Tranquela
@@ -402,49 +396,49 @@ Trion
 Triton
 Tythonus
 Umbeka
-UnicepterIV
+Unicepter IV
 Urbanka
 Usurius
 Utopia
 UX-4732
 Uxarieus
-VampirePlanet
+Vampire Planet
 Vandos
 Varos
 Vardon
 Varnicon
 Vasilip
-VelConsadine
+Vel Consadine
 Venessia
 Verd
 Verticulus
 Veturia
 Vij
 Viperon
-Vita15
+Vita 15
 Voga
 Volag-Noc
 Vollotha
 Voracia
 Vulcan
 Vulpana
-Wilson1
+Wilson 1
 Woldyhool
-WomanWept
+Woman Wept
 Xenon
 Xeros
 Xeriphas
-YegrosAlpha
+Yegros Alpha
 Zaakros
 Zamper
 Zanak
 Zazz
-Zeen4
+Zeen 4
 Zeos
 Zephon
-ZetaMajor
-ZetaMinor
+Zeta Major
+Zeta Minor
 Zil
-ZolfaThura
+Zolfa Thura
 Zom
 Zygor
