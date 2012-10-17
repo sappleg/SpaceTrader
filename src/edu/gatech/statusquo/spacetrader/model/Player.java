@@ -1,8 +1,7 @@
-package model;
+package edu.gatech.statusquo.spacetrader.model;
 
 import java.util.ArrayList;
-
-import model.Ship.ShipType;
+import edu.gatech.statusquo.spacetrader.model.Ship.ShipType;
 
 public class Player {
 

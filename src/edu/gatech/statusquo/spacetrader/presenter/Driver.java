@@ -1,16 +1,12 @@
-package presenter;
+package edu.gatech.statusquo.spacetrader.presenter;
 
-import model.Planet;
-import model.Ship;
-import model.SolarSystem;
+import edu.gatech.statusquo.spacetrader.model.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
-
-import model.Player;
 
 public class Driver {
 	Player playerOne;

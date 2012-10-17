@@ -1,4 +1,4 @@
-package view;
+package edu.gatech.statusquo.spacetrader.view;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -21,6 +21,8 @@ import org.eclipse.swt.events.KeyEvent;
 import org.eclipse.swt.events.KeyListener;
 import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.MouseEvent;
+
+import edu.gatech.statusquo.spacetrader.presenter.*;
 
 public class GUI {
 
@@ -433,9 +435,9 @@ public class GUI {
 				} else {
 
 					// ***********TRY CATCH**********
-					presenter.Driver driver = null;
+					Driver driver = null;
 					try {
-						driver = new presenter.Driver();
+						driver = new Driver();
 					} catch (IOException e2) {
 						// TODO Auto-generated catch block
 						e2.printStackTrace();
@@ -566,7 +568,7 @@ public class GUI {
 	private TableColumn tblclmnWeight_1;
 	private Label lblNotifications;
 	private Label lblLocalPlanets;
-	private presenter.Driver driver;
+	private Driver driver;
 	private TableItem tableItem;
 	private Table table_4;
 	private TableItem tableItem_1;
@@ -622,7 +624,7 @@ public class GUI {
 		 * player class.
 		 */
 
-		ArrayList<Integer> skills = presenter.Driver.getSkills();
+		ArrayList<Integer> skills = Driver.getSkills();
 
 		tableItem_1 = new TableItem(table_4, SWT.NONE);
 		String[] traderArray = { "Trader", skills.get(2).toString() };
@@ -692,7 +694,7 @@ public class GUI {
 		tableCursor_2 = new TableCursor(table_2, SWT.NONE);
 
 		tableItem = new TableItem(table_2, SWT.NONE);
-		tableItem.setText(Integer.toString(presenter.Driver.getCurrency()));
+		tableItem.setText(Integer.toString(Driver.getCurrency()));
 
 		table_3 = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
 		table_3.setBounds(855, 119, 143, 480);

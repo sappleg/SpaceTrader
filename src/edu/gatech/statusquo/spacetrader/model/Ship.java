@@ -1,4 +1,4 @@
-package model;
+package edu.gatech.statusquo.spacetrader.model;
 
 public class Ship {
 
