@@ -1,22 +1,33 @@
 package edu.gatech.statusquo.spacetrader.presenter;
 
+
 import edu.gatech.statusquo.spacetrader.view.*;
+import edu.gatech.statusquo.spacetrader.driver.*;
+
+import java.io.IOException;
 import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.MouseEvent;
 
 public class WelcomePresenter {
 	private WelcomeView wv;
+	private Driver driver;
 	
 	public WelcomePresenter(WelcomeView wv) {
 		this.wv = wv;
+		try {
+			driver = new Driver();
+		} catch (IOException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
 		
 		setListeners();
 		
 		while (!wv.shell.isDisposed()) {
-		if (!wv.display.readAndDispatch()) {
-			wv.display.sleep();
+			if (!wv.display.readAndDispatch()) {
+				wv.display.sleep();
+			}
 		}
-	}
 	}
 	
 	private void setListeners() {
@@ -39,6 +50,7 @@ public class WelcomePresenter {
 				// need to return to driver to signify need to create next view
 				//createCharacterCreationScreen();
 				wv.shell.dispose();
+				driver.generateCreatePlayer();
 			}
 		});
 	}

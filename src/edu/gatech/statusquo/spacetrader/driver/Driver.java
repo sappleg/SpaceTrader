@@ -24,14 +24,20 @@ public class Driver {
 	private static ArrayList<SolarSystem> listOfSystems;
 
 	public Driver() throws IOException {
-		generateUniverse();
-		totalSkills = new ArrayList<Integer>();
-		partySkills = new ArrayList<Integer>();
+//		generateUniverse();
+//		totalSkills = new ArrayList<Integer>();
+//		partySkills = new ArrayList<Integer>();
 	}
 	
 	public static void main(String[] args) {
 		WelcomeView wv = new WelcomeView();
 		WelcomePresenter wp = new WelcomePresenter(wv);
+	}
+	
+	public void generateCreatePlayer() {
+		System.out.println("hello world");
+		CreatePlayerView createPlayerView = new CreatePlayerView();
+//		CreatePlayerPresenter createPlayerPresenter = new CreatePlayerPresenter(createPlayerView);
 	}
 
 	/**

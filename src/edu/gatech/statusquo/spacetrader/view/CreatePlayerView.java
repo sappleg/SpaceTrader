@@ -10,6 +10,7 @@ import org.eclipse.swt.events.KeyListener;
 import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Spinner;
@@ -18,13 +19,10 @@ import org.eclipse.swt.widgets.Text;
 import edu.gatech.statusquo.spacetrader.driver.Driver;
 
 public class CreatePlayerView {
+	public Display display;
+	public Shell shell;
 	
-	protected Shell shell;
-	
-	/*
-	 * So I copied and pasted this from another WindowBuilderPro Window to make
-	 * it one class like Spencer wanted - Shawn
-	 */
+	//temporary shit
 	private int pointsAvailable = 15;
 	private int traderUsed = 0;
 	private int engineerUsed = 0;
@@ -37,10 +35,12 @@ public class CreatePlayerView {
 	Spinner spinner_1;
 	Spinner spinner_2;
 	Spinner spinner_3;
-
 	Label label;
-
 	String name;
+	
+	public CreatePlayerView() {
+		createCharacterCreationScreen();
+	}
 
 	/**
 	 * Create contents of the window.

@@ -15,6 +15,7 @@ public class WelcomeView {
 	public Label lblWelcomeToSpace; //= new Label(shell, SWT.NONE);
 	
 	public WelcomeView() {
+		display = Display.getDefault();
 		shell = new Shell(display, SWT.TITLE | SWT.CLOSE);
 		btnStartGame = new Button(shell, SWT.NONE);
 		btnLoadGame = new Button(shell, SWT.NONE);
@@ -30,7 +31,6 @@ public class WelcomeView {
 	 * Create contents of the window.
 	 */
 	private void createView() {
-		display = Display.getDefault();
 		shell.open();
 		shell.layout();
 		shell.setSize(381, 253);
