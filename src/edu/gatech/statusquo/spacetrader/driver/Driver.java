@@ -1,6 +1,9 @@
 package edu.gatech.statusquo.spacetrader.driver;
 
 import edu.gatech.statusquo.spacetrader.model.*;
+import edu.gatech.statusquo.spacetrader.presenter.*;
+import edu.gatech.statusquo.spacetrader.view.*;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -24,6 +27,11 @@ public class Driver {
 		generateUniverse();
 		totalSkills = new ArrayList<Integer>();
 		partySkills = new ArrayList<Integer>();
+	}
+	
+	public static void main(String[] args) {
+		WelcomeView wv = new WelcomeView();
+		WelcomePresenter wp = new WelcomePresenter(wv);
 	}
 
 	/**
