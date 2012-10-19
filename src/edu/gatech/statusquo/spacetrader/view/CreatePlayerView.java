@@ -16,13 +16,11 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Spinner;
 import org.eclipse.swt.widgets.Text;
 
-import edu.gatech.statusquo.spacetrader.driver.Driver;
+import edu.gatech.statusquo.spacetrader.driver.*;
 
 public class CreatePlayerView {
 	public Display display;
 	public Shell shell;
-	
-	//temporary shit
 	private int pointsAvailable = 15;
 	private int traderUsed = 0;
 	private int engineerUsed = 0;
@@ -30,16 +28,28 @@ public class CreatePlayerView {
 	private int fighterUsed = 0;
 	protected boolean status = true;
 	private Text text;
-
-	Spinner spinner;
-	Spinner spinner_1;
-	Spinner spinner_2;
-	Spinner spinner_3;
-	Label label;
-	String name;
+	private Spinner spinner;
+	private Spinner spinner_1;
+	private Spinner spinner_2;
+	private Spinner spinner_3;
+	private Label label;
+	private String name;
+	
+	public static void main(String[] args) {
+		CreatePlayerView cpv = new CreatePlayerView();
+	}
 	
 	public CreatePlayerView() {
+		display = Display.getDefault();
+		shell = new Shell(display, SWT.TITLE | SWT.CLOSE);
 		createCharacterCreationScreen();
+		shell.open();
+		shell.layout();
+		while (!shell.isDisposed()) {
+			if (!display.readAndDispatch()) {
+				display.sleep();
+			}
+		}
 	}
 
 	/**
@@ -345,11 +355,12 @@ public class CreatePlayerView {
 			public void mouseDown(MouseEvent e) {
 				status = canAddMorePoints();
 				name = text.getText();
+				System.out.println("name = "+name);
 				if (status) {
 					JOptionPane.showMessageDialog(null,
 							"You have not assigned all of your skill points",
 							"Unused Skill Points", 2);
-				} else if (name == "") {
+				} else if (name.equals("")) {
 					JOptionPane.showMessageDialog(null,
 							"Please enter a player name.");
 				} 
@@ -358,55 +369,56 @@ public class CreatePlayerView {
 				    checkValidityOfPoints();
 				}
 				else {
-
-					// ***********TRY CATCH**********
-					Driver driver = null;
-					try {
-						driver = new Driver();
-					} catch (IOException e2) {
-						// TODO Auto-generated catch block
-						e2.printStackTrace();
-					}
-					driver.createPlayer(name, pilotUsed, fighterUsed,
-							traderUsed, engineerUsed);
-					try {
-						Driver.generateUniverse();
-					} catch (IOException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
-					// ********************************
-
-					/*
-					 * old code presenter.Driver driver = new
-					 * presenter.Driver(); driver.createPlayer(name, pilotUsed,
-					 * fighterUsed, traderUsed, engineerUsed);
-					 * driver.generateUniverse();
-					 */
-
-					text.setVisible(false);
-					spinner.setVisible(false);
-					spinner_1.setVisible(false);
-					spinner_2.setVisible(false);
-					spinner_3.setVisible(false);
-					label.setVisible(false);
-					lblEnterAPlayer.setVisible(false);
-					lblNewLabel.setVisible(false);
-					lblAllocateSkillPoints.setVisible(false);
-					lblFighter.setVisible(false);
-					lblTrader.setVisible(false);
-					lblEngineer.setVisible(false);
-					lblPilot.setVisible(false);
-					lblSelectADifficulty.setVisible(false);
-					btnBeginner.setVisible(false);
-					btnEasy.setVisible(false);
-					btnNormal.setVisible(false);
-					btnHard.setVisible(false);
-					btnImpossible.setVisible(false);
-					btnStartGame.setVisible(false);
-					btnResetSkillPoints.setVisible(false);
-					lblSkillPointsLeft.setVisible(false);
+//
+//					// ***********TRY CATCH**********
+//					Driver driver = null;
+//					try {
+//						driver = new Driver();
+//					} catch (IOException e2) {
+//						// TODO Auto-generated catch block
+//						e2.printStackTrace();
+//					}
+//					driver.createPlayer(name, pilotUsed, fighterUsed,
+//							traderUsed, engineerUsed);
+//					try {
+//						driver.generateUniverse();
+//					} catch (IOException e1) {
+//						// TODO Auto-generated catch block
+//						e1.printStackTrace();
+//					}
+//					// ********************************
+//
+//					/*
+//					 * old code presenter.Driver driver = new
+//					 * presenter.Driver(); driver.createPlayer(name, pilotUsed,
+//					 * fighterUsed, traderUsed, engineerUsed);
+//					 * driver.generateUniverse();
+//					 */
+//
+//					text.setVisible(false);
+//					spinner.setVisible(false);
+//					spinner_1.setVisible(false);
+//					spinner_2.setVisible(false);
+//					spinner_3.setVisible(false);
+//					label.setVisible(false);
+//					lblEnterAPlayer.setVisible(false);
+//					lblNewLabel.setVisible(false);
+//					lblAllocateSkillPoints.setVisible(false);
+//					lblFighter.setVisible(false);
+//					lblTrader.setVisible(false);
+//					lblEngineer.setVisible(false);
+//					lblPilot.setVisible(false);
+//					lblSelectADifficulty.setVisible(false);
+//					btnBeginner.setVisible(false);
+//					btnEasy.setVisible(false);
+//					btnNormal.setVisible(false);
+//					btnHard.setVisible(false);
+//					btnImpossible.setVisible(false);
+//					btnStartGame.setVisible(false);
+//					btnResetSkillPoints.setVisible(false);
+//					lblSkillPointsLeft.setVisible(false);
 //					createMainApplicationWindow();
+					shell.dispose();
 				}
 			}
 		});
@@ -429,7 +441,8 @@ public class CreatePlayerView {
 		}
 		return false;
 	}
-
+	
+	
 	/**
 	 * This method just takes the points from trader, explorer, pilot, and adds
 	 * them together.
@@ -441,7 +454,8 @@ public class CreatePlayerView {
 		int totalPoints = Integer.parseInt(spinner.getText()) + Integer.parseInt(spinner_1.getText()) + Integer.parseInt(spinner_2.getText()) + Integer.parseInt(spinner_3.getText());
 		return pointsAvailable - totalPoints;
 	}
-
+	
+	
 	/**
 	 * This will check the validity of the points and reset them if an
 	 * inconsistency is detected for example, if the points are over 15.
@@ -469,9 +483,4 @@ public class CreatePlayerView {
 			label.setText(Integer.toString(calculatePoints()));
 		}
 	}
-
-	/*
-	 * Again, this is a big copy and paste. Sorry if it gets a little rough
-	 * here.
-	 */
 }

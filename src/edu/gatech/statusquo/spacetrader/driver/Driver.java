@@ -35,7 +35,6 @@ public class Driver {
 	}
 	
 	public void generateCreatePlayer() {
-		System.out.println("hello world");
 		CreatePlayerView createPlayerView = new CreatePlayerView();
 //		CreatePlayerPresenter createPlayerPresenter = new CreatePlayerPresenter(createPlayerView);
 	}

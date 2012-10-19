@@ -44,9 +44,9 @@ public class WelcomePresenter {
 			 * CharacterCreationScreen in the same shell. -Shawn
 			 */
 			public void mouseDown(MouseEvent e) {
-//				wv.btnStartGame.setVisible(false);
-//				wv.btnLoadGame.setVisible(false);
-//				wv.lblWelcomeToSpace.setVisible(false);
+				wv.btnStartGame.setVisible(false);
+				wv.btnLoadGame.setVisible(false);
+				wv.lblWelcomeToSpace.setVisible(false);
 				// need to return to driver to signify need to create next view
 				//createCharacterCreationScreen();
 				wv.shell.dispose();
