@@ -4,34 +4,28 @@ package edu.gatech.statusquo.spacetrader.presenter;
 import edu.gatech.statusquo.spacetrader.view.*;
 import edu.gatech.statusquo.spacetrader.driver.*;
 
-import java.io.IOException;
 import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.MouseEvent;
 
 public class WelcomePresenter {
-	private WelcomeView wv;
+	private WelcomeView welcomeView;
 	private Driver driver;
 	
-	public WelcomePresenter(WelcomeView wv) {
-		this.wv = wv;
-		try {
-			driver = new Driver();
-		} catch (IOException e2) {
-			// TODO Auto-generated catch block
-			e2.printStackTrace();
-		}
+	public WelcomePresenter(Driver d, WelcomeView wv) {
+		this.driver = d;
+		this.welcomeView = wv;
 		
 		setListeners();
 		
-		while (!wv.shell.isDisposed()) {
-			if (!wv.display.readAndDispatch()) {
-				wv.display.sleep();
+		while (!welcomeView.shell.isDisposed()) {
+			if (!welcomeView.display.readAndDispatch()) {
+				welcomeView.display.sleep();
 			}
 		}
 	}
 	
 	private void setListeners() {
-		wv.btnStartGame.addMouseListener(new MouseAdapter() {
+		welcomeView.btnStartGame.addMouseListener(new MouseAdapter() {
 			@Override
 			/*
 			 * (non-Javadoc)
@@ -44,12 +38,12 @@ public class WelcomePresenter {
 			 * CharacterCreationScreen in the same shell. -Shawn
 			 */
 			public void mouseDown(MouseEvent e) {
-				wv.btnStartGame.setVisible(false);
-				wv.btnLoadGame.setVisible(false);
-				wv.lblWelcomeToSpace.setVisible(false);
+				welcomeView.btnStartGame.setVisible(false);
+				welcomeView.btnLoadGame.setVisible(false);
+				welcomeView.lblWelcomeToSpace.setVisible(false);
 				// need to return to driver to signify need to create next view
 				//createCharacterCreationScreen();
-				wv.shell.dispose();
+				welcomeView.shell.dispose();
 				driver.generateCreatePlayer();
 			}
 		});

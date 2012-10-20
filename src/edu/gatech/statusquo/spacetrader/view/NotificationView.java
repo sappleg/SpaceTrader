@@ -1,8 +1,8 @@
 package edu.gatech.statusquo.spacetrader.view;
 
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.List;
+//import org.eclipse.swt.SWT;
+//import org.eclipse.swt.widgets.Label;
+//import org.eclipse.swt.widgets.List;
 
 public class NotificationView {
 	public void createView() {

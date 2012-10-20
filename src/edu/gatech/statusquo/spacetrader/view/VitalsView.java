@@ -1,13 +1,13 @@
 package edu.gatech.statusquo.spacetrader.view;
 
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.custom.TableCursor;
-import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.Table;
-import org.eclipse.swt.widgets.TableColumn;
-import org.eclipse.swt.widgets.TableItem;
-
-import edu.gatech.statusquo.spacetrader.driver.Driver;
+//import org.eclipse.swt.SWT;
+//import org.eclipse.swt.custom.TableCursor;
+//import org.eclipse.swt.widgets.Label;
+//import org.eclipse.swt.widgets.Table;
+//import org.eclipse.swt.widgets.TableColumn;
+//import org.eclipse.swt.widgets.TableItem;
+//
+//import edu.gatech.statusquo.spacetrader.driver.Driver;
 
 public class VitalsView {
 	public void createView() {

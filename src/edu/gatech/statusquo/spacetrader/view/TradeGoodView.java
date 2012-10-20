@@ -1,10 +1,10 @@
 package edu.gatech.statusquo.spacetrader.view;
 
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.custom.TableCursor;
-import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.Table;
-import org.eclipse.swt.widgets.TableColumn;
+//import org.eclipse.swt.SWT;
+//import org.eclipse.swt.custom.TableCursor;
+//import org.eclipse.swt.widgets.Label;
+//import org.eclipse.swt.widgets.Table;
+//import org.eclipse.swt.widgets.TableColumn;
 
 public class TradeGoodView {
 	public void createView() {

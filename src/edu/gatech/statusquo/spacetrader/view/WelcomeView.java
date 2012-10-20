@@ -20,6 +20,7 @@ public class WelcomeView {
 		btnStartGame = new Button(shell, SWT.NONE);
 		btnLoadGame = new Button(shell, SWT.NONE);
 		lblWelcomeToSpace = new Label(shell, SWT.NONE);
+		
 		try {
 			createView();
 		} catch (Exception e) {

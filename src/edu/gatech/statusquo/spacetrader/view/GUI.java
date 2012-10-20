@@ -1,6 +1,5 @@
 package edu.gatech.statusquo.spacetrader.view;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
@@ -23,7 +22,6 @@ import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.MouseEvent;
 
 import edu.gatech.statusquo.spacetrader.driver.Driver;
-import edu.gatech.statusquo.spacetrader.presenter.*;
 
 public class GUI {
 
@@ -206,13 +204,11 @@ public class GUI {
 
 			@Override
 			public void keyPressed(KeyEvent e) {
-				// TODO Auto-generated method stub
 
 			}
 
 			@Override
 			public void keyReleased(KeyEvent e) {
-				// TODO Auto-generated method stub
 				if (spinner.getText() == "") {
 
 				} else {
@@ -245,13 +241,11 @@ public class GUI {
 
 			@Override
 			public void keyPressed(KeyEvent e) {
-				// TODO Auto-generated method stub
 
 			}
 
 			@Override
 			public void keyReleased(KeyEvent e) {
-				// TODO Auto-generated method stub
 				if (spinner_1.getText() == "") {
 
 				} else {
@@ -284,13 +278,11 @@ public class GUI {
 
 			@Override
 			public void keyPressed(KeyEvent e) {
-				// TODO Auto-generated method stub
 
 			}
 
 			@Override
 			public void keyReleased(KeyEvent e) {
-				// TODO Auto-generated method stub
 				if (spinner_2.getText() == "") {
 
 				} else {
@@ -322,13 +314,11 @@ public class GUI {
 
 			@Override
 			public void keyPressed(KeyEvent e) {
-				// TODO Auto-generated method stub
 
 			}
 
 			@Override
 			public void keyReleased(KeyEvent e) {
-				// TODO Auto-generated method stub
 				if (spinner_3.getText() == "") {
 
 				} else {
@@ -440,22 +430,20 @@ public class GUI {
 				}
 				else {
 
-					// ***********TRY CATCH**********
-					Driver driver = null;
-					try {
-						driver = new Driver();
-					} catch (IOException e2) {
-						// TODO Auto-generated catch block
-						e2.printStackTrace();
-					}
-					driver.createPlayer(name, pilotUsed, fighterUsed,
-							traderUsed, engineerUsed);
-					try {
-						driver.generateUniverse();
-					} catch (IOException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
+//					// ***********TRY CATCH**********
+//					Driver driver = null;
+//					try {
+//						driver = new Driver();
+//					} catch (IOException e2) {
+//						e2.printStackTrace();
+//					}
+//					driver.createPlayer(name, pilotUsed, fighterUsed,
+//							traderUsed, engineerUsed);
+//					try {
+//						driver.generateUniverse();
+//					} catch (IOException e1) {
+//						e1.printStackTrace();
+//					}
 					// ********************************
 
 					/*
@@ -503,7 +491,6 @@ public class GUI {
 	 *         not.
 	 */
 	private boolean canAddMorePoints() {
-		// TODO Auto-generated method stub
 		int totalPoints = traderUsed + engineerUsed + pilotUsed + fighterUsed;
 		if (totalPoints <= 14) {
 			return true;
@@ -566,15 +553,20 @@ public class GUI {
 	private TableColumn tblclmnQuantity;
 	private TableColumn tblclmnCurrency;
 	private TableColumn tblclmnWeight;
+	@SuppressWarnings("unused")
 	private TableCursor tableCursor;
+	@SuppressWarnings("unused")
 	private TableCursor tableCursor_1;
+	@SuppressWarnings("unused")
 	private TableCursor tableCursor_2;
+	@SuppressWarnings("unused")
 	private TableCursor tableCursor_3;
+	@SuppressWarnings("unused")
+	private Driver driver;
 	private TableColumn tblclmnCargo;
 	private TableColumn tblclmnWeight_1;
 	private Label lblNotifications;
 	private Label lblLocalPlanets;
-	private Driver driver;
 	private TableItem tableItem;
 	private Table table_4;
 	private TableItem tableItem_1;

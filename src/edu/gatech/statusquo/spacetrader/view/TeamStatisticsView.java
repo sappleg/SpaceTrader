@@ -1,14 +1,14 @@
 package edu.gatech.statusquo.spacetrader.view;
 
-import java.util.ArrayList;
-
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.Table;
-import org.eclipse.swt.widgets.TableColumn;
-import org.eclipse.swt.widgets.TableItem;
-
-import edu.gatech.statusquo.spacetrader.driver.Driver;
+//import java.util.ArrayList;
+//
+//import org.eclipse.swt.SWT;
+//import org.eclipse.swt.widgets.Label;
+//import org.eclipse.swt.widgets.Table;
+//import org.eclipse.swt.widgets.TableColumn;
+//import org.eclipse.swt.widgets.TableItem;
+//
+//import edu.gatech.statusquo.spacetrader.driver.Driver;
 
 public class TeamStatisticsView {
 	public void createView() {
