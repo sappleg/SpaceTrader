@@ -18,16 +18,15 @@ public class SolarSystem {
 	 * @param xLocation
 	 * @param yLocation
 	 */
-
 	public SolarSystem(String systemName, Planet planet, int techLevel,
 			int resourceLevel, int xLocation, int yLocation) {
 
-		this.systemName = systemName;
-		this.planet = planet;
-		this.techLevel = techLevel;
-		this.resourceLevel = resourceLevel;
-		this.xLocation = xLocation;
-		this.yLocation = yLocation;
+		SolarSystem.systemName = systemName;
+		SolarSystem.planet = planet;
+		SolarSystem.techLevel = techLevel;
+		SolarSystem.resourceLevel = resourceLevel;
+		SolarSystem.xLocation = xLocation;
+		SolarSystem.yLocation = yLocation;
 	}
 
 	/**

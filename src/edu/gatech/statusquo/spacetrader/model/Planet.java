@@ -11,7 +11,7 @@ public class Planet {
 	 */
 
 	public Planet(String planetName) {
-		this.planetName = planetName;
+		Planet.planetName = planetName;
 	}
 
 	/**
