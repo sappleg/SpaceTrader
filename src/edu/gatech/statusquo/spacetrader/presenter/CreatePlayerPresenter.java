@@ -48,6 +48,7 @@ public class CreatePlayerPresenter {
 			@Override
 			public void mouseUp(MouseEvent e) {
 				traderUsed = Integer.parseInt(createPlayerView.traderSpinner.getText());
+				player.setTraderSkills(Integer.parseInt(createPlayerView.traderSpinner.getText()));
 				setSpinners();
 			}
 		});
@@ -60,10 +61,11 @@ public class CreatePlayerPresenter {
 
 			@Override
 			public void keyReleased(KeyEvent e) {
-				if (createPlayerView.traderSpinner.getText() == "") {
+				if (createPlayerView.traderSpinner.getText().equals("")) {
 
 				} else {
 					traderUsed = Integer.parseInt(createPlayerView.traderSpinner.getText());
+					player.setTraderSkills(Integer.parseInt(createPlayerView.traderSpinner.getText()));
 					setSpinners();
 				}
 			}
@@ -74,6 +76,7 @@ public class CreatePlayerPresenter {
 			@Override
 			public void mouseUp(MouseEvent e) {
 				engineerUsed = Integer.parseInt(createPlayerView.engineerSpinner.getText());
+				player.setEngineerSkills(Integer.parseInt(createPlayerView.engineerSpinner.getText()));
 				setSpinners();
 			}
 		});
@@ -86,10 +89,11 @@ public class CreatePlayerPresenter {
 
 			@Override
 			public void keyReleased(KeyEvent e) {
-				if (createPlayerView.engineerSpinner.getText() == "") {
+				if (createPlayerView.engineerSpinner.getText().equals("")) {
 
 				} else {
 					engineerUsed = Integer.parseInt(createPlayerView.engineerSpinner.getText());
+					player.setEngineerSkills(Integer.parseInt(createPlayerView.engineerSpinner.getText()));
 					setSpinners();
 				}
 			}
@@ -100,6 +104,7 @@ public class CreatePlayerPresenter {
 			@Override
 			public void mouseUp(MouseEvent e) {
 				pilotUsed = Integer.parseInt(createPlayerView.pilotSpinner.getText());
+				player.setPilotSkills(Integer.parseInt(createPlayerView.pilotSpinner.getText()));
 				setSpinners();
 			}
 		});
@@ -112,10 +117,11 @@ public class CreatePlayerPresenter {
 
 			@Override
 			public void keyReleased(KeyEvent e) {
-				if (createPlayerView.pilotSpinner.getText() == "") {
+				if (createPlayerView.pilotSpinner.getText().equals("")) {
 
 				} else {
 					pilotUsed = Integer.parseInt(createPlayerView.pilotSpinner.getText());
+					player.setPilotSkills(Integer.parseInt(createPlayerView.pilotSpinner.getText()));
 					setSpinners();
 				}
 			}
@@ -125,6 +131,7 @@ public class CreatePlayerPresenter {
 			@Override
 			public void mouseUp(MouseEvent e) {
 				fighterUsed = Integer.parseInt(createPlayerView.fighterSpinner.getText());
+				player.setFighterSkills(Integer.parseInt(createPlayerView.fighterSpinner.getText()));
 				setSpinners();
 			}
 		});
@@ -137,10 +144,11 @@ public class CreatePlayerPresenter {
 
 			@Override
 			public void keyReleased(KeyEvent e) {
-				if (createPlayerView.fighterSpinner.getText() == "") {
+				if (createPlayerView.fighterSpinner.getText().equals("")) {
 
 				} else {
 					fighterUsed = Integer.parseInt(createPlayerView.fighterSpinner.getText());
+					player.setFighterSkills(Integer.parseInt(createPlayerView.fighterSpinner.getText()));
 					setSpinners();
 				}
 			}
@@ -163,17 +171,19 @@ public class CreatePlayerPresenter {
 				createPlayerView.engineerSpinner.setValues(0, 0, 15, 0, 1, 1);
 				createPlayerView.pilotSpinner.setValues(0, 0, 15, 0, 1, 1);
 				createPlayerView.fighterSpinner.setValues(0, 0, 15, 0, 1, 1);
-				createPlayerView.pointsAvailableLabel.setText(Integer.toString(calculatePoints()));
+				createPlayerView.setPointsAvailableLabel(Integer.toString(calculatePoints()));
+				player.setTraderSkills(Integer.parseInt(createPlayerView.traderSpinner.getText()));
+				player.setEngineerSkills(Integer.parseInt(createPlayerView.engineerSpinner.getText()));
+				player.setPilotSkills(Integer.parseInt(createPlayerView.pilotSpinner.getText()));
+				player.setFighterSkills(Integer.parseInt(createPlayerView.fighterSpinner.getText()));
 			}
 		});
 
 		createPlayerView.startGameButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseDown(MouseEvent e) {
-				status = canAddMorePoints();
 				player.setName(createPlayerView.text.getText());
-				System.out.println("name = " + Player.getName());
-				if (status) {
+				if (canAddMorePoints()) {
 					JOptionPane.showMessageDialog(null,
 							"You have not assigned all of your skill points",
 							"Unused Skill Points", 2);
@@ -269,9 +279,9 @@ public class CreatePlayerPresenter {
 			createPlayerView.engineerSpinner.setValues(0, 0, 15, 0, 1, 1);
 			createPlayerView.pilotSpinner.setValues(0, 0, 15, 0, 1, 1);
 			createPlayerView.fighterSpinner.setValues(0, 0, 15, 0, 1, 1);
-			createPlayerView.pointsAvailableLabel.setText(Integer.toString(calculatePoints()));
+			createPlayerView.setPointsAvailableLabel(Integer.toString(calculatePoints()));
 		} else {
-			createPlayerView.pointsAvailableLabel.setText(Integer.toString(calculatePoints()));
+			createPlayerView.setPointsAvailableLabel(Integer.toString(calculatePoints()));
 		}
 	}
 	

@@ -9,9 +9,16 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Shell;
+
 public class Driver {
+	Player player;
+	public Display display;
+	public Shell shell;
 	private static Driver driver;
-	static int currCurrency = 1000;
+	public static int currency = 1000;
 	static ArrayList<Integer> totalSkills;
 	ArrayList<Integer> partySkills;
 	private static ArrayList<Integer> X; // Contains randomly generated X
@@ -22,6 +29,7 @@ public class Driver {
     // private static ArrayList<SolarSystem> listOfSystems;
 
 	public Driver() throws IOException {
+		player = new Player();
 //		generateUniverse();
 //		totalSkills = new ArrayList<Integer>();
 //		partySkills = new ArrayList<Integer>();
@@ -40,14 +48,49 @@ public class Driver {
 	}
 	
 	public void generateCreatePlayer() {
-		Player player = new Player();
 		CreatePlayerView createPlayerView = new CreatePlayerView();
 		new CreatePlayerPresenter(driver, createPlayerView, player);
 //		CreatePlayerPresenter createPlayerPresenter = new CreatePlayerPresenter(driver, createPlayerView, player);
 	}
 	
 	public void generateMainGame() {
+		display = Display.getDefault();
+		shell = new Shell(display, SWT.TITLE | SWT.CLOSE);
 		
+		shell.open();
+		shell.layout();
+		
+		shell.setSize(1024, 768);
+		shell.setText("Space Trader");
+		shell.setLayout(null);
+		
+		ShipStatisticsView shipStatisticsView = new ShipStatisticsView(shell);
+		new ShipStatisticsPresenter(shell, driver, shipStatisticsView);
+		
+		TeamStatisticsView teamStatisticsView = new TeamStatisticsView(shell, player);
+		new TeamStatisticsPresenter(shell, driver, teamStatisticsView);
+		
+		SolarSystemListView solarSystemListView = new SolarSystemListView(shell);
+		new SolarSystemListPresenter(shell, driver, solarSystemListView);
+		
+		TradeGoodsView tradeGoodsView = new TradeGoodsView(shell);
+		new TradeGoodsPresenter(shell, driver, tradeGoodsView);
+		
+		NotificationsView notificationsView = new NotificationsView(shell, player);
+		new NotificationsPresenter(shell, driver, notificationsView);
+		
+		VitalsView vitalsView = new VitalsView(shell, player);
+		new VitalsPresenter(shell, driver, vitalsView);
+		
+		LocalPlanetView localPlanetView = new LocalPlanetView(shell);
+		new LocalPlanetPresenter(shell, driver, localPlanetView);
+
+		
+		while (!shell.isDisposed()) {
+			if (!display.readAndDispatch()) {
+				display.sleep();
+			}
+		}
 	}
 
 	/**
@@ -65,6 +108,8 @@ public class Driver {
 		ArrayList<Integer> yList = Y;
 		ArrayList<String> namesList = listOfNames;
 		ArrayList<SolarSystem> systemsList = new ArrayList<SolarSystem>();
+		@SuppressWarnings("unused")
+		ArrayList<SolarSystem> listOfSystems = new ArrayList<SolarSystem>();
 
 		// Generates a SolarSystem object using the generated
 		// coordinates and names.
@@ -82,7 +127,7 @@ public class Driver {
 			SolarSystem printThis = systemsList.get(i);
 			System.out.println(printThis.toString() + "\n");
 		}
-//		listOfSystems = systemsList;
+		listOfSystems = systemsList;
 	}
 
 	/**
@@ -156,15 +201,6 @@ public class Driver {
 //	}
 
 	/**
-	 * Returns the current player's money.
-	 * 
-	 * @return an int that contains the player's money.
-	 */
-	public static int getCurrency() {
-		return currCurrency;
-	}
-
-	/**
 	 * Gets the entire party's skills.
 	 * 
 	 * @return an ArrayList<Integer> that contains all the skills.
@@ -172,7 +208,7 @@ public class Driver {
 	public static ArrayList<Integer> getSkills() {
 		return totalSkills;
 	}
-
+	
 	/**
 	 * This method is to boost the player's statistics in case he/she purchases
 	 * a mercenary.

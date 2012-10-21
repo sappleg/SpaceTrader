@@ -165,4 +165,8 @@ public class CreatePlayerView {
 		resetSkillPointsButton.setBounds(270, 427, 104, 25);
 		resetSkillPointsButton.setText("Reset Skill Points");
 	}
+	
+	public void setPointsAvailableLabel(String s) {
+		pointsAvailableLabel.setText(s);
+	}
 }
