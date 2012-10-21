@@ -5,14 +5,15 @@ import org.eclipse.swt.widgets.Shell;
 import edu.gatech.statusquo.spacetrader.driver.*;
 import edu.gatech.statusquo.spacetrader.view.*;
 
-public class LocalPlanetPresenter {
+public class NotificationsPresenter {
+
 	Shell shell;
 	Driver driver;
-	LocalPlanetView localPlanetView;
+	NotificationsView notificationsView;
 
-	public LocalPlanetPresenter(Shell s, Driver d, LocalPlanetView lpv) {
+	public NotificationsPresenter(Shell s, Driver d, NotificationsView nv) {
 		this.shell = s;
 		this.driver = d;
-		this.localPlanetView = lpv;
+		this.notificationsView = nv;
 	}
 }

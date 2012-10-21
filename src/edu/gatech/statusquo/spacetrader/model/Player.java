@@ -1,27 +1,25 @@
 package edu.gatech.statusquo.spacetrader.model;
 
-import java.util.ArrayList;
 import edu.gatech.statusquo.spacetrader.model.Ship.ShipType;
 
 public class Player {
 
-	private static int currency;
 	private Ship.ShipType ship;
 	private static String name;
-	private static int pilot;
-	private static int fighter;
+	private static int currency;
 	private static int trader;
 	private static int engineer;
+	private static int pilot;
+	private static int fighter;
 
-	public Player(int amount, Ship.ShipType sh, String nm, int pi, int fi,
-			int tr, int en) {
-		currency = amount;
-		ship = sh;
-		name = nm;
-		pilot = pi;
-		fighter = fi;
-		trader = tr;
-		engineer = en;
+	public Player() {
+		ship = ShipType.GNAT;
+		name = "Player";
+		currency = 1000;
+		trader = 0;
+		engineer = 0;
+		pilot = 0;
+		fighter = 0;
 	}
 
 	/**
@@ -46,7 +44,7 @@ public class Player {
 	/**
 	 * Gets the amount of money the player has currently.
 	 * 
-	 * @return an int that is the amount of currency.
+	 * @return an integer that is the amount of currency.
 	 */
 	public static int getCurrency() {
 		return currency;
@@ -55,8 +53,7 @@ public class Player {
 	/**
 	 * Set the currency to be a particular value.
 	 * 
-	 * @param curr
-	 *            an int that is the amount of money.
+	 * @param curr an integer that is the amount of money.
 	 */
 	public void setCurrency(int curr) {
 		currency = curr;
@@ -80,37 +77,36 @@ public class Player {
 	public void setName(String nm) {
 		name = nm;
 	}
-
-	/**
-	 * Set the skill points.
-	 * 
-	 * @param pi
-	 *            - pilot skill points
-	 * @param fi
-	 *            - fighter skill points
-	 * @param tr
-	 *            - trader skill points
-	 * @param en
-	 *            - engineer skill points.
-	 */
-	public void setSkills(int pi, int fi, int tr, int en) {
-		pilot = pi;
-		fighter = fi;
-		trader = tr;
-		engineer = en;
+	
+	public void setTraderSkills(int i) {
+		trader = i;
 	}
-
-	/**
-	 * Will return an ArrayList of the player's skill points.
-	 * 
-	 * @return ArrayList<Integer> of the player's skill points.
-	 */
-	public static ArrayList<Integer> getSkills() {
-		ArrayList<Integer> skills = new ArrayList<Integer>();
-		skills.add(pilot);
-		skills.add(fighter);
-		skills.add(trader);
-		skills.add(engineer);
-		return skills;
+	
+	public void setEngineerSkills(int i) {
+		engineer = i;
+	}
+	
+	public void setPilotSkills(int i) {
+		pilot = i;
+	}
+	
+	public void setFighterSkills(int i) {
+		fighter = i;
+	}
+	
+	public static int getTraderSkills() {
+		return trader;
+	}
+	
+	public static int getEngineerSkills() {
+		return engineer;
+	}
+	
+	public static int getPilotSkills() {
+		return pilot;
+	}
+	
+	public static int getFighterSkills() {
+		return fighter;
 	}
 }
