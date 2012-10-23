@@ -1,5 +1,7 @@
 package edu.gatech.statusquo.spacetrader.model;
 
+import java.util.HashMap;
+
 public class SolarSystem {
 
 	private static String systemName;
@@ -8,6 +10,7 @@ public class SolarSystem {
 	private static int xLocation;
 	private static int yLocation;
 	private static Planet planet;
+	private static HashMap market;
 	
 	/**
 	 * Class constructor using listed parameters
@@ -27,6 +30,7 @@ public class SolarSystem {
 		SolarSystem.resourceLevel = resourceLevel;
 		SolarSystem.xLocation = xLocation;
 		SolarSystem.yLocation = yLocation;
+		market = new HashMap();
 	}
 
 	/**

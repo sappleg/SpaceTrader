@@ -27,7 +27,7 @@ public class Driver {
 	
 	//contains list of all SolarSystems
 	private static ArrayList<SolarSystem> listOfSystems;
-	private static ArrayList <Goods> listOfGoods;
+	private static ArrayList <Good> listOfGoods;
 
 	public Driver() throws IOException {
 		player = new Player();
@@ -255,33 +255,34 @@ public class Driver {
 		listOfNames = chosenNames;
 		s.close();
 	}
-	/**
-	 * Creates static list of all goods
-	 */
-	public static void generateGoods(){
-		ArrayList<Goods> goodsList = new ArrayList<Goods>();
-		
-		Goods water = new Goods(0, 0, 2, 30, 25, true);
-		Goods fur = new Goods(0, 0, 0, 250, 10, true);
-		Goods food = new Goods(1, 0, 1, 100, 20, true);
-		Goods ore = new Goods(2, 2, 3, 350, 20, true);
-		Goods firearms = new Goods(3, 1, 5, 1200, 5, true);
-		Goods medicine = new Goods(4, 1, 6, 650, 15, true);
-		Goods machines = new Goods(4, 3, 5, 900, 10, true);
-		Goods narcotics = new Goods(5, 0, 5, 3500, 5, false);
-		Goods robots = new Goods(6, 4, 6, 5000, 5, true);
-		
-		goodsList.add(water);
-		goodsList.add(fur);
-		goodsList.add(food);
-		goodsList.add(ore);
-		goodsList.add(firearms);
-		goodsList.add(medicine);
-		goodsList.add(machines);
-		goodsList.add(narcotics);
-		goodsList.add(robots);
-		
-		listOfGoods = goodsList;
-			
-	}
+	
+//	/**
+//	 * Creates static list of all goods
+//	 */
+//	public static void generateGoods(){
+//		ArrayList<Good> goodsList = new ArrayList<Good>();
+//		
+//		Good water = new Good(0, 0, 2, 30, 25, true);
+//		Good fur = new Good(0, 0, 0, 250, 10, true);
+//		Good food = new Good(1, 0, 1, 100, 20, true);
+//		Good ore = new Good(2, 2, 3, 350, 20, true);
+//		Good firearms = new Good(3, 1, 5, 1200, 5, true);
+//		Good medicine = new Good(4, 1, 6, 650, 15, true);
+//		Good machines = new Good(4, 3, 5, 900, 10, true);
+//		Good narcotics = new Good(5, 0, 5, 3500, 5, false);
+//		Good robots = new Good(6, 4, 6, 5000, 5, true);
+//		
+//		goodsList.add(water);
+//		goodsList.add(fur);
+//		goodsList.add(food);
+//		goodsList.add(ore);
+//		goodsList.add(firearms);
+//		goodsList.add(medicine);
+//		goodsList.add(machines);
+//		goodsList.add(narcotics);
+//		goodsList.add(robots);
+//		
+//		listOfGoods = goodsList;
+//			
+//	}
 }
