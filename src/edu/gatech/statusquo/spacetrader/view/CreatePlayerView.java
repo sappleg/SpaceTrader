@@ -84,8 +84,8 @@ public class CreatePlayerView {
 		//settings bounds for all the spinners
 		traderSpinner.setBounds(203, 109, 47, 22);
 		engineerSpinner.setBounds(203, 137, 47, 22);
-		pilotSpinner.setBounds(203, 192, 47, 22);
-		fighterSpinner.setBounds(203, 164, 47, 22);
+		pilotSpinner.setBounds(203, 164, 47, 22);
+		fighterSpinner.setBounds(203, 192, 47, 22);
 
 		/*
 		 * Set maximums for all the spinners.

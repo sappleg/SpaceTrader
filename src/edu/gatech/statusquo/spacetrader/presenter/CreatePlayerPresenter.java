@@ -48,7 +48,6 @@ public class CreatePlayerPresenter {
 			@Override
 			public void mouseUp(MouseEvent e) {
 				traderUsed = Integer.parseInt(createPlayerView.traderSpinner.getText());
-				player.setTraderSkills(Integer.parseInt(createPlayerView.traderSpinner.getText()));
 				setSpinners();
 			}
 		});
@@ -65,7 +64,6 @@ public class CreatePlayerPresenter {
 
 				} else {
 					traderUsed = Integer.parseInt(createPlayerView.traderSpinner.getText());
-					player.setTraderSkills(Integer.parseInt(createPlayerView.traderSpinner.getText()));
 					setSpinners();
 				}
 			}
@@ -76,7 +74,6 @@ public class CreatePlayerPresenter {
 			@Override
 			public void mouseUp(MouseEvent e) {
 				engineerUsed = Integer.parseInt(createPlayerView.engineerSpinner.getText());
-				player.setEngineerSkills(Integer.parseInt(createPlayerView.engineerSpinner.getText()));
 				setSpinners();
 			}
 		});
@@ -93,7 +90,6 @@ public class CreatePlayerPresenter {
 
 				} else {
 					engineerUsed = Integer.parseInt(createPlayerView.engineerSpinner.getText());
-					player.setEngineerSkills(Integer.parseInt(createPlayerView.engineerSpinner.getText()));
 					setSpinners();
 				}
 			}
@@ -104,7 +100,6 @@ public class CreatePlayerPresenter {
 			@Override
 			public void mouseUp(MouseEvent e) {
 				pilotUsed = Integer.parseInt(createPlayerView.pilotSpinner.getText());
-				player.setPilotSkills(Integer.parseInt(createPlayerView.pilotSpinner.getText()));
 				setSpinners();
 			}
 		});
@@ -121,7 +116,6 @@ public class CreatePlayerPresenter {
 
 				} else {
 					pilotUsed = Integer.parseInt(createPlayerView.pilotSpinner.getText());
-					player.setPilotSkills(Integer.parseInt(createPlayerView.pilotSpinner.getText()));
 					setSpinners();
 				}
 			}
@@ -131,7 +125,6 @@ public class CreatePlayerPresenter {
 			@Override
 			public void mouseUp(MouseEvent e) {
 				fighterUsed = Integer.parseInt(createPlayerView.fighterSpinner.getText());
-				player.setFighterSkills(Integer.parseInt(createPlayerView.fighterSpinner.getText()));
 				setSpinners();
 			}
 		});
@@ -148,7 +141,6 @@ public class CreatePlayerPresenter {
 
 				} else {
 					fighterUsed = Integer.parseInt(createPlayerView.fighterSpinner.getText());
-					player.setFighterSkills(Integer.parseInt(createPlayerView.fighterSpinner.getText()));
 					setSpinners();
 				}
 			}
@@ -216,6 +208,10 @@ public class CreatePlayerPresenter {
 //					startGameButton.setVisible(false);
 //					resetSkillPointsButton.setVisible(false);
 //					createMainApplicationWindow();
+					player.setTraderSkills(Integer.parseInt(createPlayerView.traderSpinner.getText()));
+					player.setEngineerSkills(Integer.parseInt(createPlayerView.engineerSpinner.getText()));
+					player.setPilotSkills(Integer.parseInt(createPlayerView.pilotSpinner.getText()));
+					player.setFighterSkills(Integer.parseInt(createPlayerView.fighterSpinner.getText()));
 					createPlayerView.shell.dispose();
 					driver.generateMainGame();
 				}
@@ -286,12 +282,12 @@ public class CreatePlayerPresenter {
 	}
 	
 	private void setSpinners() {
-		status = canAddMorePoints();
 		createPlayerView.traderSpinner.setEnabled(status);
 		createPlayerView.engineerSpinner.setEnabled(status);
 		createPlayerView.pilotSpinner.setEnabled(status);
 		createPlayerView.fighterSpinner.setEnabled(status);
 		checkValidityOfPoints();
+		status = canAddMorePoints();
 	}
 	
 	public int getPointsAvailable() {

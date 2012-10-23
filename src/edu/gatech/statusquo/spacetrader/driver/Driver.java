@@ -23,14 +23,15 @@ public class Driver {
 	ArrayList<Integer> partySkills;
 	private static ArrayList<Integer> X; // Contains randomly generated X
 	private static ArrayList<Integer> Y; // Contains randomly generated Y
-	private static ArrayList<String> listOfNames; // Contains randomly picked names
+	public static ArrayList<String> listOfNames; // Contains randomly picked names
 	
 	//contains list of all SolarSystems
-    // private static ArrayList<SolarSystem> listOfSystems;
+	private static ArrayList<SolarSystem> listOfSystems;
 
 	public Driver() throws IOException {
 		player = new Player();
-//		generateUniverse();
+		listOfSystems = new ArrayList<SolarSystem>();
+		generateUniverse();
 //		totalSkills = new ArrayList<Integer>();
 //		partySkills = new ArrayList<Integer>();
 	}
@@ -84,7 +85,6 @@ public class Driver {
 		
 		LocalPlanetView localPlanetView = new LocalPlanetView(shell);
 		new LocalPlanetPresenter(shell, driver, localPlanetView);
-
 		
 		while (!shell.isDisposed()) {
 			if (!display.readAndDispatch()) {
@@ -107,10 +107,8 @@ public class Driver {
 		ArrayList<Integer> xList = X;
 		ArrayList<Integer> yList = Y;
 		ArrayList<String> namesList = listOfNames;
-		ArrayList<SolarSystem> systemsList = new ArrayList<SolarSystem>();
-		@SuppressWarnings("unused")
-		ArrayList<SolarSystem> listOfSystems = new ArrayList<SolarSystem>();
-
+/*		ArrayList<SolarSystem> systemsList = new ArrayList<SolarSystem>();
+*/
 		// Generates a SolarSystem object using the generated
 		// coordinates and names.
 		for (int i = 0; i < namesList.size(); i++) {
@@ -122,12 +120,11 @@ public class Driver {
 			Planet planetName = new Planet(holdName);
 			SolarSystem system = new SolarSystem(holdName, planetName,
 					techLevel, resourceLevel, holdX, holdY);
-			systemsList.add(system);
+			listOfSystems.add(system);
 			// **TEMP PRINTS TO CONSOLE**
-			SolarSystem printThis = systemsList.get(i);
+			SolarSystem printThis = listOfSystems.get(i);
 			System.out.println(printThis.toString() + "\n");
 		}
-		listOfSystems = systemsList;
 	}
 
 	/**
@@ -255,5 +252,6 @@ public class Driver {
 			} //end of while-loop
 		} //end of for-loop
 		listOfNames = chosenNames;
+		s.close();
 	}
 }
