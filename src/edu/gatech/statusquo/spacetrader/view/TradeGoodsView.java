@@ -2,6 +2,8 @@ package edu.gatech.statusquo.spacetrader.view;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.TableCursor;
+import org.eclipse.swt.events.MouseAdapter;
+import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
@@ -74,10 +76,22 @@ public class TradeGoodsView {
 
 		text = new Text(shell, SWT.BORDER);
 		text.setText("Enter Qty");
+		text.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseDown(MouseEvent e) {
+			    text.setText("");
+			}
+		});
 		text.setBounds(266, 558, 76, 21);
 
 		text_1 = new Text(shell, SWT.BORDER);
 		text_1.setText("Enter Qty");
+		text_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseDown(MouseEvent e) {
+			    text_1.setText("");
+			}
+		});
 		text_1.setBounds(548, 558, 76, 21);
 	}
 }
