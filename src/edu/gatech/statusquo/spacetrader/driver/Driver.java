@@ -121,11 +121,16 @@ public class Driver {
 			Planet planetName = new Planet(holdName);
 			SolarSystem system = new SolarSystem(holdName, planetName,
 					techLevel, resourceLevel, holdX, holdY);
+			generateMarket(system);
 			listOfSystems.add(system);
 			// **TEMP PRINTS TO CONSOLE**
 			SolarSystem printThis = listOfSystems.get(i);
 			System.out.println(printThis.toString() + "\n");
 		}
+	}
+	
+	public static void generateMarket(SolarSystem s) {
+		
 	}
 
 	/**
