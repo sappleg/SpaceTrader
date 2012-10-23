@@ -17,8 +17,9 @@ public class Goods {
      * @param lvlReq - minimum level required to multiply the qty
      * @param qty - the quantity
      */
-    public Goods(int pr, boolean leg, int minTech, int minSell, int lvlReq, int qty)
+    public Goods(int minTech, int minSell, int lvlReq, int pr, int qty, boolean leg)
     {
+    	
 	price = pr;
 	legality = leg;
 	minTechLevel = minTech;
