@@ -23,6 +23,7 @@ public class Driver {
 	private static ArrayList<Integer> X; // Contains randomly generated X
 	private static ArrayList<Integer> Y; // Contains randomly generated Y
 	public static ArrayList<String> listOfNames; // Contains randomly picked names
+	public SolarSystem solarSystem;	 // initial Solar system to give trade good presenter
 	
 	public ShipStatisticsView shipStatisticsView;
 	public TeamStatisticsView teamStatisticsView;
@@ -78,7 +79,7 @@ public class Driver {
 		new SolarSystemListPresenter(shell, this, solarSystemListView);
 		
 		tradeGoodsView = new TradeGoodsView(shell);
-		new TradeGoodsPresenter(shell, this, tradeGoodsView, player);
+		new TradeGoodsPresenter(shell, this, tradeGoodsView, player, listOfSystems.get(0));
 		
 		notificationsView = new NotificationsView(shell, player);
 		new NotificationsPresenter(shell, this, notificationsView);

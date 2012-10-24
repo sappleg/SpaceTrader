@@ -15,15 +15,15 @@ import org.eclipse.swt.widgets.Text;
 public class TradeGoodsView {
     Shell shell;
     public Table table_1;
-    TableItem waterItem;
-    TableItem furItem;
-    TableItem foodItem;
-    TableItem oreItem;
-    TableItem firearmsItem;
-    TableItem medicineItem;
-    TableItem machinesItem;
-    TableItem narcoticsItem;
-    TableItem robotsItem;
+    public TableItem waterItem;
+    public TableItem furItem;
+    public TableItem foodItem;
+    public TableItem oreItem;
+    public TableItem firearmsItem;
+    public TableItem medicineItem;
+    public TableItem machinesItem;
+    public TableItem narcoticsItem;
+    public TableItem robotsItem;
 
     TableColumn tblclmnItems;
     TableColumn tblclmnPrice;
@@ -92,31 +92,31 @@ public class TradeGoodsView {
 		tblclmnMarketQuantity.setWidth(79);
 		tblclmnMarketQuantity.setText("Market Qty");
 	
-		String[] water = { "Water", "1", "2", "3" };
+		String[] water = { "", "", "", "" };
 		waterItem.setText(water);
 	
-		String[] fur = { "Fur", "1", "2", "3" };
+		String[] fur = { "", "", "", "" };
 		furItem.setText(fur);
 	
-		String[] food = { "Food", "1", "2", "3" };
+		String[] food = { "", "", "", "" };
 		foodItem.setText(food);
 	
-		String[] ore = { "Ore", "1", "2", "3" };
+		String[] ore = { "", "", "", "" };
 		oreItem.setText(ore);
 	
-		String[] firearms = { "Firearms", "1", "2", "3" };
+		String[] firearms = { "", "", "", "" };
 		firearmsItem.setText(firearms);
 	
-		String[] medicine = { "Medicine", "1", "2", "3" };
+		String[] medicine = { "", "", "", "" };
 		medicineItem.setText(medicine);
 	
-		String[] machines = { "Machines", "1", "2", "3" };
+		String[] machines = { "", "", "", "" };
 		machinesItem.setText(machines);
 	
-		String[] narcotics = { "Narcotics", "1", "2", "3" };
+		String[] narcotics = { "", "", "", "" };
 		narcoticsItem.setText(narcotics);
 	
-		String[] robots = { "Robots", "1", "2", "3" };
+		String[] robots = { "", "", "", "" };
 		robotsItem.setText(robots);
 	
 		btnBuy.setBounds(348, 554, 75, 25);
