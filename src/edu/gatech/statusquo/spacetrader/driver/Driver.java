@@ -36,7 +36,7 @@ public class Driver {
 	public LocalPlanetView localPlanetView;
 	
 	private HashMap<GoodType, Integer> basePrice;
-	private HashMap<GoodType, Integer> baseQty;
+	private static HashMap<GoodType, Integer> baseQty;
 
 	//contains list of all SolarSystems
 	private static ArrayList<SolarSystem> listOfSystems;
@@ -166,7 +166,31 @@ public class Driver {
 		int techLvl = s.getTechLevel();
 		int resLvl = s.getResourceLevel();
 		HashMap<GoodType, Integer> mPrices = s.getMarketPrice();
+		HashMap<GoodType, Integer> mQtys = s.getMarketQuantity();
 		//Setting market quantity
+		//(GoodType, int)
+		//(GoodType, baseint)
+
+		
+		switch(techLvl){
+			
+		case 0:
+			//if tech level is 0, only resources avilable are water and fur
+			//baseQtys set in constructor
+			mQtys.put(GoodType.WATER, baseQty.get(GoodType.WATER));
+			//new quantity is a 50% increase
+			int newFurQty = (int) ((baseQty.get(GoodType.FUR)) + ((baseQty.get(GoodType.FUR))*.5));
+			mQtys.put(GoodType.FUR, newFurQty);
+			//Rest are initialized to be 0, so no other changes.
+			break;
+		case 1:
+			mQtys.put(GoodType.WATER, baseQty.get(GoodType.WATER));
+			mQtys.put(GoodType.FUR, baseQty.get(GoodType.FUR));
+			
+			
+		
+		}
+		
 		
 		
  
