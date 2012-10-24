@@ -174,24 +174,31 @@ public class Driver {
 		
 		switch(techLvl){
 			
-		case 0:
-			//if tech level is 0, only resources avilable are water and fur
-			//baseQtys set in constructor
-			mQtys.put(GoodType.WATER, baseQty.get(GoodType.WATER));
-			//new quantity is a 50% increase
-			int newFurQty = (int) ((baseQty.get(GoodType.FUR)) + ((baseQty.get(GoodType.FUR))*.5));
-			mQtys.put(GoodType.FUR, newFurQty);
-			//Rest are initialized to be 0, so no other changes.
-			break;
-		case 1:
-			mQtys.put(GoodType.WATER, baseQty.get(GoodType.WATER));
-			mQtys.put(GoodType.FUR, baseQty.get(GoodType.FUR));
-			
-			
-		
+			case 0:
+				//if tech level is 0, only resources avilable are water and fur
+				//baseQtys set in constructor
+				mQtys.put(GoodType.WATER, baseQty.get(GoodType.WATER));
+				//new quantity is a 50% increase
+				int newFurQty = (int) ((baseQty.get(GoodType.FUR)) + ((baseQty.get(GoodType.FUR))*.5));
+				mQtys.put(GoodType.FUR, newFurQty);
+				//Rest are initialized to be 0, so no other changes.
+				break;
+			case 1:
+				mQtys.put(GoodType.WATER, baseQty.get(GoodType.WATER));
+				mQtys.put(GoodType.FUR, baseQty.get(GoodType.FUR));
+				int newFoodQty = (int) ((baseQty.get(GoodType.FOOD)) + ((baseQty.get(GoodType.FOOD))*.5));
+				mQtys.put(GoodType.FOOD, newFoodQty);
+			case 2:
+			    int newWaterQty = (int) ((baseQty.get(GoodType.WATER)) + ((baseQty.get(GoodType.WATER))*.5));
+			    mQtys.put(GoodType.WATER, newWaterQty);
+			    mQtys.put(GoodType.FUR, baseQty.get(GoodType.FUR));
+			    mQtys.put(GoodType.FOOD, baseQty.get(GoodType.FOOD));
+			    mQtys.put(GoodType.ORE, baseQty.get(GoodType.ORE));
+			    
+			    
+			 
 		}
-		
-		
+		    
 		
  
 		
