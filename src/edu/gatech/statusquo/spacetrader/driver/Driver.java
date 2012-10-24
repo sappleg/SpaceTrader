@@ -17,7 +17,6 @@ public class Driver {
 	Player player;
 	public Display display;
 	public Shell shell;
-	private static Driver driver;
 	public static int currency = 1000;
 	static ArrayList<Integer> totalSkills;
 	ArrayList<Integer> partySkills;
@@ -25,34 +24,37 @@ public class Driver {
 	private static ArrayList<Integer> Y; // Contains randomly generated Y
 	public static ArrayList<String> listOfNames; // Contains randomly picked names
 	
+	public ShipStatisticsView shipStatisticsView;
+	public TeamStatisticsView teamStatisticsView;
+	public SolarSystemListView solarSystemListView;
+	public TradeGoodsView tradeGoodsView;
+	public NotificationsView notificationsView;
+	public VitalsView vitalsView;
+	public LocalPlanetView localPlanetView;
+	
 	//contains list of all SolarSystems
 	private static ArrayList<SolarSystem> listOfSystems;
-	private static ArrayList <Good> listOfGoods;
+//	private static ArrayList <Good> listOfGoods;
 
 	public Driver() throws IOException {
 		player = new Player();
 		listOfSystems = new ArrayList<SolarSystem>();
 		generateUniverse();
-//		totalSkills = new ArrayList<Integer>();
-//		partySkills = new ArrayList<Integer>();
+		WelcomeView welcomeView = new WelcomeView();
+		new WelcomePresenter(this, welcomeView);
 	}
 	
 	public static void main(String[] args) {
-		driver = null;
 		try {
-			driver = new Driver();
+			new Driver();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		WelcomeView welcomeView = new WelcomeView();
-		new WelcomePresenter(driver, welcomeView);
-//		WelcomePresenter wp = new WelcomePresenter(driver, welcomeView);
 	}
 	
 	public void generateCreatePlayer() {
 		CreatePlayerView createPlayerView = new CreatePlayerView();
-		new CreatePlayerPresenter(driver, createPlayerView, player);
-//		CreatePlayerPresenter createPlayerPresenter = new CreatePlayerPresenter(driver, createPlayerView, player);
+		new CreatePlayerPresenter(this, createPlayerView, player);
 	}
 	
 	public void generateMainGame() {
@@ -66,26 +68,26 @@ public class Driver {
 		shell.setText("Space Trader");
 		shell.setLayout(null);
 		
-		ShipStatisticsView shipStatisticsView = new ShipStatisticsView(shell);
-		new ShipStatisticsPresenter(shell, driver, shipStatisticsView);
+		shipStatisticsView = new ShipStatisticsView(shell);
+		new ShipStatisticsPresenter(shell, this, shipStatisticsView);
 		
-		TeamStatisticsView teamStatisticsView = new TeamStatisticsView(shell, player);
-		new TeamStatisticsPresenter(shell, driver, teamStatisticsView);
+		teamStatisticsView = new TeamStatisticsView(shell, player);
+		new TeamStatisticsPresenter(shell, this, teamStatisticsView);
 		
-		SolarSystemListView solarSystemListView = new SolarSystemListView(shell);
-		new SolarSystemListPresenter(shell, driver, solarSystemListView);
+		solarSystemListView = new SolarSystemListView(shell);
+		new SolarSystemListPresenter(shell, this, solarSystemListView);
 		
-		TradeGoodsView tradeGoodsView = new TradeGoodsView(shell);
-		new TradeGoodsPresenter(shell, driver, tradeGoodsView);
+		tradeGoodsView = new TradeGoodsView(shell);
+		new TradeGoodsPresenter(shell, this, tradeGoodsView, player);
 		
-		NotificationsView notificationsView = new NotificationsView(shell, player);
-		new NotificationsPresenter(shell, driver, notificationsView);
+		notificationsView = new NotificationsView(shell, player);
+		new NotificationsPresenter(shell, this, notificationsView);
 		
-		VitalsView vitalsView = new VitalsView(shell, player);
-		new VitalsPresenter(shell, driver, vitalsView);
+		vitalsView = new VitalsView(shell, player);
+		new VitalsPresenter(shell, this, vitalsView);
 		
-		LocalPlanetView localPlanetView = new LocalPlanetView(shell);
-		new LocalPlanetPresenter(shell, driver, localPlanetView);
+		localPlanetView = new LocalPlanetView(shell);
+		new LocalPlanetPresenter(shell, this, localPlanetView);
 		
 		while (!shell.isDisposed()) {
 			if (!display.readAndDispatch()) {
@@ -221,6 +223,7 @@ public class Driver {
 	 * @param pi number of pilot points.
 	 * @param fi number of fighter points.
 	 */
+	// this needs to reference player correctly
 	public void boostSkillPoints(int tr, int en, int pi, int fi) {
 		int[] boostPoints = { tr, en, pi, fi };
 		ArrayList<Integer> newTotalSkills = new ArrayList<Integer>();

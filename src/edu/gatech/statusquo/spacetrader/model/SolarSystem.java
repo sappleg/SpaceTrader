@@ -1,6 +1,5 @@
 package edu.gatech.statusquo.spacetrader.model;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import edu.gatech.statusquo.spacetrader.model.Good.GoodType;
@@ -13,7 +12,8 @@ public class SolarSystem {
 	private static int xLocation;
 	private static int yLocation;
 	private static Planet planet;
-	private static HashMap<GoodType, ArrayList<GoodType>> market;
+	private static HashMap<GoodType, Integer> marketPrice;
+	private static HashMap<GoodType, Integer> marketQuantity;
 	
 	/**
 	 * Class constructor using listed parameters
@@ -33,19 +33,28 @@ public class SolarSystem {
 		SolarSystem.resourceLevel = resourceLevel;
 		SolarSystem.xLocation = xLocation;
 		SolarSystem.yLocation = yLocation;
-		market = new HashMap<Good.GoodType, ArrayList<Good.GoodType>>();
+		marketPrice = new HashMap<Good.GoodType, Integer>();
+		marketQuantity = new HashMap<Good.GoodType, Integer>();
 		GoodType[] keys = GoodType.values();
 		for (GoodType g: keys) {
-			market.put(g, new ArrayList<GoodType>());
+			marketPrice.put(g, 0);
+			marketQuantity.put(g, 0);
 		}
 	}
 	
-	public HashMap<GoodType, ArrayList<GoodType>> getMarket() {
-		return market;
+	public HashMap<GoodType, Integer> getMarketPrice() {
+		return marketPrice;
 	}
 	
-	public void setMarket(HashMap<GoodType, ArrayList<GoodType>> hm) {
-		market = hm;
+	public void setMarketPrice(HashMap<GoodType, Integer> hm) {
+		marketPrice = hm;
+	}	
+	public HashMap<GoodType, Integer> getMarketQuantity() {
+		return marketQuantity;
+	}
+	
+	public void setMarketQuantity(HashMap<GoodType, Integer> hm) {
+		marketQuantity = hm;
 	}
 
 	/**

@@ -51,4 +51,8 @@ public class Good {
     public void setLegality(boolean legality) {
         this.legality = legality;
     }
+    
+    public GoodType getGoodType() {
+    	return goodType;
+    }
 }
