@@ -35,12 +35,12 @@ public class Driver {
 	public VitalsView vitalsView;
 	public LocalPlanetView localPlanetView;
 	
-	private HashMap<GoodType, Integer> basePrice;
-	private static HashMap<GoodType, Integer> baseQty;
+	private static HashMap<GoodType, Integer> basePrice;   //map contaning all base prices
+	private static HashMap<GoodType, Integer> baseQty;     //map containing all base quantities
+	private final static double  PRICEPERCENT = .25;       //value used to increase or decrease prices
+	private final static double  QTYPERCENT = .50;         //value used to increase or decrease quantity
+	private static ArrayList<SolarSystem> listOfSystems;   //contains list of all SolarSystems
 
-	//contains list of all SolarSystems
-	private static ArrayList<SolarSystem> listOfSystems;
-//	private static ArrayList <Good> listOfGoods;
 
 	public Driver() throws IOException {
 		player = new Player();
@@ -162,35 +162,39 @@ public class Driver {
 		}
 	}
 	
+	/**
+	 * Generates a market stated by the game rules
+	 * An empty market is manipulated to match the SolarSystems technology
+	 * and resource levels.
+	 * @param s
+	 */
+	
 	public static void generateMarket(SolarSystem s) {
 		int techLvl = s.getTechLevel();
 		int resLvl = s.getResourceLevel();
 		HashMap<GoodType, Integer> mPrices = s.getMarketPrice();
 		HashMap<GoodType, Integer> mQtys = s.getMarketQuantity();
-		//Setting market quantity
-		//(GoodType, int)
-		//(GoodType, baseint)
 
-		
+	    //Setting market quantity
+        //**Needs to be proof read to see if variables and quantities are matching**
 		switch(techLvl){
-			
 			case 0:
 				//if tech level is 0, only resources avilable are water and fur
 				//baseQtys set in constructor
 				mQtys.put(GoodType.WATER, baseQty.get(GoodType.WATER));
 				//new quantity is a 50% increase
-				int newFurQty = (int) ((baseQty.get(GoodType.FUR)) + ((baseQty.get(GoodType.FUR))*.5));
+				int newFurQty = (int) ((baseQty.get(GoodType.FUR)) + ((baseQty.get(GoodType.FUR))*QTYPERCENT));
 				mQtys.put(GoodType.FUR, newFurQty);
 				//Rest are initialized to be 0, so no other changes.
 				break;
 			case 1:
 				mQtys.put(GoodType.WATER, baseQty.get(GoodType.WATER));
 				mQtys.put(GoodType.FUR, baseQty.get(GoodType.FUR));
-				int newFoodQty = (int) ((baseQty.get(GoodType.FOOD)) + ((baseQty.get(GoodType.FOOD))*.5));
+				int newFoodQty = (int) ((baseQty.get(GoodType.FOOD)) + ((baseQty.get(GoodType.FOOD))*QTYPERCENT));
 				mQtys.put(GoodType.FOOD, newFoodQty);
 				break;
 			case 2:
-			    int newWaterQty = (int) ((baseQty.get(GoodType.WATER)) + ((baseQty.get(GoodType.WATER))*.5));
+			    int newWaterQty = (int) ((baseQty.get(GoodType.WATER)) + ((baseQty.get(GoodType.WATER))*QTYPERCENT));
 			    mQtys.put(GoodType.WATER, newWaterQty);
 			    mQtys.put(GoodType.FUR, baseQty.get(GoodType.FUR));
 			    mQtys.put(GoodType.FOOD, baseQty.get(GoodType.FOOD));
@@ -200,7 +204,7 @@ public class Driver {
 			    mQtys.put(GoodType.WATER, baseQty.get(GoodType.WATER));
 	            mQtys.put(GoodType.FUR, baseQty.get(GoodType.FUR));
 	            mQtys.put(GoodType.FOOD, baseQty.get(GoodType.FOOD));
-	            int newOreQty = (int) ((baseQty.get(GoodType.ORE)) + ((baseQty.get(GoodType.ORE))*.5));
+	            int newOreQty = (int) ((baseQty.get(GoodType.ORE)) + ((baseQty.get(GoodType.ORE))*QTYPERCENT));
 	            mQtys.put(GoodType.ORE, newOreQty);
 	            mQtys.put(GoodType.FIREARM, baseQty.get(GoodType.FIREARM));
 	            break;
@@ -214,24 +218,93 @@ public class Driver {
 	             mQtys.put(GoodType.MACHINE, baseQty.get(GoodType.MACHINE));
 	             break;
 			case 5:
-			    //firearm, machines, narcotics
 	             mQtys.put(GoodType.WATER, baseQty.get(GoodType.WATER));
 	             mQtys.put(GoodType.FUR, baseQty.get(GoodType.FUR));
 	             mQtys.put(GoodType.FOOD, baseQty.get(GoodType.FOOD));
 	             mQtys.put(GoodType.ORE, baseQty.get(GoodType.ORE));
-	             int newFireQty = (int) ((baseQty.get(GoodType.FIREARM)) + ((baseQty.get(GoodType.FIREARM))*.5));
+	             int newFireQty = (int) ((baseQty.get(GoodType.FIREARM)) + ((baseQty.get(GoodType.FIREARM))*QTYPERCENT));
 	             mQtys.put(GoodType.FIREARM, newFireQty);
 	             mQtys.put(GoodType.MEDICINE, baseQty.get(GoodType.MEDICINE));
-	             int newMachQty = (int) ((baseQty.get(GoodType.MACHINE)) + ((baseQty.get(GoodType.MACHINE))*.5));
+	             int newMachQty = (int) ((baseQty.get(GoodType.MACHINE)) + ((baseQty.get(GoodType.MACHINE))*QTYPERCENT));
 	             mQtys.put(GoodType.MACHINE, newMachQty);
-	             int newNarcQty = (int) ((baseQty.get(GoodType.NARCOTIC)) + ((baseQty.get(GoodType.NARCOTIC))*.5));
-	             mQtys.put(GoodType.MACHINE, newNarcQty);
+	             int newNarcQty = (int) ((baseQty.get(GoodType.NARCOTIC)) + ((baseQty.get(GoodType.NARCOTIC))*QTYPERCENT));
+	             mQtys.put(GoodType.NARCOTIC, newNarcQty);
 	             break;
-			 
+			case 6: 
+	             mQtys.put(GoodType.WATER, baseQty.get(GoodType.WATER));
+                 mQtys.put(GoodType.FUR, baseQty.get(GoodType.FUR));
+                 mQtys.put(GoodType.FOOD, baseQty.get(GoodType.FOOD));
+                 mQtys.put(GoodType.ORE, baseQty.get(GoodType.ORE));
+                 mQtys.put(GoodType.FIREARM, baseQty.get(GoodType.FIREARM));
+                 int newMedQty = (int) ((baseQty.get(GoodType.MEDICINE)) + ((baseQty.get(GoodType.MEDICINE))*QTYPERCENT));
+                 mQtys.put(GoodType.MEDICINE, newMedQty);
+                 mQtys.put(GoodType.MACHINE, baseQty.get(GoodType.MACHINE));
+                 mQtys.put(GoodType.NARCOTIC, baseQty.get(GoodType.NARCOTIC));
+                 mQtys.put(GoodType.ROBOT, baseQty.get(GoodType.ROBOT));
+                 break;
 		}
-		    
+
+		//Sets prices of all goods to its basePrice
+		mPrices.put(GoodType.WATER, basePrice.get(GoodType.WATER));
+	    mPrices.put(GoodType.FUR, basePrice.get(GoodType.FUR));
+	    mPrices.put(GoodType.FOOD, basePrice.get(GoodType.FOOD));
+	    mPrices.put(GoodType.ORE, basePrice.get(GoodType.ORE));
+	    mPrices.put(GoodType.FIREARM, basePrice.get(GoodType.FIREARM));
+	    mPrices.put(GoodType.MEDICINE, basePrice.get(GoodType.MEDICINE));
+	    mPrices.put(GoodType.MACHINE, basePrice.get(GoodType.MACHINE));
+	    mPrices.put(GoodType.NARCOTIC, basePrice.get(GoodType.NARCOTIC));
+	    mPrices.put(GoodType.ROBOT, basePrice.get(GoodType.ROBOT));
+	    
+	    // Respectively increases/decreases depending on generation rules
+	    // Generation rules are described in the "SpaceTrader: Game Information" 
+		switch(resLvl){
+    		case 0:
+    		    int lotsOfWater = (int) ((basePrice.get(GoodType.WATER)) + ((basePrice.get(GoodType.WATER))*PRICEPERCENT));
+    		    mPrices.put(GoodType.WATER, lotsOfWater);
+    		    break;
+    		case 1:
+                int drought = (int) ((basePrice.get(GoodType.WATER)) - ((basePrice.get(GoodType.WATER))*PRICEPERCENT));
+                mPrices.put(GoodType.WATER, drought);
+                break;
+            case 2:
+                int richFauna = (int) ((basePrice.get(GoodType.FUR)) + ((basePrice.get(GoodType.FUR))*PRICEPERCENT));
+                mPrices.put(GoodType.FUR, richFauna);
+                break;
+            case 3:
+                int lifeless = (int) ((basePrice.get(GoodType.FUR)) - ((basePrice.get(GoodType.FUR))*PRICEPERCENT));
+                mPrices.put(GoodType.FUR, lifeless);
+                break;
+            case 4:
+                int richSoil = (int) ((basePrice.get(GoodType.FOOD)) + ((basePrice.get(GoodType.FOOD))*PRICEPERCENT));
+                mPrices.put(GoodType.FOOD, richSoil);
+                break;
+            case 5: 
+                int poorSoil = (int) ((basePrice.get(GoodType.FOOD)) - ((basePrice.get(GoodType.FOOD))*PRICEPERCENT));
+                mPrices.put(GoodType.FOOD, poorSoil);
+                break;
+            case 6:
+                int mineralRich = (int) ((basePrice.get(GoodType.ORE)) + ((basePrice.get(GoodType.ORE))*PRICEPERCENT));
+                mPrices.put(GoodType.ORE, mineralRich);
+            case 7:
+                int mineralPoor = (int) ((basePrice.get(GoodType.ORE)) - ((basePrice.get(GoodType.ORE))*PRICEPERCENT));
+                mPrices.put(GoodType.ORE, mineralPoor);
+                break;
+            case 8:
+                int warLike = (int) ((basePrice.get(GoodType.FIREARM)) - ((basePrice.get(GoodType.FIREARM))*PRICEPERCENT));
+                mPrices.put(GoodType.FIREARM, warLike);
+                break;
+            case 9:
+                int lotsOfHerbs = (int) ((basePrice.get(GoodType.MEDICINE)) - ((basePrice.get(GoodType.MEDICINE))*PRICEPERCENT));
+                mPrices.put(GoodType.MEDICINE, lotsOfHerbs);
+                break;
+            case 10:
+                int weirdMushrooms = (int) ((basePrice.get(GoodType.NARCOTIC)) - ((basePrice.get(GoodType.NARCOTIC))*PRICEPERCENT));
+                mPrices.put(GoodType.NARCOTIC, weirdMushrooms);
+                break;
+		}
 		
- 
+		s.setMarketPrice(mPrices);
+		s.setMarketQuantity(mQtys);
 		
 		
 	}
