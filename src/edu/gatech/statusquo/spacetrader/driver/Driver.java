@@ -1,12 +1,14 @@
 package edu.gatech.statusquo.spacetrader.driver;
 
 import edu.gatech.statusquo.spacetrader.model.*;
+import edu.gatech.statusquo.spacetrader.model.Good.GoodType;
 import edu.gatech.statusquo.spacetrader.presenter.*;
 import edu.gatech.statusquo.spacetrader.view.*;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 import org.eclipse.swt.SWT;
@@ -33,12 +35,40 @@ public class Driver {
 	public VitalsView vitalsView;
 	public LocalPlanetView localPlanetView;
 	
+	private HashMap<GoodType, Integer> basePrice;
+	private HashMap<GoodType, Integer> baseQty;
+
 	//contains list of all SolarSystems
 	private static ArrayList<SolarSystem> listOfSystems;
 //	private static ArrayList <Good> listOfGoods;
 
 	public Driver() throws IOException {
 		player = new Player();
+		
+		//fill in base prices
+		basePrice = new HashMap<GoodType, Integer>();
+		basePrice.put(GoodType.WATER, 30);
+		basePrice.put(GoodType.FUR, 250);
+		basePrice.put(GoodType.FOOD, 100);
+		basePrice.put(GoodType.ORE, 350);
+		basePrice.put(GoodType.FIREARM, 1200);
+		basePrice.put(GoodType.MEDICINE, 650);
+		basePrice.put(GoodType.MACHINE, 900);
+		basePrice.put(GoodType.NARCOTIC, 3500);
+		basePrice.put(GoodType.ROBOT, 5000);
+		
+		//fill in base quantity
+		baseQty = new HashMap<GoodType, Integer>();
+		baseQty.put(GoodType.WATER, 25);
+		baseQty.put(GoodType.FUR, 10);
+		baseQty.put(GoodType.FOOD, 20);
+		baseQty.put(GoodType.ORE, 20);
+		baseQty.put(GoodType.FIREARM, 5);
+		baseQty.put(GoodType.MEDICINE, 15);
+		baseQty.put(GoodType.MACHINE, 10);
+		baseQty.put(GoodType.NARCOTIC, 5);
+		baseQty.put(GoodType.ROBOT, 5);
+		
 		listOfSystems = new ArrayList<SolarSystem>();
 		generateUniverse();
 		WelcomeView welcomeView = new WelcomeView();
@@ -127,12 +157,20 @@ public class Driver {
 			generateMarket(system);
 			listOfSystems.add(system);
 			// **TEMP PRINTS TO CONSOLE**
-			SolarSystem printThis = listOfSystems.get(i);
-			System.out.println(printThis.toString() + "\n");
+			//SolarSystem printThis = listOfSystems.get(i);
+			//System.out.println(printThis.toString() + "\n");
 		}
 	}
 	
 	public static void generateMarket(SolarSystem s) {
+		int techLvl = s.getTechLevel();
+		int resLvl = s.getResourceLevel();
+		HashMap<GoodType, Integer> mPrices = s.getMarketPrice();
+		//Setting market quantity
+		
+		
+ 
+		
 		
 	}
 
