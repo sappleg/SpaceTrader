@@ -188,14 +188,45 @@ public class Driver {
 				mQtys.put(GoodType.FUR, baseQty.get(GoodType.FUR));
 				int newFoodQty = (int) ((baseQty.get(GoodType.FOOD)) + ((baseQty.get(GoodType.FOOD))*.5));
 				mQtys.put(GoodType.FOOD, newFoodQty);
+				break;
 			case 2:
 			    int newWaterQty = (int) ((baseQty.get(GoodType.WATER)) + ((baseQty.get(GoodType.WATER))*.5));
 			    mQtys.put(GoodType.WATER, newWaterQty);
 			    mQtys.put(GoodType.FUR, baseQty.get(GoodType.FUR));
 			    mQtys.put(GoodType.FOOD, baseQty.get(GoodType.FOOD));
 			    mQtys.put(GoodType.ORE, baseQty.get(GoodType.ORE));
-			    
-			    
+			    break;
+			case 3:
+			    mQtys.put(GoodType.WATER, baseQty.get(GoodType.WATER));
+	            mQtys.put(GoodType.FUR, baseQty.get(GoodType.FUR));
+	            mQtys.put(GoodType.FOOD, baseQty.get(GoodType.FOOD));
+	            int newOreQty = (int) ((baseQty.get(GoodType.ORE)) + ((baseQty.get(GoodType.ORE))*.5));
+	            mQtys.put(GoodType.ORE, newOreQty);
+	            mQtys.put(GoodType.FIREARM, baseQty.get(GoodType.FIREARM));
+	            break;
+			case 4: 
+	             mQtys.put(GoodType.WATER, baseQty.get(GoodType.WATER));
+	             mQtys.put(GoodType.FUR, baseQty.get(GoodType.FUR));
+	             mQtys.put(GoodType.FOOD, baseQty.get(GoodType.FOOD));
+	             mQtys.put(GoodType.ORE, baseQty.get(GoodType.ORE));
+	             mQtys.put(GoodType.FIREARM, baseQty.get(GoodType.FIREARM));
+	             mQtys.put(GoodType.MEDICINE, baseQty.get(GoodType.MEDICINE));
+	             mQtys.put(GoodType.MACHINE, baseQty.get(GoodType.MACHINE));
+	             break;
+			case 5:
+			    //firearm, machines, narcotics
+	             mQtys.put(GoodType.WATER, baseQty.get(GoodType.WATER));
+	             mQtys.put(GoodType.FUR, baseQty.get(GoodType.FUR));
+	             mQtys.put(GoodType.FOOD, baseQty.get(GoodType.FOOD));
+	             mQtys.put(GoodType.ORE, baseQty.get(GoodType.ORE));
+	             int newFireQty = (int) ((baseQty.get(GoodType.FIREARM)) + ((baseQty.get(GoodType.FIREARM))*.5));
+	             mQtys.put(GoodType.FIREARM, newFireQty);
+	             mQtys.put(GoodType.MEDICINE, baseQty.get(GoodType.MEDICINE));
+	             int newMachQty = (int) ((baseQty.get(GoodType.MACHINE)) + ((baseQty.get(GoodType.MACHINE))*.5));
+	             mQtys.put(GoodType.MACHINE, newMachQty);
+	             int newNarcQty = (int) ((baseQty.get(GoodType.NARCOTIC)) + ((baseQty.get(GoodType.NARCOTIC))*.5));
+	             mQtys.put(GoodType.MACHINE, newNarcQty);
+	             break;
 			 
 		}
 		    
