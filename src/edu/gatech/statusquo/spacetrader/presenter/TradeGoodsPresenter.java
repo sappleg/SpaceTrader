@@ -22,7 +22,16 @@ public class TradeGoodsPresenter {
 	Ship ship;
 	HashMap<GoodType, Integer> marketQuantity;
 	HashMap<GoodType, Integer> marketPrice;
-
+	
+	/**
+	 * 
+	 * @param s
+	 * @param d
+	 * @param tgv
+	 * @param p
+	 * @param ss
+	 * @param vv
+	 */
 	public TradeGoodsPresenter(Shell s, Driver d, TradeGoodsView tgv, Player p, SolarSystem ss, VitalsView vv) {
 		this.shell = s;
 		this.driver = d;
@@ -38,6 +47,9 @@ public class TradeGoodsPresenter {
 		fillTradeGoodsTable();
 	}
 	
+	/**
+	 * sets all trade good listeners
+	 */
 	private void setListeners() {
 		/**
 		 * Mouse listener for the marketplace, allows entering of quantities for buying
@@ -168,6 +180,10 @@ public class TradeGoodsPresenter {
 				}
 			}
 		});
+		
+		/**
+		 * creates mouse listenerss
+		 */
 
 		tradeGoodsView.text.addMouseListener(new MouseAdapter() {
 		    @Override

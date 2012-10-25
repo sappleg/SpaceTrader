@@ -8,11 +8,15 @@ public class Ship {
 	final int fuelCapacity;
 	static int fuelLevel;
 	
-
+	
     public enum ShipType {
     	FLEA, GNAT, FIREFLY, MOSQUITO, BUMBLEBEE, BEETLE, HORNET, GRASSHOPPER, TERMITE, WASP
     }
     
+    /**
+     * 
+     * @param st
+     */
     public Ship (ShipType st) {
     	this.shipType = st;
     	
@@ -77,14 +81,28 @@ public class Ship {
     	}
     }
     
+    /**
+     * 
+     * @return fuelLevel
+     */
+    
     public static int getFuelLevel() {
     	return fuelLevel;
     }
     
+    /**
+     * 
+     * @return cargoBay
+     */
     public Good[] getCargoBay() {
     	return cargoBay;
     }
 	
+    /**
+     * 
+     * @param gt
+     * @return count
+     */
 	public int countGoodType(GoodType gt) {
 		int count = 0;
 		for (Good g: cargoBay) {
@@ -93,6 +111,10 @@ public class Ship {
 		return count;
 	}
 	
+	/**
+	 * 
+	 * @return count
+	 */
 	public int countCargoLeft() {
 		int count = 0;
 		for (int i = 0; i < cargoBay.length; i++) {
@@ -101,6 +123,11 @@ public class Ship {
 		return count;
 	}
 	
+	/**
+	 * 
+	 * @param gt
+	 * @return count
+	 */
 	public int countCargo(GoodType gt) {
 		int count = 0;
 		for (int i = 0; i < cargoBay.length; i++) {
@@ -111,6 +138,11 @@ public class Ship {
 		return count;
 	}
 	
+	/**
+	 * 
+	 * @param amt
+	 * @param gt
+	 */
 	public void addCargo(int amt, GoodType gt) {
 		while (amt > 0) {
 			for (int i = 0; i < cargoBay.length; i++) {
@@ -122,7 +154,11 @@ public class Ship {
 			amt--;
 		}
 	}
-	
+	/**
+	 * 
+	 * @param amt
+	 * @param gt
+	 */
 	public void removeCargo(int amt, GoodType gt) {
 		while (amt > 0) {
 			for (int i = 0; i < cargoBay.length; i++) {
