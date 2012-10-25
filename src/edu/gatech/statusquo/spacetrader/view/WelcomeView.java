@@ -14,6 +14,9 @@ public class WelcomeView {
 	public Button btnLoadGame; //= new Button(shell, SWT.NONE);
 	public Label lblWelcomeToSpace; //= new Label(shell, SWT.NONE);
 	
+	/**
+	 * Creates the welcome view
+	 */
 	public WelcomeView() {
 		display = Display.getDefault();
 		shell = new Shell(display, SWT.TITLE | SWT.CLOSE);

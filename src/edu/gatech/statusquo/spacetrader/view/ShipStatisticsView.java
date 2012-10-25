@@ -14,6 +14,11 @@ public class ShipStatisticsView {
 	TableColumn tblclmnQuantity;
 	TableCursor tableCursor;
 	
+	/**
+	 * 
+	 * @param shell
+	 */
+	
 	public ShipStatisticsView(Shell shell) {
 		this.shell = shell;
 		table = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
@@ -28,6 +33,9 @@ public class ShipStatisticsView {
 		}
 	}
 	
+	/**
+	 * Creates the contents of the ship statistics view
+	 */
 	public void createView() {
 		Label lblShipStatistics = new Label(shell, SWT.NONE);
 		lblShipStatistics.setAlignment(SWT.CENTER);
