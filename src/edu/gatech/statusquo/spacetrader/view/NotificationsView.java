@@ -13,6 +13,13 @@ public class NotificationsView {
 	Label lblNotifications;
 	public static List list_1;
 	
+	/**
+	 * Shell s
+	 * Player p
+	 * 
+	 * @param s
+	 * @param p
+	 */
 	public NotificationsView(Shell s, Player p) {
 		this.shell = s;
 		this.player = p;
@@ -24,6 +31,10 @@ public class NotificationsView {
 			e.printStackTrace();
 		}
 	}
+	
+	/**
+	 * Creates contents of the notifications view
+	 */
 	
 	public void createView() {
 		lblNotifications.setAlignment(SWT.CENTER);

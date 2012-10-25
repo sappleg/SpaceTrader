@@ -38,6 +38,10 @@ public class TradeGoodsView {
     public Button btnBuy;
     public Button btnSell;
 
+    /**
+     * Shell s
+     * @param s
+     */
     public TradeGoodsView(Shell s) {
 		this.shell = s;
 		table_1 = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);

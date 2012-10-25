@@ -15,6 +15,11 @@ public class SolarSystemListView {
 	Label lblNewLabel;
 	List list;
 	
+	/**
+	 * Shell s
+	 * @param s
+	 */
+	
 	public SolarSystemListView(Shell s) {
 		this.shell = s;
 		lblNewLabel = new Label(shell, SWT.NONE);
@@ -27,6 +32,9 @@ public class SolarSystemListView {
 		}
 	}
 	
+	/**
+	 * Creates the contents of the solar system list view
+	 */
 	public void createView() {
 		lblNewLabel.setBounds(53, 423, 94, 15);
 		lblNewLabel.setText("Solar System List");

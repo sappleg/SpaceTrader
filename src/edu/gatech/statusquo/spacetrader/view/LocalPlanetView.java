@@ -10,6 +10,10 @@ public class LocalPlanetView {
 	Label lblLocalPlanets;
 	List list_2;
 	
+	/**
+	 * shell parameter
+	 * @param s
+	 */
 	public LocalPlanetView(Shell s) {
 		this.shell = s;
 		lblLocalPlanets = new Label(shell, SWT.NONE);
@@ -21,7 +25,10 @@ public class LocalPlanetView {
 			e.printStackTrace();
 		}
 	}
-
+	
+	/**
+	 * Creates contents of the local planets view
+	 */
 	public void createView() {
 		lblLocalPlanets.setBounds(891, 604, 77, 15);
 		lblLocalPlanets.setText("Local Planets");

@@ -23,6 +23,12 @@ public class VitalsView {
 	TableCursor tableCursor_3;
 	TableColumn tblclmnCargo;
 	
+	/**
+	 * Shell s
+	 * Player p
+	 * @param s
+	 * @param p
+	 */
 	public VitalsView(Shell s, Player p) {
 		this.shell = s;
 		this.player = p;
