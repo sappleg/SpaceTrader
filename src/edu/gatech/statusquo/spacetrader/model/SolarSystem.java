@@ -56,6 +56,24 @@ public class SolarSystem {
 	public void setMarketQuantity(HashMap<GoodType, Integer> hm) {
 		marketQuantity = hm;
 	}
+	
+	
+
+	public int getTechLevel() {
+		return techLevel;
+	}
+
+	public void setTechLevel(int techLevel) {
+		SolarSystem.techLevel = techLevel;
+	}
+
+	public int getResourceLevel() {
+		return resourceLevel;
+	}
+
+	public void setResourceLevel(int resourceLevel) {
+		SolarSystem.resourceLevel = resourceLevel;
+	}
 
 	/**
 	 * @return Information of the SolarSystem in a String.
