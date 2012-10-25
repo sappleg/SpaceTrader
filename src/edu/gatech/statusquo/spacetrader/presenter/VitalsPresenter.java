@@ -13,28 +13,31 @@ import edu.gatech.statusquo.spacetrader.view.*;
 public class VitalsPresenter {
 	Shell shell;
 	Driver driver;
-	VitalsView vitalsView;
-	Player player;
-	Ship ship;
+	static VitalsView vitalsView;
+	TradeGoodsView tradeGoodsView;
+	static Player player;
+	static Ship ship;
 
-	public VitalsPresenter(Shell s, Driver d, VitalsView vv, Player p) {
+	public VitalsPresenter(Shell s, Driver d, VitalsView vv, Player p, TradeGoodsView tgv) {
 		this.shell = s;
 		this.driver = d;
-		this.vitalsView = vv;
-		this.player = p;
+		VitalsPresenter.vitalsView = vv;
+		VitalsPresenter.player = p;
+		this.tradeGoodsView = tgv;
 		ship = player.getShip();
 		
 		setPlayerVitals();
 		setShipVitals();
 	}
 	
-	public void setPlayerVitals() {
+	public static void setPlayerVitals() {
 		player.getShip();
 		String[] playerState = {Integer.toString(Player.getCurrency()), Integer.toString(Ship.getFuelLevel())};
 		vitalsView.tableItem.setText(playerState);
 	}
 	
-	public void setShipVitals() {
+	public static void setShipVitals() {
+		vitalsView.table_3.removeAll();
 		Good[] cargoBay = ship.getCargoBay();
 		for (int i = 0; i < cargoBay.length; i++) {
 			if (cargoBay[i] != null) {

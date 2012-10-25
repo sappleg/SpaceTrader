@@ -100,24 +100,19 @@ public class Driver {
 		shell.setLayout(null);
 		
 		shipStatisticsView = new ShipStatisticsView(shell);
-		new ShipStatisticsPresenter(shell, this, shipStatisticsView);
-		
 		teamStatisticsView = new TeamStatisticsView(shell, player);
-		new TeamStatisticsPresenter(shell, this, teamStatisticsView);
-		
 		solarSystemListView = new SolarSystemListView(shell);
-		new SolarSystemListPresenter(shell, this, solarSystemListView);
-		
 		tradeGoodsView = new TradeGoodsView(shell);
-		new TradeGoodsPresenter(shell, this, tradeGoodsView, player, listOfSystems.get(0));
-		
 		notificationsView = new NotificationsView(shell, player);
-		new NotificationsPresenter(shell, this, notificationsView);
-		
 		vitalsView = new VitalsView(shell, player);
-		new VitalsPresenter(shell, this, vitalsView, player);
-		
 		localPlanetView = new LocalPlanetView(shell);
+		
+		new ShipStatisticsPresenter(shell, this, shipStatisticsView);
+		new TeamStatisticsPresenter(shell, this, teamStatisticsView);
+		new SolarSystemListPresenter(shell, this, solarSystemListView);
+		new TradeGoodsPresenter(shell, this, tradeGoodsView, player, listOfSystems.get(0),vitalsView);
+		new NotificationsPresenter(shell, this, notificationsView);
+		new VitalsPresenter(shell, this, vitalsView, player, tradeGoodsView);
 		new LocalPlanetPresenter(shell, this, localPlanetView);
 		
 		while (!shell.isDisposed()) {
