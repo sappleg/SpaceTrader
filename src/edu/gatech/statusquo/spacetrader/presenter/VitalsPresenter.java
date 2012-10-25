@@ -30,12 +30,18 @@ public class VitalsPresenter {
 		setShipVitals();
 	}
 	
+	/**
+	 * Sets the players currency and the ships fuel for view by user
+	 */
 	public static void setPlayerVitals() {
 		player.getShip();
 		String[] playerState = {Integer.toString(Player.getCurrency()), Integer.toString(Ship.getFuelLevel())};
 		vitalsView.tableItem.setText(playerState);
 	}
 	
+	/**
+	 * Sets view for cargobay by user and displays what it contains
+	 */
 	public static void setShipVitals() {
 		vitalsView.table_3.removeAll();
 		Good[] cargoBay = ship.getCargoBay();

@@ -39,14 +39,28 @@ public class TradeGoodsPresenter {
 	}
 	
 	private void setListeners() {
+		/**
+		 * Mouse listener for the marketplace, allows entering of quantities for buying
+		 */
+		
 		tradeGoodsView.btnBuy.addMouseListener(new MouseAdapter() {
 			public void mouseUp(MouseEvent e) {
 				String quantText = tradeGoodsView.text.getText();
+				
+				/**
+				 * Throws error message if no amount is entered when the player attempts a transaction
+				 */
+				
 				if (quantText.equals("") || quantText.equals("Enter Qty")) {
 					NotificationsView.list_1.add("Please enter an amount in the text box");
 					return;
 				}
 				int quant = Integer.parseInt(quantText);
+				
+				/**
+				 * Check to make sure a player has selected a good before attempting a transaction 
+				 */
+				
 				if (tradeGoodsView.table_1.getSelection().length == 0) {
 					NotificationsView.list_1.add("Please select an item from the market");
 					return;
@@ -56,21 +70,35 @@ public class TradeGoodsPresenter {
 					int price = marketPrice.get(goodType);
 					int marketCount = marketQuantity.get(goodType);
 					int cargoCountLeft = ship.countCargoLeft();
+					
+					/**
+					 * Check to make sure the player has enough currency to complete a transaction
+					 */
 				    if(Player.getCurrency() < quant * price){
 						NotificationsView.list_1.add("Sorry, you do not have enough currency to make this purchase");
 						NotificationsView.list_1.select(NotificationsView.list_1.getItemCount() - 1);
 						NotificationsView.list_1.showSelection();
 						return;
+						/**
+						 * Check to make sure enough of quantity is available to purchase
+						 */
 				    } else if(quant > marketCount) {
 						NotificationsView.list_1.add("Sorry, there is not enough of this item in the market.");
 						NotificationsView.list_1.select(NotificationsView.list_1.getItemCount() - 1);
 						NotificationsView.list_1.showSelection();
 						return;
+						
+						/**
+						 * Check to make sure the player has enough room in the cargobay for the new goods
+						 */
 				    } else if(quant > cargoCountLeft){
 						NotificationsView.list_1.add("Sorry, you do not have enough space in your cargo bay.");
 						NotificationsView.list_1.select(NotificationsView.list_1.getItemCount() - 1);
 						NotificationsView.list_1.showSelection();
 						return;
+						
+						/**If checks pass the goods are added to the cargo bay
+						 */
 				    } else {
 				    	ship.addCargo(quant, goodType);
 				    	player.setCurrency(Player.getCurrency() - (quant*price));
@@ -81,23 +109,35 @@ public class TradeGoodsPresenter {
 			}
 		});
 
-		// CURRENTLY CODE FOR BUY, WRITE FOR SELL
+		/**
+		 * Button listener for selling transactions
+		 */
 		tradeGoodsView.btnSell.addMouseListener(new MouseAdapter() {
 			public void mouseUp(MouseEvent e) {
 				String quantText = tradeGoodsView.text_1.getText();
+				/**
+				 * Check to make sure an amount is entered
+				 */
 				if (quantText.equals("") || quantText.equals("Enter Qty")) {
 					NotificationsView.list_1.add("Please enter an amount in the text box");
 					return;
 				}
 				int quant = Integer.parseInt(quantText);
+				/**
+				 * Check to make sure an item is selected before attempting transaction
+				 */
 				if (tradeGoodsView.table_1.getSelection().length == 0) {
 					NotificationsView.list_1.add("Please select an item from the market");
 					return;
+					
 				} else {
 //					int price = Integer.parseInt(tradeGoodsView.table_1.getSelection()[0].getText(1));
 					GoodType goodType = GoodType.valueOf(tradeGoodsView.table_1.getSelection()[0].getText(0));
 					int price = marketPrice.get(goodType);
 					int cargoCount = ship.countCargo(goodType);
+					/**
+					 * Check to make sure player has the items available to sell
+					 */
 				    if (quant > cargoCount){
 				    	String msg = "Sorry, you do not have enough " 
 				    			+ tradeGoodsView.table_1.getSelection()[0].getText(0)
@@ -106,6 +146,9 @@ public class TradeGoodsPresenter {
 						NotificationsView.list_1.select(NotificationsView.list_1.getItemCount() - 1);
 						NotificationsView.list_1.showSelection();
 						return;
+						/**
+						 * If checks pass the items are removed from cargobay and the market pays the player
+						 */
 				    } else {
 				    	ship.removeCargo(quant, goodType);
 				    	player.setCurrency(Player.getCurrency() + (quant*price));
@@ -131,6 +174,9 @@ public class TradeGoodsPresenter {
 		});
 	}
 	
+	/**
+	 * Fills market with items, quantities and prices based on criteria
+	 */
 	private void fillTradeGoodsTable() {
 		HashMap<GoodType, Integer> marketPrice = solarSystem.getMarketPrice();
 		HashMap<GoodType, Integer> marketQuantity = solarSystem.getMarketQuantity();

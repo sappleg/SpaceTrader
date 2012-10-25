@@ -70,7 +70,10 @@ public class TradeGoodsView {
 		    e.printStackTrace();
 		}
     }
-
+    
+    /**
+     * Blank Market set up with prices and quantities to be filled
+     */
     public void createView() {
 		label.setAlignment(SWT.CENTER);
 		label.setText("Trade Goods");

@@ -43,6 +43,9 @@ public class VitalsView {
 		}
 	}
 	
+	/**
+	 * Creates view for player and ship vitals to be displayed in
+	 */
 	public void createView() {
 		lblVitals.setAlignment(SWT.CENTER);
 		lblVitals.setBounds(903, 0, 55, 15);
