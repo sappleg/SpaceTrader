@@ -20,6 +20,13 @@ public class TeamStatisticsView {
 	TableItem tableItem_3;
 	TableItem tableItem_4;
 	
+	/**
+	 * Shell s
+	 * Player p
+	 * 
+	 * @param s
+	 * @param p
+	 */
 	public TeamStatisticsView (Shell s, Player p) {
 		this.shell = s;
 		this.player = p;
@@ -38,6 +45,9 @@ public class TeamStatisticsView {
 		}
 	}
 	
+	/** 
+	 * Creates the contents of the team statistics view
+	 */
 	public void createView() {
 		Label lblTeamStatistics = new Label(shell, SWT.NONE);
 		lblTeamStatistics.setBounds(53, 231, 94, 15);
