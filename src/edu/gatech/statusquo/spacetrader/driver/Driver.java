@@ -41,7 +41,9 @@ public class Driver {
 	private final static double  QTYPERCENT = .50;         //value used to increase or decrease quantity
 	private static ArrayList<SolarSystem> listOfSystems;   //contains list of all SolarSystems
 
-
+	/*
+	 * Driver's constructor
+	 */
 	public Driver() throws IOException {
 		player = new Player();
 		
@@ -69,12 +71,16 @@ public class Driver {
 		baseQty.put(GoodType.NARCOTIC, 5);
 		baseQty.put(GoodType.ROBOT, 5);
 		
+		//represents a list of solar systems
 		listOfSystems = new ArrayList<SolarSystem>();
 		generateUniverse();
 		WelcomeView welcomeView = new WelcomeView();
 		new WelcomePresenter(this, welcomeView);
 	}
 	
+	/*
+	 * Main method of SpaceTrader game and creates driver object
+	 */
 	public static void main(String[] args) {
 		try {
 			new Driver();
