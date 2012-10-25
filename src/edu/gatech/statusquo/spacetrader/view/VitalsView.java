@@ -14,7 +14,7 @@ public class VitalsView {
 	Shell shell;
 	Player player;
 	Label lblVitals;
-	Table table_2;
+	public Table table_2;
 	TableColumn tblclmnCurrency;
 	TableColumn tblclmnFuel;
 	TableCursor tableCursor_2;

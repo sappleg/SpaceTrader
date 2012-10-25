@@ -84,4 +84,56 @@ public class Ship {
     public Good[] getCargoBay() {
     	return cargoBay;
     }
+	
+	public int countGoodType(GoodType gt) {
+		int count = 0;
+		for (Good g: cargoBay) {
+			if (g.getGoodType() == gt) count++;
+		}
+		return count;
+	}
+	
+	public int countCargoLeft() {
+		int count = 0;
+		for (int i = 0; i < cargoBay.length; i++) {
+			if (cargoBay[i] == null) count++;
+		}
+		return count;
+	}
+	
+	public int countCargo(GoodType gt) {
+		int count = 0;
+		for (int i = 0; i < cargoBay.length; i++) {
+			if (cargoBay[i] != null) {
+				if (cargoBay[i].getGoodType() == gt) count++;
+			}
+		}
+		return count;
+	}
+	
+	public void addCargo(int amt, GoodType gt) {
+		while (amt > 0) {
+			for (int i = 0; i < cargoBay.length; i++) {
+				if (cargoBay[i] == null) {
+					cargoBay[i] = new Good(gt);
+					break;
+				}
+			}
+			amt--;
+		}
+	}
+	
+	public void removeCargo(int amt, GoodType gt) {
+		while (amt > 0) {
+			for (int i = 0; i < cargoBay.length; i++) {
+				if (cargoBay[i] != null) {
+					if (cargoBay[i].getGoodType() == gt) {
+						cargoBay[i] = null;
+						break;
+					}
+				}
+			}
+			amt--;
+		}
+	}
 }
