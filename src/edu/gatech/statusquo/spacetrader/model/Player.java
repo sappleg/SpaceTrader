@@ -71,41 +71,80 @@ public class Player {
 	/**
 	 * Set the player's name.
 	 * 
-	 * @param nm
-	 *            - String - set the player's name to this.
+	 * @param nm - String - set the player's name to this.
 	 */
 	public void setName(String nm) {
 		name = nm;
 	}
 	
+	/**
+	 * Set the trader skill level to be a particular value.
+	 * 
+	 * @param i represents the trader skills
+	 */
 	public void setTraderSkills(int i) {
 		trader = i;
 	}
 	
+	/**
+	 * Set the engineer skill level to be a particular value.
+	 * 
+	 * @param i represents the engineer skills
+	 */
 	public void setEngineerSkills(int i) {
 		engineer = i;
 	}
 	
+	/**
+	 * Set the pilot skill level to be a particular value.
+	 * 
+	 * @param i represents the pilot skills
+	 */
 	public void setPilotSkills(int i) {
 		pilot = i;
 	}
 	
+	/**
+	 * Set the fighter skill level to be a particular value.
+	 * 
+	 * @param i represents the fighter skills
+	 */
 	public void setFighterSkills(int i) {
 		fighter = i;
 	}
 	
+	/**
+	 * Get the players trader skills
+	 * 
+	 * @return trader trader skills
+	 */
 	public static int getTraderSkills() {
 		return trader;
 	}
 	
+	/**
+	 * Get the players engineer skills
+	 * 
+	 * @return engineer engineer skills
+	 */
 	public static int getEngineerSkills() {
 		return engineer;
 	}
 	
+	/**
+	 * Get the players pilot skills
+	 * 
+	 * @return pilot pilot skills
+	 */
 	public static int getPilotSkills() {
 		return pilot;
 	}
 	
+	/**
+	 * Get the players fighter skills
+	 * 
+	 * @return fighter fighter skills
+	 */
 	public static int getFighterSkills() {
 		return fighter;
 	}
