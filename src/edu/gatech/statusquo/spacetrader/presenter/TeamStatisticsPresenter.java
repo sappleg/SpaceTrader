@@ -10,6 +10,12 @@ public class TeamStatisticsPresenter {
 	Driver driver;
 	TeamStatisticsView teamStatisticsView;
 
+	/**
+	 * class constructor using listed parameters
+	 * @param s
+	 * @param d
+	 * @param tsv
+	 */
 	public TeamStatisticsPresenter(Shell s, Driver d, TeamStatisticsView tsv) {
 		this.shell = s;
 		this.driver = d;

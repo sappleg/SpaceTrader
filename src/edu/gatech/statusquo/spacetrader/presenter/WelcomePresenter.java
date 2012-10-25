@@ -11,6 +11,11 @@ public class WelcomePresenter {
 	private WelcomeView welcomeView;
 	private Driver driver;
 	
+	/**
+	 * class constructor using listed parameters
+	 * @param d
+	 * @param wv
+	 */
 	public WelcomePresenter(Driver d, WelcomeView wv) {
 		this.driver = d;
 		this.welcomeView = wv;
@@ -24,6 +29,9 @@ public class WelcomePresenter {
 		}
 	}
 	
+	/**
+	 * sets listeners
+	 */
 	private void setListeners() {
 		welcomeView.btnStartGame.addMouseListener(new MouseAdapter() {
 			@Override

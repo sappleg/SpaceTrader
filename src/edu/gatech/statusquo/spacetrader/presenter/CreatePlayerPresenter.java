@@ -22,6 +22,12 @@ public class CreatePlayerPresenter {
 	public int pilotUsed;
 	public int fighterUsed;
 	
+	/**
+	 * Constructor using listed parameters
+	 * @param d
+	 * @param cpv
+	 * @param p
+	 */
 	public CreatePlayerPresenter(Driver d, CreatePlayerView cpv, Player p) {
 		this.driver = d;
 		this.createPlayerView = cpv;
@@ -42,6 +48,9 @@ public class CreatePlayerPresenter {
 		}
 	}
 	
+	/**
+	 * sets listeners
+	 */
 	private void setListeners() {
 
 		createPlayerView.traderSpinner.addMouseListener(new MouseAdapter() {
@@ -281,6 +290,9 @@ public class CreatePlayerPresenter {
 		}
 	}
 	
+	/**
+	 * sets spinners
+	 */
 	private void setSpinners() {
 		createPlayerView.traderSpinner.setEnabled(status);
 		createPlayerView.engineerSpinner.setEnabled(status);
@@ -290,6 +302,10 @@ public class CreatePlayerPresenter {
 		status = canAddMorePoints();
 	}
 	
+	/**
+	 * gets available points
+	 * @return pointsAvailable
+	 */
 	public int getPointsAvailable() {
 		return pointsAvailable;
 	}

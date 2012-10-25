@@ -17,7 +17,15 @@ public class VitalsPresenter {
 	TradeGoodsView tradeGoodsView;
 	static Player player;
 	static Ship ship;
-
+	
+	/**
+	 * class constructor using listed parameters
+	 * @param s
+	 * @param d
+	 * @param vv
+	 * @param p
+	 * @param tgv
+	 */
 	public VitalsPresenter(Shell s, Driver d, VitalsView vv, Player p, TradeGoodsView tgv) {
 		this.shell = s;
 		this.driver = d;
@@ -40,7 +48,7 @@ public class VitalsPresenter {
 	}
 	
 	/**
-	 * Sets view for cargobay by user and displays what it contains
+	 * Sets view for cargo bay by user and displays what it contains
 	 */
 	public static void setShipVitals() {
 		vitalsView.table_3.removeAll();
