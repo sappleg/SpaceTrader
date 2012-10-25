@@ -4,7 +4,7 @@ import edu.gatech.statusquo.spacetrader.model.Ship.ShipType;
 
 public class Player {
 
-	private Ship.ShipType ship;
+	private Ship ship;
 	private static String name;
 	private static int currency;
 	private static int trader;
@@ -13,7 +13,7 @@ public class Player {
 	private static int fighter;
 
 	public Player() {
-		ship = ShipType.GNAT;
+		ship = new Ship(ShipType.FLEA);
 		name = "Player";
 		currency = 1000;
 		trader = 0;
@@ -28,7 +28,7 @@ public class Player {
 	 * @param sh
 	 *            the ship type.
 	 */
-	public void setShip(ShipType sh) {
+	public void setShip(Ship sh) {
 		ship = sh;
 	}
 
@@ -37,7 +37,7 @@ public class Player {
 	 * 
 	 * @return the ship type.
 	 */
-	public ShipType getShip() {
+	public Ship getShip() {
 		return ship;
 	}
 

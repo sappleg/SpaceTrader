@@ -85,7 +85,7 @@ public class Driver {
 		new NotificationsPresenter(shell, this, notificationsView);
 		
 		vitalsView = new VitalsView(shell, player);
-		new VitalsPresenter(shell, this, vitalsView);
+		new VitalsPresenter(shell, this, vitalsView, player);
 		
 		localPlanetView = new LocalPlanetView(shell);
 		new LocalPlanetPresenter(shell, this, localPlanetView);

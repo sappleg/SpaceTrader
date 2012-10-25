@@ -6,7 +6,43 @@ public class Good {
     private GoodType goodType;
     
     public enum GoodType {
-    	WATER, FUR, FOOD, ORE, FIREARM, MEDICINE, MACHINE, NARCOTIC, ROBOT
+    	WATER {
+    	    public String toString() {
+    	        return "WATER";
+    	    }
+    	}, FUR {
+    	    public String toString() {
+    	        return "FUR";
+    	    }
+    	}, FOOD {
+    	    public String toString() {
+    	        return "FOOD";
+    	    }
+    	}, ORE {
+    	    public String toString() {
+    	        return "ORE";
+    	    }
+    	}, FIREARM {
+    	    public String toString() {
+    	        return "FIREARM";
+    	    }
+    	}, MEDICINE {
+    	    public String toString() {
+    	        return "MEDICINE";
+    	    }    		
+    	}, MACHINE {
+    	    public String toString() {
+    	        return "MACHINE";
+    	    }    		
+    	}, NARCOTIC {
+    	    public String toString() {
+    	        return "NARCOTIC";
+    	    }    	
+    	}, ROBOT {
+    	    public String toString() {
+    	        return "ROBOT";
+    	    }    		
+    	}
     }
     
     /**
@@ -54,5 +90,9 @@ public class Good {
     
     public GoodType getGoodType() {
     	return goodType;
+    }
+    
+    public String toString() {
+    	return goodType.toString();
     }
 }

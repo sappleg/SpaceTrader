@@ -16,13 +16,12 @@ public class VitalsView {
 	Label lblVitals;
 	Table table_2;
 	TableColumn tblclmnCurrency;
-	TableColumn tblclmnWeight;
+	TableColumn tblclmnFuel;
 	TableCursor tableCursor_2;
-	TableItem tableItem;
-	Table table_3;
+	public TableItem tableItem;
+	public Table table_3;
 	TableCursor tableCursor_3;
 	TableColumn tblclmnCargo;
-	TableColumn tblclmnWeight_1;
 	
 	public VitalsView(Shell s, Player p) {
 		this.shell = s;
@@ -30,13 +29,12 @@ public class VitalsView {
 		lblVitals = new Label(shell, SWT.NONE);
 		table_2 = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
 		tblclmnCurrency = new TableColumn(table_2, SWT.CENTER);
-		tblclmnWeight = new TableColumn(table_2, SWT.CENTER);
+		tblclmnFuel = new TableColumn(table_2, SWT.CENTER);
 		tableCursor_2 = new TableCursor(table_2, SWT.NONE);
 		tableItem = new TableItem(table_2, SWT.NONE);
 		table_3 = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
 		tableCursor_3 = new TableCursor(table_3, SWT.NONE);
 		tblclmnCargo = new TableColumn(table_3, SWT.CENTER);
-		tblclmnWeight_1 = new TableColumn(table_3, SWT.CENTER);
 		
 		try {
 			createView();
@@ -57,10 +55,11 @@ public class VitalsView {
 		tblclmnCurrency.setWidth(70);
 		tblclmnCurrency.setText("Currency");
 
-		tblclmnWeight.setWidth(69);
-		tblclmnWeight.setText("Fuel");
+		tblclmnFuel.setWidth(69);
+		tblclmnFuel.setText("Fuel");
 
-		tableItem.setText(Integer.toString(Player.getCurrency()));
+		String[] playerState = {"0","0"};
+		tableItem.setText(playerState);
 
 		table_3.setBounds(855, 119, 143, 480);
 		table_3.setHeaderVisible(true);
@@ -69,8 +68,5 @@ public class VitalsView {
 
 		tblclmnCargo.setWidth(68);
 		tblclmnCargo.setText("Cargo");
-
-		tblclmnWeight_1.setWidth(71);
-		tblclmnWeight_1.setText("Weight");
 	}
 }
