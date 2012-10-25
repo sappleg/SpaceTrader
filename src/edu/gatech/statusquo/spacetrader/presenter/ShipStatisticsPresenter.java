@@ -10,6 +10,12 @@ public class ShipStatisticsPresenter {
 	Driver driver;
 	ShipStatisticsView shipStatisticsView;
 
+	/**
+	 * class constructor using listed parameters
+	 * @param s
+	 * @param d
+	 * @param ssv
+	 */
 	public ShipStatisticsPresenter(Shell s, Driver d, ShipStatisticsView ssv) {
 		this.shell = s;
 		this.driver = d;

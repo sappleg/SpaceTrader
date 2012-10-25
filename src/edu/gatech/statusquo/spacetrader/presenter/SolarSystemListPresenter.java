@@ -10,6 +10,12 @@ public class SolarSystemListPresenter {
 	Driver driver;
 	SolarSystemListView solarSystemListView;
 	
+	/**
+	 * class constructor using listed parameters
+	 * @param s
+	 * @param d
+	 * @param sslv
+	 */
 	public SolarSystemListPresenter(Shell s, Driver d, SolarSystemListView sslv) {
 		this.shell = s;
 		this.driver = d;

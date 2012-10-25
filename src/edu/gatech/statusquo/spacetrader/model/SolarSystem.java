@@ -42,35 +42,66 @@ public class SolarSystem {
 		}
 	}
 	
+	/**
+	 * 
+	 * @return marketPrice
+	 */
 	public HashMap<GoodType, Integer> getMarketPrice() {
 		return marketPrice;
 	}
 	
+	/**
+	 * 
+	 * @param hm
+	 */
 	public void setMarketPrice(HashMap<GoodType, Integer> hm) {
 		marketPrice = hm;
 	}	
+	
+	/**
+	 * 
+	 * @return market Quantity
+	 */
 	public HashMap<GoodType, Integer> getMarketQuantity() {
 		return marketQuantity;
 	}
 	
+	/**
+	 * 
+	 * @param hm
+	 */
 	public void setMarketQuantity(HashMap<GoodType, Integer> hm) {
 		marketQuantity = hm;
 	}
 	
-	
-
+	/**
+	 * 
+	 * @return techLevel
+	 */
 	public int getTechLevel() {
 		return techLevel;
 	}
-
+	
+	/**
+	 * 
+	 * @param techLevel
+	 */
 	public void setTechLevel(int techLevel) {
 		SolarSystem.techLevel = techLevel;
 	}
-
+	
+	/**
+	 * 
+	 * @return resourceLevel
+	 */
 	public int getResourceLevel() {
 		return resourceLevel;
 	}
-
+	
+	/**
+	 * 
+	 * @param resourceLevel
+	 */
 	public void setResourceLevel(int resourceLevel) {
 		SolarSystem.resourceLevel = resourceLevel;
 	}
