@@ -102,6 +102,11 @@ public class TradeGoodsPresenter {
 				    } else {
 				    	ship.addCargo(quant, goodType);
 				    	player.setCurrency(Player.getCurrency() - (quant*price));
+				    	//going to decrement the markets quantity depending qty bought
+				    	//getCurrentQty - qtyBought = newMarketQty, puts(goodtype, newmarketqty)
+				    	int newMarketQty = (marketQuantity.get(goodType)) - quant;
+				    	marketQuantity.put(goodType, newMarketQty);
+				    	fillTradeGoodsTable();
 				    	VitalsPresenter.setPlayerVitals();
 				    	VitalsPresenter.setShipVitals();
 				    }
@@ -152,6 +157,11 @@ public class TradeGoodsPresenter {
 				    } else {
 				    	ship.removeCargo(quant, goodType);
 				    	player.setCurrency(Player.getCurrency() + (quant*price));
+	                    //going to increment the markets quantity depending qty sold
+                        //getCurrentQty + qtyBought = newMarketQty, puts(goodtype, newmarketqty)
+                        int newMarketQty = (marketQuantity.get(goodType)) + quant;
+                        marketQuantity.put(goodType, newMarketQty);
+                        fillTradeGoodsTable();
 				    	VitalsPresenter.setPlayerVitals();
 				    	VitalsPresenter.setShipVitals();
 				    }
