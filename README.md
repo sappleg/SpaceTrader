@@ -1,11 +1,11 @@
 SpaceTrader
 ===========
 
-Georgia Tech Fall 2012 CS 2340 Semester Project
+Georgia Tech Fall 2012 CS 2340 Semester Project  
 
-*Game Board Size:* 200x200
-*Solar Systems Amount:* 150 (each system is generated >9 units away from every other system)
-*Solar System Names:* Randomly chosen from "PlanetsNames.txt".
+*Game Board Size:* 200x200  
+*Solar Systems Amount:* 150 (each system is generated >9 units away from every other system)  
+*Solar System Names:* Randomly chosen from "PlanetsNames.txt".  
 
 
 <table>
