@@ -1,10 +1,12 @@
 package edu.gatech.statusquo.spacetrader.model;
 
+import edu.gatech.statusquo.spacetrader.model.Good.GoodType;
+
 public class Ship {
 	Good[] cargoBay;
 	ShipType shipType;
 	final int fuelCapacity;
-	int fuelLevel;
+	static int fuelLevel;
 	
 
     public enum ShipType {
@@ -73,5 +75,13 @@ public class Ship {
 	    		break;
 	    		
     	}
+    }
+    
+    public static int getFuelLevel() {
+    	return fuelLevel;
+    }
+    
+    public Good[] getCargoBay() {
+    	return cargoBay;
     }
 }
