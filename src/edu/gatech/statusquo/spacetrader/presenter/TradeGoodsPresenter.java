@@ -182,7 +182,7 @@ public class TradeGoodsPresenter {
 		});
 		
 		/**
-		 * creates mouse listenerss
+		 * creates mouse listeners
 		 */
 
 		tradeGoodsView.text.addMouseListener(new MouseAdapter() {

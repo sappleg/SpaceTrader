@@ -2,8 +2,6 @@ package edu.gatech.statusquo.spacetrader.view;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.TableCursor;
-import org.eclipse.swt.events.MouseAdapter;
-import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
@@ -32,11 +30,13 @@ public class TradeGoodsView {
     TableColumn tblclmnPersonalQty;
     public Text text;
     public Text text_1;
+    public Text text_2;
     
     Label label;
     
     public Button btnBuy;
     public Button btnSell;
+    public Button btnBuyFuel;
 
     /**
      * Shell s
@@ -54,6 +54,7 @@ public class TradeGoodsView {
 
 		text = new Text(shell, SWT.BORDER);
 		text_1 = new Text(shell, SWT.BORDER);
+		text_2 = new Text(shell, SWT.BORDER);
 
 		waterItem = new TableItem(table_1, SWT.NONE);
 		furItem = new TableItem(table_1, SWT.NONE);
@@ -67,6 +68,7 @@ public class TradeGoodsView {
 		
 		btnBuy = new Button(shell, SWT.NONE);
 		btnSell = new Button(shell, SWT.NONE);
+		btnBuyFuel = new Button(shell, SWT.NONE);
 	
 		try {
 		    createView();
@@ -126,22 +128,22 @@ public class TradeGoodsView {
 		String[] robots = { "", "", "", "" };
 		robotsItem.setText(robots);
 	
-		btnBuy.setBounds(348, 554, 75, 25);
+		btnBuy.setBounds(330, 554, 75, 25);
 		btnBuy.setText("Buy");
 	
-		btnSell.setBounds(630, 554, 75, 25);
+		btnSell.setBounds(525, 554, 75, 25);
 		btnSell.setText("Sell");
 	
+		btnBuyFuel.setBounds(715, 554, 75, 25);
+		btnBuyFuel.setText("Buy Fuel");
+	
 		text.setText("Enter Qty");
-		text.setBounds(266, 558, 76, 21);
+		text.setBounds(248, 558, 76, 21);
 	
 		text_1.setText("Enter Qty");
-		text_1.addMouseListener(new MouseAdapter() {
-		    @Override
-		    public void mouseDown(MouseEvent e) {
-			text_1.setText("");
-		    }
-		});
-		text_1.setBounds(548, 558, 76, 21);
+		text_1.setBounds(443, 558, 76, 21);
+	
+		text_2.setText("Enter Qty");
+		text_2.setBounds(633, 558, 76, 21);
     }
 }

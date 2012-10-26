@@ -29,7 +29,7 @@ public class Driver {
 	
 	public ShipStatisticsView shipStatisticsView;
 	public TeamStatisticsView teamStatisticsView;
-	public SolarSystemListView solarSystemListView;
+	public SolarSystemStatsView solarSystemStatsView;
 	public TradeGoodsView tradeGoodsView;
 	public NotificationsView notificationsView;
 	public VitalsView vitalsView;
@@ -107,7 +107,7 @@ public class Driver {
 		
 		shipStatisticsView = new ShipStatisticsView(shell);
 		teamStatisticsView = new TeamStatisticsView(shell, player);
-		solarSystemListView = new SolarSystemListView(shell);
+		solarSystemStatsView = new SolarSystemStatsView(shell);
 		tradeGoodsView = new TradeGoodsView(shell);
 		notificationsView = new NotificationsView(shell, player);
 		vitalsView = new VitalsView(shell, player);
@@ -115,7 +115,7 @@ public class Driver {
 		
 		new ShipStatisticsPresenter(shell, this, shipStatisticsView);
 		new TeamStatisticsPresenter(shell, this, teamStatisticsView);
-		new SolarSystemListPresenter(shell, this, solarSystemListView);
+		new SolarSystemStatsPresenter(shell, this, solarSystemStatsView);
 		new TradeGoodsPresenter(shell, this, tradeGoodsView, player, listOfSystems.get(0),vitalsView);
 		new NotificationsPresenter(shell, this, notificationsView);
 		new VitalsPresenter(shell, this, vitalsView, player, tradeGoodsView);
