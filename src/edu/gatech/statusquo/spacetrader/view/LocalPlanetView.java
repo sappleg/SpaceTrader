@@ -1,6 +1,7 @@
 package edu.gatech.statusquo.spacetrader.view;
 
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.List;
 import org.eclipse.swt.widgets.Shell;
@@ -9,6 +10,7 @@ public class LocalPlanetView {
 	Shell shell;
 	Label lblLocalPlanets;
 	List list_2;
+	Button btnTravel;
 	
 	/**
 	 * shell parameter
@@ -18,6 +20,7 @@ public class LocalPlanetView {
 		this.shell = s;
 		lblLocalPlanets = new Label(shell, SWT.NONE);
 		list_2 = new List(shell, SWT.BORDER);
+		btnTravel = new Button(shell, SWT.NONE);
 		
 		try {
 			createView();
@@ -30,9 +33,12 @@ public class LocalPlanetView {
 	 * Creates contents of the local planets view
 	 */
 	public void createView() {
-		lblLocalPlanets.setBounds(891, 604, 77, 15);
+		lblLocalPlanets.setBounds(891, 365, 77, 15);
 		lblLocalPlanets.setText("Local Planets");
 
-		list_2.setBounds(855, 625, 143, 99);
+		list_2.setBounds(855, 390, 143, 275);
+		
+		btnTravel.setBounds(890, 675, 75, 25);
+		btnTravel.setText("Travel");
 	}
 }

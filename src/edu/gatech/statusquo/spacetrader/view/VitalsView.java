@@ -3,6 +3,7 @@ package edu.gatech.statusquo.spacetrader.view;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.TableCursor;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.List;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
@@ -14,14 +15,13 @@ public class VitalsView {
 	Shell shell;
 	Player player;
 	Label lblVitals;
+	Label lblCargoBay;
 	public Table table_2;
 	TableColumn tblclmnCurrency;
 	TableColumn tblclmnFuel;
 	TableCursor tableCursor_2;
 	public TableItem tableItem;
-	public Table table_3;
-	TableCursor tableCursor_3;
-	TableColumn tblclmnCargo;
+	public List cargoList;
 	
 	/**
 	 * Shell s
@@ -33,14 +33,13 @@ public class VitalsView {
 		this.shell = s;
 		this.player = p;
 		lblVitals = new Label(shell, SWT.NONE);
+		lblCargoBay = new Label(shell, SWT.NONE);
 		table_2 = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
 		tblclmnCurrency = new TableColumn(table_2, SWT.CENTER);
 		tblclmnFuel = new TableColumn(table_2, SWT.CENTER);
 		tableCursor_2 = new TableCursor(table_2, SWT.NONE);
 		tableItem = new TableItem(table_2, SWT.NONE);
-		table_3 = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
-		tableCursor_3 = new TableCursor(table_3, SWT.NONE);
-		tblclmnCargo = new TableColumn(table_3, SWT.CENTER);
+		cargoList = new List(shell, SWT.BORDER);
 		
 		try {
 			createView();
@@ -69,13 +68,11 @@ public class VitalsView {
 
 		String[] playerState = {"0","0"};
 		tableItem.setText(playerState);
+		
+		lblCargoBay.setAlignment(SWT.CENTER);
+		lblCargoBay.setBounds(903, 120, 55, 15);
+		lblCargoBay.setText("Cargo Bay");
 
-		table_3.setBounds(855, 119, 143, 480);
-		table_3.setHeaderVisible(true);
-		table_3.setLinesVisible(true);
-
-
-		tblclmnCargo.setWidth(68);
-		tblclmnCargo.setText("Cargo");
+		cargoList.setBounds(855, 140, 143, 215);
 	}
 }

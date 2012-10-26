@@ -5,10 +5,10 @@ import org.eclipse.swt.widgets.Shell;
 import edu.gatech.statusquo.spacetrader.driver.*;
 import edu.gatech.statusquo.spacetrader.view.*;
 
-public class SolarSystemListPresenter {
+public class SolarSystemStatsPresenter {
 	Shell shell;
 	Driver driver;
-	SolarSystemListView solarSystemListView;
+	SolarSystemStatsView solarSystemStatsView;
 	
 	/**
 	 * class constructor using listed parameters
@@ -16,9 +16,9 @@ public class SolarSystemListPresenter {
 	 * @param d
 	 * @param sslv
 	 */
-	public SolarSystemListPresenter(Shell s, Driver d, SolarSystemListView sslv) {
+	public SolarSystemStatsPresenter(Shell s, Driver d, SolarSystemStatsView sslv) {
 		this.shell = s;
 		this.driver = d;
-		this.solarSystemListView = sslv;
+		this.solarSystemStatsView = sslv;
 	}
 }
