@@ -1,8 +1,6 @@
 package edu.gatech.statusquo.spacetrader.presenter;
 
-import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Shell;
-import org.eclipse.swt.widgets.TableItem;
 
 import edu.gatech.statusquo.spacetrader.driver.*;
 import edu.gatech.statusquo.spacetrader.model.Good;
@@ -51,13 +49,13 @@ public class VitalsPresenter {
 	 * Sets view for cargo bay by user and displays what it contains
 	 */
 	public static void setShipVitals() {
-		vitalsView.table_3.removeAll();
+		vitalsView.cargoList.removeAll();
 		Good[] cargoBay = ship.getCargoBay();
 		for (int i = 0; i < cargoBay.length; i++) {
 			if (cargoBay[i] != null) {
 				Good g = cargoBay[i];
 				String cargo = g.toString();
-				new TableItem(vitalsView.table_3, SWT.NONE).setText(cargo);
+				vitalsView.cargoList.add(cargo);
 			}
 		}
 	}
