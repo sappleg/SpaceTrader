@@ -245,7 +245,7 @@ public class Driver {
                  break;
 		}
 
-		//Sets prices of all goods to its basePrice
+		//Sets prices of all goods to its basePrice.
 		mPrices.put(GoodType.WATER, basePrice.get(GoodType.WATER));
 	    mPrices.put(GoodType.FUR, basePrice.get(GoodType.FUR));
 	    mPrices.put(GoodType.FOOD, basePrice.get(GoodType.FOOD));
