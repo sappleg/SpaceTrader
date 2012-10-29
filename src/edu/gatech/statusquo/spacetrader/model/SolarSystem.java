@@ -78,7 +78,7 @@ public class SolarSystem {
 	 * 
 	 * @return techLevel
 	 */
-	public int getTechLevel() {
+	public static int getTechLevel() {
 		return techLevel;
 	}
 	
@@ -105,6 +105,46 @@ public class SolarSystem {
 	public void setResourceLevel(int resourceLevel) {
 		SolarSystem.resourceLevel = resourceLevel;
 	}
+	
+	public static String getResourceLevelName(){
+		
+		if(resourceLevel == 0){
+			return "Lots of Water";
+		}
+		if(resourceLevel == 1){
+			return "Drought";
+		}
+		if(resourceLevel == 2){
+			return "Rich Fauna";
+		}
+		if(resourceLevel == 3){
+			return "Lifeless";
+		}
+		if(resourceLevel == 4){
+			return "Rich Soil";
+		}
+		if(resourceLevel == 5){
+			return "Poor Soil";
+		}
+		if(resourceLevel == 6){
+			return "Mineral Rich";
+		}
+		if(resourceLevel == 7){
+			return "Mineral Poor";
+		}
+		if(resourceLevel == 8){
+			return "Warlike";
+		}
+		if(resourceLevel == 9){
+			return "Lots of Herbs";
+		}
+		if(resourceLevel == 10){
+			return "Weird Mushrooms";
+		}
+		else return null;
+		
+		
+	}
 
 	/**
 	 * @return Information of the SolarSystem in a String.
@@ -114,5 +154,17 @@ public class SolarSystem {
 				+ "TechLevel: " + techLevel + "\n" + "ResourceLevel: "
 				+ resourceLevel + "\n" + "X-Position: " + xLocation + "\n"
 				+ "Y-Position: " + yLocation + "\n");
+	}
+
+	public static int getxLocation() {
+		return xLocation;
+	}
+
+	public static int getyLocation() {
+		return yLocation;
+	}
+
+	public static String getSystemName() {
+		return systemName;
 	}
 }

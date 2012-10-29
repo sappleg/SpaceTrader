@@ -8,6 +8,8 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
 
+import edu.gatech.statusquo.spacetrader.model.SolarSystem;
+
 public class SolarSystemStatsView {
 	Shell shell;
 	Label lblNewLabel;
@@ -61,16 +63,16 @@ public class SolarSystemStatsView {
 		tblclmnValue.setWidth(79);
 		tblclmnValue.setText("Value");
 		
-		String[] name = {"Name","0"};
+		String[] name = {"Name", SolarSystem.getSystemName()};
 		nameItem.setText(name);
 		
-		String[] location = {"Location(X,Y)","0"};
+		String[] location = {"Location(X,Y)", SolarSystem.getxLocation() + ", " + SolarSystem.getyLocation()};
 		locationItem.setText(location);
 		
-		String[] techLevel = {"Tech Level","0"};
+		String[] techLevel = {"Tech Level", Integer.toString(SolarSystem.getTechLevel())};
 		techLevelItem.setText(techLevel);
 		
-		String[] rLevel = {"Resource Level","0"};
+		String[] rLevel = {"Resource Level", SolarSystem.getResourceLevelName()};
 		resourceLevelItem.setText(rLevel);
 	}
 }

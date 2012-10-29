@@ -3,6 +3,9 @@ package edu.gatech.statusquo.spacetrader.presenter;
 import org.eclipse.swt.widgets.Shell;
 
 import edu.gatech.statusquo.spacetrader.driver.*;
+import edu.gatech.statusquo.spacetrader.model.Player;
+import edu.gatech.statusquo.spacetrader.model.Ship;
+import edu.gatech.statusquo.spacetrader.model.SolarSystem;
 import edu.gatech.statusquo.spacetrader.view.*;
 
 public class SolarSystemStatsPresenter {
@@ -21,4 +24,7 @@ public class SolarSystemStatsPresenter {
 		this.driver = d;
 		this.solarSystemStatsView = sslv;
 	}
+	
 }
+
+
