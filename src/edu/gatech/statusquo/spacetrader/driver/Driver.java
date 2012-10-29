@@ -147,7 +147,7 @@ public class Driver {
 		// Generates a SolarSystem object using the generated
 		// coordinates and names.
 		for (int i = 0; i < namesList.size(); i++) {
-			int techLevel = (int) (Math.random() * 8);
+			int techLevel = (int) (Math.random() * 7);
 			int resourceLevel = (int) (Math.random() * 11);
 			String holdName = namesList.get(i);
 			int holdX = xList.get(i);
@@ -260,34 +260,34 @@ public class Driver {
 	    // Generation rules are described in the "SpaceTrader: Game Information" 
 		switch(resLvl){
     		case 0:
-    		    int lotsOfWater = (int) ((basePrice.get(GoodType.WATER)) + ((basePrice.get(GoodType.WATER))*PRICEPERCENT));
+    		    int lotsOfWater = (int) ((basePrice.get(GoodType.WATER)) - ((basePrice.get(GoodType.WATER))*PRICEPERCENT));
     		    mPrices.put(GoodType.WATER, lotsOfWater);
     		    break;
     		case 1:
-                int drought = (int) ((basePrice.get(GoodType.WATER)) - ((basePrice.get(GoodType.WATER))*PRICEPERCENT));
+                int drought = (int) ((basePrice.get(GoodType.WATER)) + ((basePrice.get(GoodType.WATER))*PRICEPERCENT));
                 mPrices.put(GoodType.WATER, drought);
                 break;
             case 2:
-                int richFauna = (int) ((basePrice.get(GoodType.FUR)) + ((basePrice.get(GoodType.FUR))*PRICEPERCENT));
+                int richFauna = (int) ((basePrice.get(GoodType.FUR)) - ((basePrice.get(GoodType.FUR))*PRICEPERCENT));
                 mPrices.put(GoodType.FUR, richFauna);
                 break;
             case 3:
-                int lifeless = (int) ((basePrice.get(GoodType.FUR)) - ((basePrice.get(GoodType.FUR))*PRICEPERCENT));
+                int lifeless = (int) ((basePrice.get(GoodType.FUR)) + ((basePrice.get(GoodType.FUR))*PRICEPERCENT));
                 mPrices.put(GoodType.FUR, lifeless);
                 break;
             case 4:
-                int richSoil = (int) ((basePrice.get(GoodType.FOOD)) + ((basePrice.get(GoodType.FOOD))*PRICEPERCENT));
+                int richSoil = (int) ((basePrice.get(GoodType.FOOD)) - ((basePrice.get(GoodType.FOOD))*PRICEPERCENT));
                 mPrices.put(GoodType.FOOD, richSoil);
                 break;
             case 5: 
-                int poorSoil = (int) ((basePrice.get(GoodType.FOOD)) - ((basePrice.get(GoodType.FOOD))*PRICEPERCENT));
+                int poorSoil = (int) ((basePrice.get(GoodType.FOOD)) + ((basePrice.get(GoodType.FOOD))*PRICEPERCENT));
                 mPrices.put(GoodType.FOOD, poorSoil);
                 break;
             case 6:
-                int mineralRich = (int) ((basePrice.get(GoodType.ORE)) + ((basePrice.get(GoodType.ORE))*PRICEPERCENT));
+                int mineralRich = (int) ((basePrice.get(GoodType.ORE)) - ((basePrice.get(GoodType.ORE))*PRICEPERCENT));
                 mPrices.put(GoodType.ORE, mineralRich);
             case 7:
-                int mineralPoor = (int) ((basePrice.get(GoodType.ORE)) - ((basePrice.get(GoodType.ORE))*PRICEPERCENT));
+                int mineralPoor = (int) ((basePrice.get(GoodType.ORE)) + ((basePrice.get(GoodType.ORE))*PRICEPERCENT));
                 mPrices.put(GoodType.ORE, mineralPoor);
                 break;
             case 8:
