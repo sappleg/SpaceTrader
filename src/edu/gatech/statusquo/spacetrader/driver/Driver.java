@@ -144,7 +144,7 @@ public class Driver {
 		ArrayList<String> namesList = listOfNames;
 /*		ArrayList<SolarSystem> systemsList = new ArrayList<SolarSystem>();
 */
-		// Generates a SolarSystem object using the generated
+		// Generates a SolarSystem object using the generated.
 		// coordinates and names.
 		for (int i = 0; i < namesList.size(); i++) {
 			int techLevel = (int) (Math.random() * 7);
