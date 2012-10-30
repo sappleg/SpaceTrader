@@ -89,7 +89,7 @@ public class Ship {
      * @return fuelLevel
      */
     
-    public static int getFuelLevel() {
+    public int getFuelLevel() {
     	return fuelLevel;
     }
     
