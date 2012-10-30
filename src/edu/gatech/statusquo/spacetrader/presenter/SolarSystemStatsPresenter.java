@@ -12,7 +12,6 @@ public class SolarSystemStatsPresenter {
 	Shell shell;
 	Driver driver;
 	SolarSystemStatsView solarSystemStatsView;
-	static SolarSystem cSys;
 	/**
 	 * class constructor using listed parameters
 	 * @param s
@@ -24,7 +23,6 @@ public class SolarSystemStatsPresenter {
 		this.shell = s;
 		this.driver = d;
 		this.solarSystemStatsView = sslv;
-		cSys = d.currentSystem;
 		setSystemInfo();
 	}
     
@@ -33,17 +31,19 @@ public class SolarSystemStatsPresenter {
      */
 	
 	   public static void setSystemInfo() {
-
-           String[] name = {"Name", cSys.getSystemName()};
+	       
+	       SolarSystem currentSys = Driver.currentSystem;
+	      
+           String[] name = {"Name", currentSys.getSystemName()};
            SolarSystemStatsView.nameItem.setText(name);
            
-           String[] location = {"Location(X,Y)", cSys.getxLocation() + ", " + cSys.getyLocation()};
+           String[] location = {"Location(X,Y)", currentSys.getxLocation() + ", " + currentSys.getyLocation()};
            SolarSystemStatsView.locationItem.setText(location);
            
-           String[] techLevel = {"Tech Level", Integer.toString(cSys.getTechLevel())};
+           String[] techLevel = {"Tech Level", Integer.toString(currentSys.getTechLevel())};
            SolarSystemStatsView.techLevelItem.setText(techLevel);
            
-           String[] rLevel = {"Resource Level", cSys.getResourceLevelName()};
+           String[] rLevel = {"Resource Level", currentSys.getResourceLevelName()};
            SolarSystemStatsView.resourceLevelItem.setText(rLevel);
            
            

@@ -239,6 +239,7 @@ public class TradeGoodsPresenter {
 	private void fillTradeGoodsTable() {
 		HashMap<GoodType, Integer> marketPrice = solarSystem.getMarketPrice();
 		HashMap<GoodType, Integer> marketQuantity = solarSystem.getMarketQuantity();
+		
 		String[] water = {"WATER", Integer.toString(marketPrice.get(GoodType.WATER)), Integer.toString(marketQuantity.get(GoodType.WATER)), "N/A"};
 		tradeGoodsView.waterItem.setText(water);
 		String[] fur = {"FUR", Integer.toString(marketPrice.get(GoodType.FUR)), Integer.toString(marketQuantity.get(GoodType.FUR)), "N/A"};

@@ -43,7 +43,7 @@ public class LocalPlanetPresenter {
 	        int playerX = Driver.player.getPlayerX();
 	        int playerY = Driver.player.getPlayerY();
 	
-           int counter = 0;
+
            // Collections.sort(Driver.listOfNames);
             for (int i = 0; i < Driver.listOfSystems.size(); i++)
             {
@@ -57,8 +57,8 @@ public class LocalPlanetPresenter {
                 
                 if(distance <= maxDistance){
                   LocalPlanetView.list_2.add(sys.getSystemName());
-                  counter++;
                   
+                                  
                 }
                 
                 
@@ -67,7 +67,7 @@ public class LocalPlanetPresenter {
 //                LocalPlanetView.list_2.add(temp.getSystemName());
             }
             
-            System.out.println(counter);
+
 	}
 }
 

@@ -34,7 +34,7 @@ public class Driver {
 	public NotificationsView notificationsView;
 	public VitalsView vitalsView;
 	public LocalPlanetView localPlanetView;
-	public  SolarSystem currentSystem;
+	public static SolarSystem currentSystem;
 	
 	private static HashMap<GoodType, Integer> basePrice;   //map contaning all base prices
 	private static HashMap<GoodType, Integer> baseQty;     //map containing all base quantities
@@ -77,14 +77,16 @@ public class Driver {
 		//represents a list of solar systems
 		listOfSystems = new ArrayList<SolarSystem>();
 		generateUniverse();
-		WelcomeView welcomeView = new WelcomeView();
-		new WelcomePresenter(this, welcomeView);
-		
         int startLocation = (int) (Math.random()*150);
         player.setPlayerX(X.get(startLocation));
         player.setPlayerY(Y.get(startLocation));
         currentSystem = player.findSystem(player.getPlayerX(),player.getPlayerY());
-   
+        
+		WelcomeView welcomeView = new WelcomeView();
+		new WelcomePresenter(this, welcomeView);
+		
+
+        
 
 	}
 	
