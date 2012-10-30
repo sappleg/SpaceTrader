@@ -221,6 +221,7 @@ public class CreatePlayerPresenter {
 					player.setEngineerSkills(Integer.parseInt(createPlayerView.engineerSpinner.getText()));
 					player.setPilotSkills(Integer.parseInt(createPlayerView.pilotSpinner.getText()));
 					player.setFighterSkills(Integer.parseInt(createPlayerView.fighterSpinner.getText()));
+					
 					createPlayerView.shell.dispose();
 					driver.generateMainGame();
 				}

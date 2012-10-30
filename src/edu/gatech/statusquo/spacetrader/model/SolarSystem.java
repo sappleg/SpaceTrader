@@ -24,6 +24,9 @@ public class SolarSystem {
 	 * @param xLocation
 	 * @param yLocation
 	 */
+	public SolarSystem() {
+	        // TODO Auto-generated constructor stub
+	    }
 	public SolarSystem(String systemName, Planet planet, int techLevel,
 			int resourceLevel, int xLocation, int yLocation) {
 
@@ -42,7 +45,9 @@ public class SolarSystem {
 		}
 	}
 	
-	/**
+
+
+    /**
 	 * 
 	 * @return marketPrice
 	 */
@@ -105,6 +110,46 @@ public class SolarSystem {
 	public void setResourceLevel(int resourceLevel) {
 		SolarSystem.resourceLevel = resourceLevel;
 	}
+	
+	public String getResourceLevelName(){
+		
+		if(resourceLevel == 0){
+			return "Lots of Water";
+		}
+		if(resourceLevel == 1){
+			return "Drought";
+		}
+		if(resourceLevel == 2){
+			return "Rich Fauna";
+		}
+		if(resourceLevel == 3){
+			return "Lifeless";
+		}
+		if(resourceLevel == 4){
+			return "Rich Soil";
+		}
+		if(resourceLevel == 5){
+			return "Poor Soil";
+		}
+		if(resourceLevel == 6){
+			return "Mineral Rich";
+		}
+		if(resourceLevel == 7){
+			return "Mineral Poor";
+		}
+		if(resourceLevel == 8){
+			return "Warlike";
+		}
+		if(resourceLevel == 9){
+			return "Lots of Herbs";
+		}
+		if(resourceLevel == 10){
+			return "Weird Mushrooms";
+		}
+		else return null;
+		
+		
+	}
 
 	/**
 	 * @return Information of the SolarSystem in a String.
@@ -114,5 +159,17 @@ public class SolarSystem {
 				+ "TechLevel: " + techLevel + "\n" + "ResourceLevel: "
 				+ resourceLevel + "\n" + "X-Position: " + xLocation + "\n"
 				+ "Y-Position: " + yLocation + "\n");
+	}
+
+	public int getxLocation() {
+		return xLocation;
+	}
+
+	public int getyLocation() {
+		return yLocation;
+	}
+
+	public String getSystemName() {
+		return systemName;
 	}
 }
