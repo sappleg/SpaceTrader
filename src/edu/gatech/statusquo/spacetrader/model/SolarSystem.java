@@ -24,6 +24,9 @@ public class SolarSystem {
 	 * @param xLocation
 	 * @param yLocation
 	 */
+	public SolarSystem() {
+	        // TODO Auto-generated constructor stub
+	    }
 	public SolarSystem(String systemName, Planet planet, int techLevel,
 			int resourceLevel, int xLocation, int yLocation) {
 
@@ -42,7 +45,9 @@ public class SolarSystem {
 		}
 	}
 	
-	/**
+
+
+    /**
 	 * 
 	 * @return marketPrice
 	 */
@@ -78,7 +83,7 @@ public class SolarSystem {
 	 * 
 	 * @return techLevel
 	 */
-	public static int getTechLevel() {
+	public int getTechLevel() {
 		return techLevel;
 	}
 	
@@ -106,7 +111,7 @@ public class SolarSystem {
 		SolarSystem.resourceLevel = resourceLevel;
 	}
 	
-	public static String getResourceLevelName(){
+	public String getResourceLevelName(){
 		
 		if(resourceLevel == 0){
 			return "Lots of Water";
@@ -156,15 +161,15 @@ public class SolarSystem {
 				+ "Y-Position: " + yLocation + "\n");
 	}
 
-	public static int getxLocation() {
+	public int getxLocation() {
 		return xLocation;
 	}
 
-	public static int getyLocation() {
+	public int getyLocation() {
 		return yLocation;
 	}
 
-	public static String getSystemName() {
+	public String getSystemName() {
 		return systemName;
 	}
 }

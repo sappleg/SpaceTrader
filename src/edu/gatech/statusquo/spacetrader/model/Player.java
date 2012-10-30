@@ -11,6 +11,8 @@ public class Player {
 	private static int engineer;
 	private static int pilot;
 	private static int fighter;
+	private static int playerX;
+	private static int playerY; 
 
 	public Player() {
 		ship = new Ship(ShipType.FLEA);
@@ -20,9 +22,28 @@ public class Player {
 		engineer = 0;
 		pilot = 0;
 		fighter = 0;
+		playerX = 0;
+		playerY = 0;
+		
 	}
 
-	/**
+	public int getPlayerX() {
+        return playerX;
+    }
+
+    public void setPlayerX(int playerX) {
+        Player.playerX = playerX;
+    }
+
+    public int getPlayerY() {
+        return playerY;
+    }
+
+    public void setPlayerY(int playerY) {
+        Player.playerY = playerY;
+    }
+
+    /**
 	 * Sets the ship type.
 	 * 
 	 * @param sh
