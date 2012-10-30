@@ -6,14 +6,14 @@ import edu.gatech.statusquo.spacetrader.model.Good.GoodType;
 
 public class SolarSystem {
 
-	private static String systemName;
-	private static int techLevel;
-	private static int resourceLevel;
-	private static int xLocation;
-	private static int yLocation;
-	private static Planet planet;
-	private static HashMap<GoodType, Integer> marketPrice;
-	private static HashMap<GoodType, Integer> marketQuantity;
+	private  String systemName;
+	private  int techLevel;
+	private  int resourceLevel;
+	private  int xLocation;
+	private  int yLocation;
+	private  Planet planet;
+	private  HashMap<GoodType, Integer> marketPrice;
+	private  HashMap<GoodType, Integer> marketQuantity;
 	
 	/**
 	 * Class constructor using listed parameters
@@ -30,12 +30,12 @@ public class SolarSystem {
 	public SolarSystem(String systemName, Planet planet, int techLevel,
 			int resourceLevel, int xLocation, int yLocation) {
 
-		SolarSystem.systemName = systemName;
-		SolarSystem.planet = planet;
-		SolarSystem.techLevel = techLevel;
-		SolarSystem.resourceLevel = resourceLevel;
-		SolarSystem.xLocation = xLocation;
-		SolarSystem.yLocation = yLocation;
+		this.systemName = systemName;
+		this.planet = planet;
+		this.techLevel = techLevel;
+		this.resourceLevel = resourceLevel;
+		this.xLocation = xLocation;
+		this.yLocation = yLocation;
 		marketPrice = new HashMap<Good.GoodType, Integer>();
 		marketQuantity = new HashMap<Good.GoodType, Integer>();
 		GoodType[] keys = GoodType.values();
@@ -92,7 +92,7 @@ public class SolarSystem {
 	 * @param techLevel
 	 */
 	public void setTechLevel(int techLevel) {
-		SolarSystem.techLevel = techLevel;
+		this.techLevel = techLevel;
 	}
 	
 	/**
@@ -108,7 +108,7 @@ public class SolarSystem {
 	 * @param resourceLevel
 	 */
 	public void setResourceLevel(int resourceLevel) {
-		SolarSystem.resourceLevel = resourceLevel;
+		this.resourceLevel = resourceLevel;
 	}
 	
 	public String getResourceLevelName(){

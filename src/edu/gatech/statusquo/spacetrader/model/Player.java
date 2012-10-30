@@ -1,5 +1,6 @@
 package edu.gatech.statusquo.spacetrader.model;
 
+import edu.gatech.statusquo.spacetrader.driver.Driver;
 import edu.gatech.statusquo.spacetrader.model.Ship.ShipType;
 
 public class Player {
@@ -169,4 +170,24 @@ public class Player {
 	public static int getFighterSkills() {
 		return fighter;
 	}
+	
+	public SolarSystem findSystem(int currentX, int currentY){
+	      
+        SolarSystem hold = new SolarSystem();
+        
+        
+        for (int i = 0; i<Driver.listOfSystems.size(); i++){
+            SolarSystem temp = Driver.listOfSystems.get(i);
+            int systemX = temp.getxLocation();
+            int systemY = temp.getyLocation();
+            if(currentX == systemX && currentY == systemY){
+                hold = temp;
+                break;
+            }
+        }
+        
+        return hold;
+        
+        
+    }
 }

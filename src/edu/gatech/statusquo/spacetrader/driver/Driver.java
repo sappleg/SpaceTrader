@@ -40,7 +40,7 @@ public class Driver {
 	private static HashMap<GoodType, Integer> baseQty;     //map containing all base quantities
 	private final static double  PRICEPERCENT = .25;       //value used to increase or decrease prices
 	private final static double  QTYPERCENT = .50;         //value used to increase or decrease quantity
-	private static ArrayList<SolarSystem> listOfSystems;   //contains list of all SolarSystems
+	public static ArrayList<SolarSystem> listOfSystems;   //contains list of all SolarSystems
 	
 	/*
 	 * Driver's constructor
@@ -83,10 +83,9 @@ public class Driver {
         int startLocation = (int) (Math.random()*150);
         player.setPlayerX(X.get(startLocation));
         player.setPlayerY(Y.get(startLocation));
-        currentSystem = findSystem(player.getPlayerX(),player.getPlayerY());
-  
-        
- 
+        currentSystem = player.findSystem(player.getPlayerX(),player.getPlayerY());
+   
+
 	}
 	
 	/*
@@ -450,25 +449,25 @@ public class Driver {
 		s.close();
 	}
 	
-	public SolarSystem findSystem(int currentX, int currentY){
-	  
-	    SolarSystem hold = new SolarSystem();
-	    
-	    
-	    for (int i = 0; i<listOfSystems.size(); i++){
-	        SolarSystem temp = listOfSystems.get(i);
-	        int systemX = temp.getxLocation();
-	        int systemY = temp.getyLocation();
-	        if(currentX == systemX && currentY == systemY){
-	            hold = temp;
-	            break;
-	        }
-	    }
-	    
-        return hold;
-	    
-	    
-	}
+//	public SolarSystem findSystem(int currentX, int currentY){
+//	  
+//	    SolarSystem hold = new SolarSystem();
+//	    
+//	    
+//	    for (int i = 0; i<listOfSystems.size(); i++){
+//	        SolarSystem temp = listOfSystems.get(i);
+//	        int systemX = temp.getxLocation();
+//	        int systemY = temp.getyLocation();
+//	        if(currentX == systemX && currentY == systemY){
+//	            hold = temp;
+//	            break;
+//	        }
+//	    }
+//	    
+//        return hold;
+//	    
+//	    
+//	}
 	
 //	/**
 //	 * Creates static list of all goods
