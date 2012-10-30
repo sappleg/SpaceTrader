@@ -22,7 +22,7 @@ public class TradeGoodsPresenter {
 	Ship ship;
 	HashMap<GoodType, Integer> marketQuantity;
 	HashMap<GoodType, Integer> marketPrice;
-	
+	final int fuelPrice = 15;
 	/**
 	 * 
 	 * @param s
@@ -42,7 +42,7 @@ public class TradeGoodsPresenter {
 		ship = player.getShip();
 		marketQuantity = solarSystem.getMarketQuantity();
 		marketPrice = solarSystem.getMarketPrice();
-		
+				
 		setListeners();
 		fillTradeGoodsTable();
 	}
@@ -179,6 +179,39 @@ public class TradeGoodsPresenter {
 				    }
 				}
 			}
+		});
+		
+		tradeGoodsView.btnBuyFuel.addMouseListener(new MouseAdapter() {
+			public void mouseUp(MouseEvent e) {
+				String quantText = tradeGoodsView.text_2.getText();
+	
+			
+				if (quantText.equals("") || quantText.equals("Enter Qty")) {
+					NotificationsView.list_1.add("Please enter an amount in the text box");
+					return;
+				}
+			
+				int quant = Integer.parseInt(quantText);
+				int fuelLevel = ship.getFuelLevel();
+				int fuelCapacity = ship.getFuelCapacity();
+				
+				
+				if(fuelCapacity < fuelLevel + quant){
+					NotificationsView.list_1.add("This amount of fuel would cause your tank to burst");
+					return;
+				}
+				
+				else if(Player.getCurrency() < quant * fuelPrice){
+					NotificationsView.list_1.add("Purchasing this amount of fuel would put you in the poor house");
+					return;
+				}
+				
+				else{
+					ship.addFuel(quant);
+			    	player.setCurrency(Player.getCurrency() - (quant*fuelPrice));
+			    	VitalsPresenter.setPlayerVitals();
+				}														
+			}	
 		});
 		
 		/**
