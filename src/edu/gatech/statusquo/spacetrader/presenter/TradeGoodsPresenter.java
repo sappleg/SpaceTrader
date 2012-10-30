@@ -32,14 +32,18 @@ public class TradeGoodsPresenter {
 	 * @param ss
 	 * @param vv
 	 */
-	public TradeGoodsPresenter(Shell s, Driver d, TradeGoodsView tgv, Player p, SolarSystem ss, VitalsView vv) {
+	
+    public TradeGoodsPresenter(Shell s, Driver d, TradeGoodsView tgv, Player p, SolarSystem ss, VitalsView vv) {
 		this.shell = s;
 		this.driver = d;
 		this.tradeGoodsView = tgv;
 		this.vitalsView = vv;
 		this.player = p;
-		this.solarSystem = ss;
+		this.solarSystem = Driver.currentSystem;
 		ship = player.getShip();
+		
+		
+		
 		marketQuantity = solarSystem.getMarketQuantity();
 		marketPrice = solarSystem.getMarketPrice();
 				
