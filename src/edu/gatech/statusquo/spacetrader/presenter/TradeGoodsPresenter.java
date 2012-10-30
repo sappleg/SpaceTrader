@@ -231,6 +231,12 @@ public class TradeGoodsPresenter {
 		    	tradeGoodsView.text_1.setText("");
 		    }
 		});
+		tradeGoodsView.text_2.addMouseListener(new MouseAdapter() {
+		    @Override
+		    public void mouseDown(MouseEvent e) {
+		    	tradeGoodsView.text_2.setText("");
+		    }
+		});
 	}
 	
 	/**
