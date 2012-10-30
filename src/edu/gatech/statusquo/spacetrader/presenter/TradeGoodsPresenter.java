@@ -237,8 +237,9 @@ public class TradeGoodsPresenter {
 	 * Fills market with items, quantities and prices based on criteria
 	 */
 	private void fillTradeGoodsTable() {
-		HashMap<GoodType, Integer> marketPrice = solarSystem.getMarketPrice();
-		HashMap<GoodType, Integer> marketQuantity = solarSystem.getMarketQuantity();
+	    SolarSystem sys = Driver.currentSystem;
+		HashMap<GoodType, Integer> marketPrice = sys.getMarketPrice();
+		HashMap<GoodType, Integer> marketQuantity = sys.getMarketQuantity();
 		
 		String[] water = {"WATER", Integer.toString(marketPrice.get(GoodType.WATER)), Integer.toString(marketQuantity.get(GoodType.WATER)), "N/A"};
 		tradeGoodsView.waterItem.setText(water);
