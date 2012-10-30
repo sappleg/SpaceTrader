@@ -47,7 +47,7 @@ public class LocalPlanetView {
 		 * Take current 
 		 */
 		   
-	        //Collections.sort(Driver.listOfNames);
+	        Collections.sort(Driver.listOfNames);
 	        for (int i = 0; i < Driver.listOfNames.size(); i++)
 	        {
 	            
