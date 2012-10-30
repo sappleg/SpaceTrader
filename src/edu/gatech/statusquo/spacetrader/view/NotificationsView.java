@@ -42,6 +42,7 @@ public class NotificationsView {
 		lblNotifications.setText("Notifications");
 		
 		list_1.setBounds(196, 628, 653, 96);
-		list_1.add("Welcome to Space Trader " + Player.getName());
+		
+		
 	}
 }

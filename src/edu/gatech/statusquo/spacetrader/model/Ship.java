@@ -179,4 +179,8 @@ public class Ship {
 	public void addFuel(int amt) {
 		fuelLevel = fuelLevel + amt;
 	}
+	
+	public void subFuel(int amt){
+	    fuelLevel = fuelLevel - amt;
+	}
 }

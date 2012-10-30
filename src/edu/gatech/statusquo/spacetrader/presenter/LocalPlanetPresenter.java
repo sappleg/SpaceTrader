@@ -12,7 +12,7 @@ public class LocalPlanetPresenter {
 	Shell shell;
 	Driver driver;
 	LocalPlanetView localPlanetView;
-	final int DISTANCEPERFUELUNIT = 11;
+	final static int DISTANCEPERFUELUNIT = 11;
 	/**
 	 * class constructor using listed parameters
 	 * @param s
@@ -77,12 +77,29 @@ public class LocalPlanetPresenter {
                 int playerFuel = currentShip.getFuelLevel();
                 
                 if(fuelNeeded > playerFuel){
-                	NotificationsView.list_1.add("You do not have enough fuel, buy more!");
+                	NotificationsView.list_1.add("You do not have enough fuel to travel here");
                 	return;
                 }
                 
+                 
                 else{
-                	
+                    currentShip.subFuel(fuelNeeded);
+                    Driver.player.setPlayerX(destinationX);
+                    Driver.player.setPlayerY(destinationY);
+                    Driver.currentSystem = Driver.player.findSystem(Driver.player.getPlayerX(),Driver.player.getPlayerY());
+                    NotificationsView.list_1.add("You have moved to planet: "+Driver.currentSystem.getSystemName());
+                    NotificationsView.list_1.add("Fuel Consumed Traveling: "+fuelNeeded);
+                    setNewLocals();
+                    SolarSystemStatsPresenter.setSystemInfo();
+                    VitalsPresenter.setShipVitals();
+                    VitalsPresenter.setPlayerVitals();
+                    TradeGoodsPresenter.fillTradeGoodsTable();
+                    
+                    
+                    
+                    
+                    
+                    
                 }
 				
 			}
@@ -93,7 +110,7 @@ public class LocalPlanetPresenter {
 	 * Refreshes the local systems depending on player X and Y location.
 	 */
 	
-	public void setNewLocals(){
+	public static void setNewLocals(){
 	       /*
          * Take max fuel cap
          * Take current location
@@ -101,6 +118,7 @@ public class LocalPlanetPresenter {
          * 
           */
 	    
+	        LocalPlanetView.list_2.removeAll();
 	        Ship currentShip = Driver.player.getShip();
 	        int fuelCap = currentShip.getFuelCapacity();
 	        int maxDistance = fuelCap * DISTANCEPERFUELUNIT;
@@ -108,7 +126,7 @@ public class LocalPlanetPresenter {
 	        int playerY = Driver.player.getPlayerY();
 	
 
-           // Collections.sort(Driver.listOfNames);
+       
             for (int i = 0; i < Driver.listOfSystems.size(); i++)
             {
                 SolarSystem sys = Driver.listOfSystems.get(i);  
@@ -119,14 +137,11 @@ public class LocalPlanetPresenter {
                         .pow(playerY - sysY, 2)));
                 distance = (int) (Math.sqrt(distance));
                 
-                if(distance <= maxDistance){
-                  LocalPlanetView.list_2.add(sys.getSystemName());        
+                if(distance < maxDistance){
+                  LocalPlanetView.list_2.add(sys.getSystemName());   
+                  System.out.println(sys.toString());
                 }
                 
-                
-               
-//                SolarSystem temp = Driver.listOfSystems.get(i);            
-//                LocalPlanetView.list_2.add(temp.getSystemName());
             }
             
 

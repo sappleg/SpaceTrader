@@ -20,8 +20,8 @@ public class TradeGoodsPresenter {
 	Player player;
 	SolarSystem solarSystem;
 	Ship ship;
-	HashMap<GoodType, Integer> marketQuantity;
-	HashMap<GoodType, Integer> marketPrice;
+	static HashMap<GoodType, Integer> marketQuantity;
+	static HashMap<GoodType, Integer> marketPrice;
 	final int fuelPrice = 15;
 	/**
 	 * 
@@ -246,28 +246,28 @@ public class TradeGoodsPresenter {
 	/**
 	 * Fills market with items, quantities and prices based on criteria
 	 */
-	private void fillTradeGoodsTable() {
+	public static void fillTradeGoodsTable() {
 	    SolarSystem sys = Driver.currentSystem;
-		HashMap<GoodType, Integer> marketPrice = sys.getMarketPrice();
-		HashMap<GoodType, Integer> marketQuantity = sys.getMarketQuantity();
+		 marketPrice = sys.getMarketPrice();
+		 marketQuantity = sys.getMarketQuantity();
 		
 		String[] water = {"WATER", Integer.toString(marketPrice.get(GoodType.WATER)), Integer.toString(marketQuantity.get(GoodType.WATER)), "N/A"};
-		tradeGoodsView.waterItem.setText(water);
+		TradeGoodsView.waterItem.setText(water);
 		String[] fur = {"FUR", Integer.toString(marketPrice.get(GoodType.FUR)), Integer.toString(marketQuantity.get(GoodType.FUR)), "N/A"};
-		tradeGoodsView.furItem.setText(fur);
+		TradeGoodsView.furItem.setText(fur);
 		String[] food = {"FOOD", Integer.toString(marketPrice.get(GoodType.FOOD)), Integer.toString(marketQuantity.get(GoodType.FOOD)), "N/A"};
-		tradeGoodsView.foodItem.setText(food);
+		TradeGoodsView.foodItem.setText(food);
 		String[] ore = {"ORE", Integer.toString(marketPrice.get(GoodType.ORE)), Integer.toString(marketQuantity.get(GoodType.ORE)), "N/A"};
-		tradeGoodsView.oreItem.setText(ore);
+		TradeGoodsView.oreItem.setText(ore);
 		String[] firearms = {"FIREARM", Integer.toString(marketPrice.get(GoodType.FIREARM)), Integer.toString(marketQuantity.get(GoodType.FIREARM)), "N/A"};
-		tradeGoodsView.firearmsItem.setText(firearms);
+		TradeGoodsView.firearmsItem.setText(firearms);
 		String[] medicine = {"MEDICINE", Integer.toString(marketPrice.get(GoodType.MEDICINE)), Integer.toString(marketQuantity.get(GoodType.MEDICINE)), "N/A"};
-		tradeGoodsView.medicineItem.setText(medicine);
+		TradeGoodsView.medicineItem.setText(medicine);
 		String[] machines = {"MACHINE", Integer.toString(marketPrice.get(GoodType.MACHINE)), Integer.toString(marketQuantity.get(GoodType.MACHINE)), "N/A"};
-		tradeGoodsView.machinesItem.setText(machines);
+		TradeGoodsView.machinesItem.setText(machines);
 		String[] narcotics = {"NARCOTIC", Integer.toString(marketPrice.get(GoodType.NARCOTIC)), Integer.toString(marketQuantity.get(GoodType.NARCOTIC)), "N/A"};
-		tradeGoodsView.narcoticsItem.setText(narcotics);
+		TradeGoodsView.narcoticsItem.setText(narcotics);
 		String[] robots = {"ROBOT", Integer.toString(marketPrice.get(GoodType.ROBOT)), Integer.toString(marketQuantity.get(GoodType.ROBOT)), "N/A"};
-		tradeGoodsView.robotsItem.setText(robots);
+		TradeGoodsView.robotsItem.setText(robots);
 	}
 }

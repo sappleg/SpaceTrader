@@ -3,6 +3,7 @@ package edu.gatech.statusquo.spacetrader.presenter;
 import org.eclipse.swt.widgets.Shell;
 
 import edu.gatech.statusquo.spacetrader.driver.*;
+import edu.gatech.statusquo.spacetrader.model.Player;
 import edu.gatech.statusquo.spacetrader.view.*;
 
 public class NotificationsPresenter {
@@ -21,5 +22,12 @@ public class NotificationsPresenter {
 		this.shell = s;
 		this.driver = d;
 		this.notificationsView = nv;
+		setNotifications();
+	}
+	
+	public static void setNotifications(){
+	    NotificationsView.list_1.add("Welcome to Space Trader " + Player.getName());
+	    NotificationsView.list_1.add("Your starting planet: "+Driver.currentSystem.getSystemName());
+	    
 	}
 }

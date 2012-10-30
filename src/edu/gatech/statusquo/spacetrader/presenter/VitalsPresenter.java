@@ -40,8 +40,9 @@ public class VitalsPresenter {
 	 * Sets the players currency and the ships fuel for view by user
 	 */
 	public static void setPlayerVitals() {
-		player.getShip();
-		String[] playerState = {Integer.toString(Player.getCurrency()), Integer.toString(Ship.getFuelLevel())};
+		Ship temp = player.getShip();
+		int currentFuelLvl = temp.getFuelLevel();
+		String[] playerState = {Integer.toString(Player.getCurrency()), Integer.toString(currentFuelLvl)};
 		vitalsView.tableItem.setText(playerState);
 	}
 	

@@ -13,15 +13,15 @@ import org.eclipse.swt.widgets.Text;
 public class TradeGoodsView {
     Shell shell;
     public Table table_1;
-    public TableItem waterItem;
-    public TableItem furItem;
-    public TableItem foodItem;
-    public TableItem oreItem;
-    public TableItem firearmsItem;
-    public TableItem medicineItem;
-    public TableItem machinesItem;
-    public TableItem narcoticsItem;
-    public TableItem robotsItem;
+    public static TableItem waterItem;
+    public static TableItem furItem;
+    public static TableItem foodItem;
+    public static TableItem oreItem;
+    public static TableItem firearmsItem;
+    public static TableItem medicineItem;
+    public static TableItem machinesItem;
+    public static TableItem narcoticsItem;
+    public static TableItem robotsItem;
 
     TableColumn tblclmnItems;
     TableColumn tblclmnPrice;
