@@ -2,7 +2,7 @@ package edu.gatech.statusquo.spacetrader.model;
 
 public class Planet {
 
-	private static String planetName;
+	private String planetName;
 
 	/**
 	 * Class constructor using listed parameters.
@@ -11,7 +11,7 @@ public class Planet {
 	 */
 
 	public Planet(String planetName) {
-		Planet.planetName = planetName;
+		this.planetName = planetName;
 	}
 
 	/**
