@@ -2,14 +2,11 @@ package edu.gatech.statusquo.spacetrader.presenter;
 
 import org.eclipse.swt.widgets.Shell;
 
-import edu.gatech.statusquo.spacetrader.driver.*;
 import edu.gatech.statusquo.spacetrader.model.Ship;
 import edu.gatech.statusquo.spacetrader.model.SolarSystem;
 import edu.gatech.statusquo.spacetrader.view.*;
-import java.sql.Driver.*;
-import java.util.Collections;
 import edu.gatech.statusquo.spacetrader.driver.Driver;
-import edu.gatech.statusquo.spacetrader.model.SolarSystem;
+
 
 public class LocalPlanetPresenter {
 	Shell shell;
@@ -29,7 +26,9 @@ public class LocalPlanetPresenter {
 		setNewLocals();
 	}
 	
-	
+	/**
+	 * Refreshes the local systems depending on player X and Y location.
+	 */
 	public void setNewLocals(){
 	       /*
          * Take max fuel cap
