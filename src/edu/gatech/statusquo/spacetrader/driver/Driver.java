@@ -16,7 +16,7 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 
 public class Driver {
-	Player player;
+	public static Player player;
 	public Display display;
 	public Shell shell;
 	public static int currency = 1000;
@@ -34,13 +34,13 @@ public class Driver {
 	public NotificationsView notificationsView;
 	public VitalsView vitalsView;
 	public LocalPlanetView localPlanetView;
-	public  SolarSystem currentSystem;
+	public static SolarSystem currentSystem;
 	
 	private static HashMap<GoodType, Integer> basePrice;   //map contaning all base prices
 	private static HashMap<GoodType, Integer> baseQty;     //map containing all base quantities
 	private final static double  PRICEPERCENT = .25;       //value used to increase or decrease prices
 	private final static double  QTYPERCENT = .50;         //value used to increase or decrease quantity
-	private static ArrayList<SolarSystem> listOfSystems;   //contains list of all SolarSystems
+	public static ArrayList<SolarSystem> listOfSystems;   //contains list of all SolarSystems.
 	
 	/*
 	 * Driver's constructor
@@ -77,16 +77,17 @@ public class Driver {
 		//represents a list of solar systems
 		listOfSystems = new ArrayList<SolarSystem>();
 		generateUniverse();
-		WelcomeView welcomeView = new WelcomeView();
-		new WelcomePresenter(this, welcomeView);
-		
         int startLocation = (int) (Math.random()*150);
         player.setPlayerX(X.get(startLocation));
         player.setPlayerY(Y.get(startLocation));
-        currentSystem = findSystem(player.getPlayerX(),player.getPlayerY());
-  
+        currentSystem = player.findSystem(player.getPlayerX(),player.getPlayerY());
         
- 
+		WelcomeView welcomeView = new WelcomeView();
+		new WelcomePresenter(this, welcomeView);
+		
+
+        
+
 	}
 	
 	/*
@@ -354,7 +355,7 @@ public class Driver {
 					distance = (int) (Math.sqrt(distance));
 					/* The randomly picked numbers are >= to coordinates at index i then 
 					add to the trueCounter. Else break and generate new coordinates. */
-					if (distance >= 10) {
+					if (distance > 9) {
 						trueCounter++;
 					} else {
 						break;
@@ -450,25 +451,25 @@ public class Driver {
 		s.close();
 	}
 	
-	public SolarSystem findSystem(int currentX, int currentY){
-	  
-	    SolarSystem hold = new SolarSystem();
-	    
-	    
-	    for (int i = 0; i<listOfSystems.size(); i++){
-	        SolarSystem temp = listOfSystems.get(i);
-	        int systemX = temp.getxLocation();
-	        int systemY = temp.getyLocation();
-	        if(currentX == systemX && currentY == systemY){
-	            hold = temp;
-	            break;
-	        }
-	    }
-	    
-        return hold;
-	    
-	    
-	}
+//	public SolarSystem findSystem(int currentX, int currentY){
+//	  
+//	    SolarSystem hold = new SolarSystem();
+//	    
+//	    
+//	    for (int i = 0; i<listOfSystems.size(); i++){
+//	        SolarSystem temp = listOfSystems.get(i);
+//	        int systemX = temp.getxLocation();
+//	        int systemY = temp.getyLocation();
+//	        if(currentX == systemX && currentY == systemY){
+//	            hold = temp;
+//	            break;
+//	        }
+//	    }
+//	    
+//        return hold;
+//	    
+//	    
+//	}
 	
 //	/**
 //	 * Creates static list of all goods
