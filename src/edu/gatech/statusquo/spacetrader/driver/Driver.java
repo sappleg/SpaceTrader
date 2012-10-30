@@ -40,7 +40,7 @@ public class Driver {
 	private static HashMap<GoodType, Integer> baseQty;     //map containing all base quantities
 	private final static double  PRICEPERCENT = .25;       //value used to increase or decrease prices
 	private final static double  QTYPERCENT = .50;         //value used to increase or decrease quantity
-	public static ArrayList<SolarSystem> listOfSystems;   //contains list of all SolarSystems
+	public static ArrayList<SolarSystem> listOfSystems;   //contains list of all SolarSystems.
 	
 	/*
 	 * Driver's constructor
