@@ -12,7 +12,7 @@ public class LocalPlanetView {
 	Shell shell;
 	Label lblLocalPlanets;
 	public static List list_2;
-	Button btnTravel;
+	public Button btnTravel;
 	
 	/**
 	 * shell parameter
