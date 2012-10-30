@@ -56,9 +56,7 @@ public class LocalPlanetPresenter {
                 distance = (int) (Math.sqrt(distance));
                 
                 if(distance <= maxDistance){
-                  LocalPlanetView.list_2.add(sys.getSystemName());
-                  
-                                  
+                  LocalPlanetView.list_2.add(sys.getSystemName());        
                 }
                 
                 
