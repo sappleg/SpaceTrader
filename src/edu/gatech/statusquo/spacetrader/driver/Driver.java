@@ -16,7 +16,7 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 
 public class Driver {
-	Player player;
+	public static Player player;
 	public Display display;
 	public Shell shell;
 	public static int currency = 1000;
@@ -353,7 +353,7 @@ public class Driver {
 					distance = (int) (Math.sqrt(distance));
 					/* The randomly picked numbers are >= to coordinates at index i then 
 					add to the trueCounter. Else break and generate new coordinates. */
-					if (distance >= 10) {
+					if (distance > 9) {
 						trueCounter++;
 					} else {
 						break;
