@@ -21,3 +21,4 @@ public class LocalPlanetPresenter {
 		this.localPlanetView = lpv;
 	}
 }
+

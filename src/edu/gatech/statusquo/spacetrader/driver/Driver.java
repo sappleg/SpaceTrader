@@ -34,18 +34,21 @@ public class Driver {
 	public NotificationsView notificationsView;
 	public VitalsView vitalsView;
 	public LocalPlanetView localPlanetView;
+	public  SolarSystem currentSystem;
 	
 	private static HashMap<GoodType, Integer> basePrice;   //map contaning all base prices
 	private static HashMap<GoodType, Integer> baseQty;     //map containing all base quantities
 	private final static double  PRICEPERCENT = .25;       //value used to increase or decrease prices
 	private final static double  QTYPERCENT = .50;         //value used to increase or decrease quantity
 	private static ArrayList<SolarSystem> listOfSystems;   //contains list of all SolarSystems
-
+	
 	/*
 	 * Driver's constructor
 	 */
 	public Driver() throws IOException {
-		player = new Player();
+        currentSystem = new SolarSystem();
+        player = new Player();
+
 		
 		//fill in base prices
 		basePrice = new HashMap<GoodType, Integer>();
@@ -76,6 +79,14 @@ public class Driver {
 		generateUniverse();
 		WelcomeView welcomeView = new WelcomeView();
 		new WelcomePresenter(this, welcomeView);
+		
+        int startLocation = (int) (Math.random()*150);
+        player.setPlayerX(X.get(startLocation));
+        player.setPlayerY(Y.get(startLocation));
+        currentSystem = findSystem(player.getPlayerX(),player.getPlayerY());
+  
+        
+ 
 	}
 	
 	/*
@@ -437,6 +448,26 @@ public class Driver {
 		} //end of for-loop
 		listOfNames = chosenNames;
 		s.close();
+	}
+	
+	public SolarSystem findSystem(int currentX, int currentY){
+	  
+	    SolarSystem hold = new SolarSystem();
+	    
+	    
+	    for (int i = 0; i<listOfSystems.size(); i++){
+	        SolarSystem temp = listOfSystems.get(i);
+	        int systemX = temp.getxLocation();
+	        int systemY = temp.getyLocation();
+	        if(currentX == systemX && currentY == systemY){
+	            hold = temp;
+	            break;
+	        }
+	    }
+	    
+        return hold;
+	    
+	    
 	}
 	
 //	/**

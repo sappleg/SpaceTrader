@@ -39,7 +39,8 @@ public class VitalsView {
 		tblclmnFuel = new TableColumn(table_2, SWT.CENTER);
 		tableCursor_2 = new TableCursor(table_2, SWT.NONE);
 		tableItem = new TableItem(table_2, SWT.NONE);
-		cargoList = new List(shell, SWT.BORDER);
+		cargoList = new List(shell, SWT.BORDER | SWT.V_SCROLL);
+		
 		
 		try {
 			createView();
