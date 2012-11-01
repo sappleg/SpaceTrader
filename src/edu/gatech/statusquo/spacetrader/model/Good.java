@@ -88,10 +88,17 @@ public class Good {
         this.legality = legality;
     }
     
+    /**
+     * returns goodType
+     * @return
+     */
     public GoodType getGoodType() {
     	return goodType;
     }
     
+    /**
+     * returns String of goodType
+     */
     public String toString() {
     	return goodType.toString();
     }
