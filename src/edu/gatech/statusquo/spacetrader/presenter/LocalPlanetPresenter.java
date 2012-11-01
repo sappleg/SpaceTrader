@@ -27,6 +27,9 @@ public class LocalPlanetPresenter {
 		setListeners();
 	}
 	
+	/**
+	 * Sets listeners
+	 */
 	private void setListeners() {
 
 		localPlanetView.btnTravel.addMouseListener(new MouseAdapter(){

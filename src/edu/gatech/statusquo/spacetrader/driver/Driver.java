@@ -42,8 +42,9 @@ public class Driver {
 	private final static double  QTYPERCENT = .50;         //value used to increase or decrease quantity
 	public static ArrayList<SolarSystem> listOfSystems;   //contains list of all SolarSystems.
 	
-	/*
+	/**
 	 * Driver's constructor
+	 * @throws IOException
 	 */
 	public Driver() throws IOException {
         currentSystem = new SolarSystem();
@@ -101,11 +102,16 @@ public class Driver {
 		}
 	}
 	
+	/**
+	 * Generates player's view
+	 */
 	public void generateCreatePlayer() {
 		CreatePlayerView createPlayerView = new CreatePlayerView();
 		new CreatePlayerPresenter(this, createPlayerView, player);
 	}
-	
+	/**
+	 * Generates main game view
+	 */
 	public void generateMainGame() {
 		display = Display.getDefault();
 		shell = new Shell(display, SWT.TITLE | SWT.CLOSE);
@@ -373,24 +379,6 @@ public class Driver {
 		Y = holdY;
 	}
 
-	/**
-	 * Creates the player
-	 * 
-	 * @param name the name of the player
-	 * @param traderUsed points assigned for trader
-	 * @param engineerUsed points assigned for engineer
-	 * @param pilotUsed points assigned for pilot
-	 * @param fighterUsed points assigned for fighter
-	 */
-//	public void createPlayer(String name, int traderUsed, int engineerUsed,
-//			int pilotUsed, int fighterUsed) {
-//		playerOne = new Player(currCurrency, Ship.ShipType.GNAT, name,
-//				pilotUsed, fighterUsed, traderUsed, engineerUsed);
-//		totalSkills.add(traderUsed);
-//		totalSkills.add(engineerUsed);
-//		totalSkills.add(pilotUsed);
-//		totalSkills.add(fighterUsed);
-//	}
 
 	/**
 	 * Gets the entire party's skills.
@@ -450,56 +438,4 @@ public class Driver {
 		listOfNames = chosenNames;
 		s.close();
 	}
-	
-
-	
-//	public SolarSystem findSystem(int currentX, int currentY){
-//	  
-//	    SolarSystem hold = new SolarSystem();
-//	    
-//	    
-//	    for (int i = 0; i<listOfSystems.size(); i++){
-//	        SolarSystem temp = listOfSystems.get(i);
-//	        int systemX = temp.getxLocation();
-//	        int systemY = temp.getyLocation();
-//	        if(currentX == systemX && currentY == systemY){
-//	            hold = temp;
-//	            break;
-//	        }
-//	    }
-//	    
-//        return hold;
-//	    
-//	    
-//	}
-	
-//	/**
-//	 * Creates static list of all goods
-//	 */
-//	public static void generateGoods(){
-//		ArrayList<Good> goodsList = new ArrayList<Good>();
-//		
-//		Good water = new Good(0, 0, 2, 30, 25, true);
-//		Good fur = new Good(0, 0, 0, 250, 10, true);
-//		Good food = new Good(1, 0, 1, 100, 20, true);
-//		Good ore = new Good(2, 2, 3, 350, 20, true);
-//		Good firearms = new Good(3, 1, 5, 1200, 5, true);
-//		Good medicine = new Good(4, 1, 6, 650, 15, true);
-//		Good machines = new Good(4, 3, 5, 900, 10, true);
-//		Good narcotics = new Good(5, 0, 5, 3500, 5, false);
-//		Good robots = new Good(6, 4, 6, 5000, 5, true);
-//		
-//		goodsList.add(water);
-//		goodsList.add(fur);
-//		goodsList.add(food);
-//		goodsList.add(ore);
-//		goodsList.add(firearms);
-//		goodsList.add(medicine);
-//		goodsList.add(machines);
-//		goodsList.add(narcotics);
-//		goodsList.add(robots);
-//		
-//		listOfGoods = goodsList;
-//			
-//	}
 }

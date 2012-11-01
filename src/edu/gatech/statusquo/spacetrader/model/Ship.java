@@ -7,11 +7,7 @@ public class Ship {
 	ShipType shipType;
 	final int fuelCapacity;
 	static int fuelLevel;
-	
-	
-    public int getFuelCapacity() {
-		return fuelCapacity;
-	}
+
 	public enum ShipType {
     	FLEA, GNAT, FIREFLY, MOSQUITO, BUMBLEBEE, BEETLE, HORNET, GRASSHOPPER, TERMITE, WASP
     }
@@ -176,11 +172,25 @@ public class Ship {
 		}
 	}
 	
+	/**
+	 * Adds amt to current fuelLevel
+	 * @param amt
+	 */
 	public void addFuel(int amt) {
 		fuelLevel = fuelLevel + amt;
 	}
-	
+	/**
+	 * Subtracts amt from current fuelLevel
+	 * @param amt
+	 */
 	public void subFuel(int amt){
 	    fuelLevel = fuelLevel - amt;
 	}
+	
+	/**
+	 * @return fuelCapacity
+	 */
+    public int getFuelCapacity() {
+        return fuelCapacity;
+    }
 }

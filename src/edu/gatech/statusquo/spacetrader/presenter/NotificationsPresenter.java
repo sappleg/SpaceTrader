@@ -25,6 +25,10 @@ public class NotificationsPresenter {
 		setNotifications();
 	}
 	
+	
+	/**
+	 * Sets notifications
+	 */
 	public static void setNotifications(){
 	    NotificationsView.list_1.add("Welcome to Space Trader " + Player.getName());
 	    NotificationsView.list_1.add("Your starting planet: "+Driver.currentSystem.getSystemName());

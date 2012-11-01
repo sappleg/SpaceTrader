@@ -111,6 +111,11 @@ public class SolarSystem {
 		this.resourceLevel = resourceLevel;
 	}
 	
+	/**
+	 * Returns string of the resource
+	 * @return resourceName
+	 */
+	
 	public String getResourceLevelName(){
 		
 		if(resourceLevel == 0){
@@ -161,14 +166,27 @@ public class SolarSystem {
 				+ "Y-Position: " + yLocation + "\n");
 	}
 
+	/**
+	 * 
+	 * @return xLocation
+	 */
 	public int getxLocation() {
 		return xLocation;
 	}
+	
+	/**
+	 * 
+	 * @return yLocation
+	 */
 
 	public int getyLocation() {
 		return yLocation;
 	}
 
+	/**
+	 * 
+	 * @return systemName
+	 */
 	public String getSystemName() {
 		return systemName;
 	}

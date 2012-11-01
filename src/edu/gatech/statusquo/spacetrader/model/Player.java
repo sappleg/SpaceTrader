@@ -28,14 +28,23 @@ public class Player {
 		
 	}
 
+	/**
+	 * @return playerX
+	 */
 	public int getPlayerX() {
         return playerX;
     }
 
+	/**
+	 * @param playerX
+	 */
     public void setPlayerX(int playerX) {
         Player.playerX = playerX;
     }
 
+    /**
+     * @return playerY
+     */
     public int getPlayerY() {
         return playerY;
     }
@@ -187,7 +196,5 @@ public class Player {
         }
         
         return hold;
-        
-        
     }
 }
