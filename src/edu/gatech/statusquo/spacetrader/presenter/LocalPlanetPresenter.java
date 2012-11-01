@@ -49,6 +49,8 @@ public class LocalPlanetPresenter {
 				
 				if (LocalPlanetView.list_2.getSelection().length == 0) {
 					NotificationsView.list_1.add("Please select an solar system from the list");
+                    NotificationsView.list_1.select(NotificationsView.list_1.getItemCount() - 1);
+                    NotificationsView.list_1.showSelection();
 					return;
 				}
 				
@@ -81,6 +83,8 @@ public class LocalPlanetPresenter {
                 
                 if(fuelNeeded > playerFuel){
                 	NotificationsView.list_1.add("You do not have enough fuel to travel here");
+                    NotificationsView.list_1.select(NotificationsView.list_1.getItemCount() - 1);
+                    NotificationsView.list_1.showSelection();
                 	return;
                 }
                 
@@ -92,6 +96,8 @@ public class LocalPlanetPresenter {
                     Driver.currentSystem = Driver.player.findSystem(Driver.player.getPlayerX(),Driver.player.getPlayerY());
                     NotificationsView.list_1.add("You have moved to planet: "+Driver.currentSystem.getSystemName());
                     NotificationsView.list_1.add("Fuel Consumed Traveling: "+fuelNeeded);
+                    NotificationsView.list_1.select(NotificationsView.list_1.getItemCount() - 1);
+                    NotificationsView.list_1.showSelection();
                     setNewLocals();
                     SolarSystemStatsPresenter.setSystemInfo();
                     VitalsPresenter.setShipVitals();
@@ -142,7 +148,6 @@ public class LocalPlanetPresenter {
                 
                 if(distance < maxDistance){
                   LocalPlanetView.list_2.add(sys.getSystemName());   
-                  System.out.println(sys.toString());
                 }
                 
             }

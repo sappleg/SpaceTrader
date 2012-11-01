@@ -192,6 +192,8 @@ public class TradeGoodsPresenter {
 			
 				if (quantText.equals("") || quantText.equals("Enter Qty")) {
 					NotificationsView.list_1.add("Please enter an amount in the text box");
+                    NotificationsView.list_1.select(NotificationsView.list_1.getItemCount() - 1);
+                    NotificationsView.list_1.showSelection();
 					return;
 				}
 			
@@ -202,11 +204,15 @@ public class TradeGoodsPresenter {
 				
 				if(fuelCapacity < fuelLevel + quant){
 					NotificationsView.list_1.add("This amount of fuel would cause your tank to burst");
+                    NotificationsView.list_1.select(NotificationsView.list_1.getItemCount() - 1);
+                    NotificationsView.list_1.showSelection();
 					return;
 				}
 				
 				else if(Player.getCurrency() < quant * fuelPrice){
 					NotificationsView.list_1.add("Purchasing this amount of fuel would put you in the poor house");
+                    NotificationsView.list_1.select(NotificationsView.list_1.getItemCount() - 1);
+                    NotificationsView.list_1.showSelection();
 					return;
 				}
 				
