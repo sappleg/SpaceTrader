@@ -3,7 +3,7 @@ package edu.gatech.statusquo.spacetrader.model;
 import edu.gatech.statusquo.spacetrader.model.Good.GoodType;
 
 public class Ship {
-	Good[] cargoBay;
+	public Good[] cargoBay;
 	ShipType shipType;
 	final int fuelCapacity;
 	static int fuelLevel;
