@@ -35,6 +35,7 @@ public class Driver {
 	public VitalsView vitalsView;
 	public LocalPlanetView localPlanetView;
 	public static SolarSystem currentSystem;
+	public MenuView menuView;
 	
 	private static HashMap<GoodType, Integer> basePrice;   //map contaning all base prices
 	private static HashMap<GoodType, Integer> baseQty;     //map containing all base quantities
@@ -49,7 +50,6 @@ public class Driver {
 	public Driver() throws IOException {
         currentSystem = new SolarSystem();
         player = new Player();
-
 		
 		//fill in base prices
 		basePrice = new HashMap<GoodType, Integer>();
@@ -85,10 +85,6 @@ public class Driver {
         
 		WelcomeView welcomeView = new WelcomeView();
 		new WelcomePresenter(this, welcomeView);
-		
-
-        
-
 	}
 	
 	/*
@@ -116,13 +112,11 @@ public class Driver {
 		display = Display.getDefault();
 		shell = new Shell(display, SWT.TITLE | SWT.CLOSE);
 		
-		shell.open();
-		shell.layout();
-		
 		shell.setSize(1024, 768);
 		shell.setText("Space Trader");
 		shell.setLayout(null);
 		
+	    //instantiate views
 		shipStatisticsView = new ShipStatisticsView(shell);
 		teamStatisticsView = new TeamStatisticsView(shell, player);
 		solarSystemStatsView = new SolarSystemStatsView(shell);
@@ -130,7 +124,9 @@ public class Driver {
 		notificationsView = new NotificationsView(shell, player);
 		vitalsView = new VitalsView(shell, player);
 		localPlanetView = new LocalPlanetView(shell);
+		menuView = new MenuView(shell);
 		
+		//instantiate Presenters
 		new ShipStatisticsPresenter(shell, this, shipStatisticsView);
 		new TeamStatisticsPresenter(shell, this, teamStatisticsView);
 		new SolarSystemStatsPresenter(shell, this, solarSystemStatsView);
@@ -138,7 +134,10 @@ public class Driver {
 		new NotificationsPresenter(shell, this, notificationsView);
 		new VitalsPresenter(shell, this, vitalsView, player, tradeGoodsView);
 		new LocalPlanetPresenter(shell, this, localPlanetView);
-		
+		new MenuPresenter(shell, display, this, menuView);
+	    
+		shell.open();
+		shell.layout();
 		while (!shell.isDisposed()) {
 			if (!display.readAndDispatch()) {
 				display.sleep();
