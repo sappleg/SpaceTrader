@@ -134,7 +134,7 @@ public class Driver {
 		new NotificationsPresenter(shell, this, notificationsView);
 		new VitalsPresenter(shell, this, vitalsView, player, tradeGoodsView);
 		new LocalPlanetPresenter(shell, this, localPlanetView);
-		new MenuPresenter(shell, this, menuView);
+		new MenuPresenter(shell, display, this, menuView);
 	    
 		shell.open();
 		shell.layout();

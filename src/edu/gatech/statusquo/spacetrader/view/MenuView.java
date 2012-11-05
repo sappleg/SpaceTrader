@@ -10,11 +10,11 @@ public class MenuView {
 	Menu menuBar;
 	MenuItem fileMenuHeader;
 	Menu fileMenu;
-	MenuItem fileSaveItem;
-	MenuItem fileExitItem;
+	public MenuItem fileSaveItem;
+	public MenuItem fileExitItem;
 	MenuItem helpMenuHeader;
 	Menu helpMenu;
-	MenuItem helpGetHelpItem;
+	public MenuItem helpGetHelpItem;
 
 	public MenuView(Shell s) {
 		//instantiate Menu for Main application
