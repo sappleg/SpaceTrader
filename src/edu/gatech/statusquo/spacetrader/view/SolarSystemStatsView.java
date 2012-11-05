@@ -7,9 +7,6 @@ import org.eclipse.swt.widgets.List;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
-import edu.gatech.statusquo.spacetrader.model.SolarSystem;
-
-import edu.gatech.statusquo.spacetrader.model.SolarSystem;
 
 public class SolarSystemStatsView {
 	Shell shell;
