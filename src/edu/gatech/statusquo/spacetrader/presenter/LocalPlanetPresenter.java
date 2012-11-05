@@ -134,6 +134,7 @@ public class LocalPlanetPresenter {
                     
                     else if(randomEvent >= 90 && randomEvent <= 94){
                         //worm hole, no fuel is used
+                    	fuelNeeded = 0;
                         currentShip.addFuel(fuelNeeded);
     					NotificationsView.list_1.add("During your travels a wormhole suddenly appeared. You flew through the wormhole and used no fuel.");
                         NotificationsView.list_1.select(NotificationsView.list_1.getItemCount() - 1);
@@ -144,6 +145,7 @@ public class LocalPlanetPresenter {
                         //asteroid collision, all fuel is depleted
                         int currentFuel = currentShip.getFuelLevel();
                         currentShip.subFuel(currentFuel);
+                        fuelNeeded = playerFuel;
     					NotificationsView.list_1.add("While approaching the planet your gas tank was suddenly struck by an meteorite. Your remaining fuel was drained as a result.");
                         NotificationsView.list_1.select(NotificationsView.list_1.getItemCount() - 1);
                         NotificationsView.list_1.showSelection();
