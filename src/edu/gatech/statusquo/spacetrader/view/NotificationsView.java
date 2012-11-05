@@ -25,6 +25,7 @@ public class NotificationsView {
 		this.player = p;
 		lblNotifications = new Label(shell, SWT.NONE);
 		list_1 = new List(shell, SWT.BORDER | SWT.V_SCROLL);
+		
 		try {
 			createView();
 		} catch (Exception e) {
@@ -42,7 +43,5 @@ public class NotificationsView {
 		lblNotifications.setText("Notifications");
 		
 		list_1.setBounds(196, 628, 653, 96);
-		
-		
 	}
 }
