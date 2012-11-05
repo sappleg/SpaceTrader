@@ -118,10 +118,7 @@ public class LocalPlanetPresenter {
                         //pirate encounter, all goods are removed
                         Good[] empty = new Good[0];
                         currentShip.cargoBay = empty;
-    					NotificationsView.list_1.add("You were raided by pirates!");
-                        NotificationsView.list_1.select(NotificationsView.list_1.getItemCount() - 1);
-                        NotificationsView.list_1.showSelection();
-    					NotificationsView.list_1.add("They cleaned you out of all your cargo.");
+    					NotificationsView.list_1.add("You were raided by pirates! They cleaned you out of all your cargo.");
                         NotificationsView.list_1.select(NotificationsView.list_1.getItemCount() - 1);
                         NotificationsView.list_1.showSelection();
                     }
@@ -130,10 +127,7 @@ public class LocalPlanetPresenter {
                         //merchant encounter, rewards player with 1000 credits
                         int newCurrency = Player.getCurrency() + 1000;
                         Driver.player.setCurrency(newCurrency);
-    					NotificationsView.list_1.add("You picked up a stranded merchant and took him to the nearest planet.");
-                        NotificationsView.list_1.select(NotificationsView.list_1.getItemCount() - 1);
-                        NotificationsView.list_1.showSelection();
-    					NotificationsView.list_1.add("He gave you 1000 credits for your troubles.");
+    					NotificationsView.list_1.add("You picked up a stranded merchant and took him to the nearest planet. He gave you 1000 credits for your troubles.");
                         NotificationsView.list_1.select(NotificationsView.list_1.getItemCount() - 1);
                         NotificationsView.list_1.showSelection();
                     }
@@ -141,10 +135,7 @@ public class LocalPlanetPresenter {
                     else if(randomEvent >= 90 && randomEvent <= 94){
                         //worm hole, no fuel is used
                         currentShip.addFuel(fuelNeeded);
-    					NotificationsView.list_1.add("During your travels a wormhole suddenly appeared.");
-                        NotificationsView.list_1.select(NotificationsView.list_1.getItemCount() - 1);
-                        NotificationsView.list_1.showSelection();
-    					NotificationsView.list_1.add("You flew through the wormhole and used no fuel.");
+    					NotificationsView.list_1.add("During your travels a wormhole suddenly appeared. You flew through the wormhole and used no fuel.");
                         NotificationsView.list_1.select(NotificationsView.list_1.getItemCount() - 1);
                         NotificationsView.list_1.showSelection();
                     }
@@ -153,10 +144,7 @@ public class LocalPlanetPresenter {
                         //asteroid collision, all fuel is depleted
                         int currentFuel = currentShip.getFuelLevel();
                         currentShip.subFuel(currentFuel);
-    					NotificationsView.list_1.add("While approaching the planet your gas tank was suddenly struck by an meteorite.");
-                        NotificationsView.list_1.select(NotificationsView.list_1.getItemCount() - 1);
-                        NotificationsView.list_1.showSelection();
-    					NotificationsView.list_1.add("Your remaining fuel was drained as a result.");
+    					NotificationsView.list_1.add("While approaching the planet your gas tank was suddenly struck by an meteorite. Your remaining fuel was drained as a result.");
                         NotificationsView.list_1.select(NotificationsView.list_1.getItemCount() - 1);
                         NotificationsView.list_1.showSelection();
                         
@@ -168,10 +156,7 @@ public class LocalPlanetPresenter {
                         int reward = 1000*randomMult;
                         int newCurrency = Player.getCurrency() + reward;
                         Driver.player.setCurrency(newCurrency);
-    					NotificationsView.list_1.add("You found a pirates treasure cash!");
-                        NotificationsView.list_1.select(NotificationsView.list_1.getItemCount() - 1);
-                        NotificationsView.list_1.showSelection();
-    					NotificationsView.list_1.add("You recieved " + reward + " credits.");
+    					NotificationsView.list_1.add("You found a pirates treasure cash! You recieved " + reward + " credits.");
                         NotificationsView.list_1.select(NotificationsView.list_1.getItemCount() - 1);
                         NotificationsView.list_1.showSelection();
                     }
