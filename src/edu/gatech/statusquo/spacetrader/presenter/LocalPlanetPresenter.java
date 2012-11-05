@@ -108,30 +108,47 @@ public class LocalPlanetPresenter {
                     if (randomEvent >=50 && randomEvent <= 69){
                         //police encounter, narcotics are removed
                         int narcoticsAmt = currentShip.countCargo(GoodType.NARCOTIC);
-                        currentShip.removeCargo(narcoticsAmt, GoodType.NARCOTIC);                        
+                        currentShip.removeCargo(narcoticsAmt, GoodType.NARCOTIC);
+    					NotificationsView.list_1.add("You got pulled over by Space Police who checked for and removed any and all illegal cargo");
+                        NotificationsView.list_1.select(NotificationsView.list_1.getItemCount() - 1);
+                        NotificationsView.list_1.showSelection();
                     }
                     
                     else if (randomEvent >= 70 && randomEvent <= 77){
                         //pirate encounter, all goods are removed
                         Good[] empty = new Good[0];
                         currentShip.cargoBay = empty;
+    					NotificationsView.list_1.add("You were raided by pirates! They cleaned you out of all your cargo.");
+                        NotificationsView.list_1.select(NotificationsView.list_1.getItemCount() - 1);
+                        NotificationsView.list_1.showSelection();
                     }
                     
                     else if(randomEvent >= 78 && randomEvent <= 89){
                         //merchant encounter, rewards player with 1000 credits
                         int newCurrency = Player.getCurrency() + 1000;
                         Driver.player.setCurrency(newCurrency);
+    					NotificationsView.list_1.add("You picked up a stranded merchant and took him to the nearest planet. He gave you 1000 credits for your troubles.");
+                        NotificationsView.list_1.select(NotificationsView.list_1.getItemCount() - 1);
+                        NotificationsView.list_1.showSelection();
                     }
                     
                     else if(randomEvent >= 90 && randomEvent <= 94){
                         //worm hole, no fuel is used
+                    	fuelNeeded = 0;
                         currentShip.addFuel(fuelNeeded);
+    					NotificationsView.list_1.add("During your travels a wormhole suddenly appeared. You flew through the wormhole and used no fuel.");
+                        NotificationsView.list_1.select(NotificationsView.list_1.getItemCount() - 1);
+                        NotificationsView.list_1.showSelection();
                     }
                     
                     else if(randomEvent >= 95 && randomEvent <= 98){
                         //asteroid collision, all fuel is depleted
                         int currentFuel = currentShip.getFuelLevel();
                         currentShip.subFuel(currentFuel);
+                        fuelNeeded = playerFuel;
+    					NotificationsView.list_1.add("While approaching the planet your gas tank was suddenly struck by an meteorite. Your remaining fuel was drained as a result.");
+                        NotificationsView.list_1.select(NotificationsView.list_1.getItemCount() - 1);
+                        NotificationsView.list_1.showSelection();
                         
                     }
                     
@@ -141,12 +158,17 @@ public class LocalPlanetPresenter {
                         int reward = 1000*randomMult;
                         int newCurrency = Player.getCurrency() + reward;
                         Driver.player.setCurrency(newCurrency);
+    					NotificationsView.list_1.add("You found a pirates treasure cash! You recieved " + reward + " credits.");
+                        NotificationsView.list_1.select(NotificationsView.list_1.getItemCount() - 1);
+                        NotificationsView.list_1.showSelection();
                     }
                     
                  
                     else{
                         //print notification that nothing happened
-                        
+    					NotificationsView.list_1.add("Nothing interesting happened on your travels.");
+                        NotificationsView.list_1.select(NotificationsView.list_1.getItemCount() - 1);
+                        NotificationsView.list_1.showSelection();
                     }
                     
                     Driver.currentSystem = Driver.player.findSystem(Driver.player.getPlayerX(),Driver.player.getPlayerY());
