@@ -2,8 +2,11 @@ package edu.gatech.statusquo.spacetrader.presenter;
 
 import org.eclipse.swt.widgets.Shell;
 
+import edu.gatech.statusquo.spacetrader.model.Good;
+import edu.gatech.statusquo.spacetrader.model.Player;
 import edu.gatech.statusquo.spacetrader.model.Ship;
 import edu.gatech.statusquo.spacetrader.model.SolarSystem;
+import edu.gatech.statusquo.spacetrader.model.Good.GoodType;
 import edu.gatech.statusquo.spacetrader.view.*;
 import edu.gatech.statusquo.spacetrader.driver.Driver;
 import org.eclipse.swt.events.*;
@@ -88,11 +91,64 @@ public class LocalPlanetPresenter {
                 	return;
                 }
                 
+                
+                //updating UI information since you have traveled. 
                  
                 else{
+                    
+                    
                     currentShip.subFuel(fuelNeeded);
                     Driver.player.setPlayerX(destinationX);
                     Driver.player.setPlayerY(destinationY);
+            
+                    //random events
+                    int randomEvent = (int)((Math.random())*100);
+                    
+                    
+                    if (randomEvent >=50 && randomEvent <= 69){
+                        //police encounter, narcotics are removed
+                        int narcoticsAmt = currentShip.countCargo(GoodType.NARCOTIC);
+                        currentShip.removeCargo(narcoticsAmt, GoodType.NARCOTIC);                        
+                    }
+                    
+                    else if (randomEvent >= 70 && randomEvent <= 77){
+                        //pirate encounter, all goods are removed
+                        Good[] empty = new Good[0];
+                        currentShip.cargoBay = empty;
+                    }
+                    
+                    else if(randomEvent >= 78 && randomEvent <= 89){
+                        //merchant encounter, rewards player with 1000 credits
+                        int newCurrency = Player.getCurrency() + 1000;
+                        Driver.player.setCurrency(newCurrency);
+                    }
+                    
+                    else if(randomEvent >= 90 && randomEvent <= 94){
+                        //worm hole, no fuel is used
+                        currentShip.addFuel(fuelNeeded);
+                    }
+                    
+                    else if(randomEvent >= 95 && randomEvent <= 98){
+                        //asteroid collision, all fuel is depleted
+                        int currentFuel = currentShip.getFuelLevel();
+                        currentShip.subFuel(currentFuel);
+                        
+                    }
+                    
+                    else if(randomEvent == 99){
+                        //treasure encounter, 1000*(1..10) credits are added to currency
+                        int randomMult = (int)(Math.random()*10)+1;
+                        int reward = 1000*randomMult;
+                        int newCurrency = Player.getCurrency() + reward;
+                        Driver.player.setCurrency(newCurrency);
+                    }
+                    
+                 
+                    else{
+                        //print notification that nothing happened
+                        
+                    }
+                    
                     Driver.currentSystem = Driver.player.findSystem(Driver.player.getPlayerX(),Driver.player.getPlayerY());
                     NotificationsView.list_1.add("You have moved to planet: "+Driver.currentSystem.getSystemName());
                     NotificationsView.list_1.add("Fuel Consumed Traveling: "+fuelNeeded);
