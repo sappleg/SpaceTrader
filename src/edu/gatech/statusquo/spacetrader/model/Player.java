@@ -202,6 +202,6 @@ public class Player {
 		return name + "," + Integer.toString(currency) + "," + Integer.toString(trader)
 				+ "," + Integer.toString(engineer) + "," + Integer.toString(fighter)
 				+ "," + Integer.toString(pilot) + "," + Integer.toString(playerX)
-				+ "," + Integer.toString(playerY);
+				+ "," + Integer.toString(playerY) + ",";
 	}
 }

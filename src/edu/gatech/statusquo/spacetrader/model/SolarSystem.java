@@ -197,7 +197,7 @@ public class SolarSystem {
 	 */
 	public String toString() {
 		return systemName + "," + Integer.toString(techLevel) + "," + Integer.toString(resourceLevel)
-				+ "," + Integer.toString(xLocation) + "," + Integer.toString(yLocation);
+				+ "," + Integer.toString(xLocation) + "," + Integer.toString(yLocation) + ",";
 	}
 	
 	public String marketPriceToString() {

@@ -238,7 +238,7 @@ public class Ship {
     }
     
     public String toString() {
-    	return shipType + "," + Integer.toString(fuelLevel);
+    	return shipType + "," + Integer.toString(fuelLevel) + ",";
     }
     
     public String toStringCargoBay() {
