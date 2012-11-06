@@ -51,11 +51,11 @@ public class MenuPresenter {
 		
 		menuView.fileSaveItem.addSelectionListener(new SelectionListener() {
 			public void widgetSelected(SelectionEvent e) {
-				//Placeholder for save function
+				driver.saveGame();
 			}
 			
 			public void widgetDefaultSelected(SelectionEvent e) {
-				//Placeholder for save function
+				driver.saveGame();
 			}
 		});
 		

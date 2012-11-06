@@ -9,7 +9,47 @@ public class Ship {
 	static int fuelLevel;
 
 	public enum ShipType {
-    	FLEA, GNAT, FIREFLY, MOSQUITO, BUMBLEBEE, BEETLE, HORNET, GRASSHOPPER, TERMITE, WASP
+    	FLEA {
+	        public String toString() {
+	            return "FLEA";
+	        }
+    	}, GNAT {
+	        public String toString() {
+	            return "GNAT";
+	        }
+    	}, FIREFLY {
+	        public String toString() {
+	            return "FIREFLY";
+	        }
+    	}, MOSQUITO {
+	        public String toString() {
+	            return "MOSQUITO";
+	        }
+    	}, BUMBLEBEE {
+	        public String toString() {
+	            return "BUMBLEBEE";
+	        }
+    	}, BEETLE {
+	        public String toString() {
+	            return "BEETLE";
+	        }
+    	}, HORNET {
+	        public String toString() {
+	            return "HORNET";
+	        }
+    	}, GRASSHOPPER {
+	        public String toString() {
+	            return "GRASSHOPPER";
+	        }
+    	}, TERMITE {
+	        public String toString() {
+	            return "TERMITE";
+	        }
+    	}, WASP {
+	        public String toString() {
+	            return "WASP";
+	        }
+    	}
     }
     
     /**
@@ -192,5 +232,17 @@ public class Ship {
 	 */
     public int getFuelCapacity() {
         return fuelCapacity;
+    }
+    
+    public String toString() {
+    	return shipType + "," + Integer.toString(fuelLevel);
+    }
+    
+    public String toStringCargoBay() {
+    	String out = "";
+    	for (Good g: cargoBay) {
+    		out = out + g + ",";
+    	}
+    	return out;
     }
 }
