@@ -25,13 +25,14 @@ public class SolarSystem {
 	 * @param yLocation
 	 */
 	public SolarSystem() {
-	        // TODO Auto-generated constructor stub
+	        setPlanet(new Planet("N/A"));
 	    }
+	
 	public SolarSystem(String systemName, Planet planet, int techLevel,
 			int resourceLevel, int xLocation, int yLocation) {
 
 		this.systemName = systemName;
-		this.planet = planet;
+		this.setPlanet(planet);
 		this.techLevel = techLevel;
 		this.resourceLevel = resourceLevel;
 		this.xLocation = xLocation;
@@ -152,18 +153,6 @@ public class SolarSystem {
 			return "Weird Mushrooms";
 		}
 		else return null;
-		
-		
-	}
-
-	/**
-	 * @return Information of the SolarSystem in a String.
-	 */
-	public String toString() {
-		return ("SystemName: " + systemName + "\n" + planet.toString()
-				+ "TechLevel: " + techLevel + "\n" + "ResourceLevel: "
-				+ resourceLevel + "\n" + "X-Position: " + xLocation + "\n"
-				+ "Y-Position: " + yLocation + "\n");
 	}
 
 	/**
@@ -189,5 +178,39 @@ public class SolarSystem {
 	 */
 	public String getSystemName() {
 		return systemName;
+	}
+
+	/**
+	 * @return Information of the SolarSystem in a String.
+	 */
+	public String toString() {
+		return systemName + "," + Integer.toString(techLevel) + "," + Integer.toString(resourceLevel)
+				+ "," + Integer.toString(xLocation) + "," + Integer.toString(yLocation);
+	}
+	
+	public String marketPriceToString() {
+		String ret = "";
+		GoodType[] goodTypes = Good.GoodType.values();
+		for (GoodType g: goodTypes) {
+			ret = ret + Integer.toString(marketPrice.get(g)) + ",";
+		}
+		return ret;
+	}
+	
+	public String marketQuantityToString() {
+		String ret = "";
+		GoodType[] goodTypes = Good.GoodType.values();
+		for (GoodType g: goodTypes) {
+			ret = ret + Integer.toString(marketQuantity.get(g)) + ",";
+		}
+		return ret;
+	}
+
+	public Planet getPlanet() {
+		return planet;
+	}
+
+	public void setPlanet(Planet planet) {
+		this.planet = planet;
 	}
 }
