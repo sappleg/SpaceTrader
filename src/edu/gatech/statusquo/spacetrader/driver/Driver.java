@@ -5,8 +5,7 @@ import edu.gatech.statusquo.spacetrader.model.Good.GoodType;
 import edu.gatech.statusquo.spacetrader.presenter.*;
 import edu.gatech.statusquo.spacetrader.view.*;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -19,13 +18,9 @@ public class Driver {
 	public static Player player;
 	public Display display;
 	public Shell shell;
-	public static int currency = 1000;
-	static ArrayList<Integer> totalSkills;
-	ArrayList<Integer> partySkills;
 	private static ArrayList<Integer> X; // Contains randomly generated X
 	private static ArrayList<Integer> Y; // Contains randomly generated Y
 	public static ArrayList<String> listOfNames; // Contains randomly picked names
-	public SolarSystem solarSystem;	 // initial Solar system to give trade good presenter
 	
 	public ShipStatisticsView shipStatisticsView;
 	public TeamStatisticsView teamStatisticsView;
@@ -378,35 +373,6 @@ public class Driver {
 		Y = holdY;
 	}
 
-
-	/**
-	 * Gets the entire party's skills.
-	 * 
-	 * @return an ArrayList<Integer> that contains all the skills.
-	 */
-	public static ArrayList<Integer> getSkills() {
-		return totalSkills;
-	}
-	
-	/**
-	 * This method is to boost the player's statistics in case he/she purchases
-	 * a mercenary.
-	 * 
-	 * @param tr number of trader points.
-	 * @param en number of engineer points.
-	 * @param pi number of pilot points.
-	 * @param fi number of fighter points.
-	 */
-	// this needs to reference player correctly
-	public void boostSkillPoints(int tr, int en, int pi, int fi) {
-		int[] boostPoints = { tr, en, pi, fi };
-		ArrayList<Integer> newTotalSkills = new ArrayList<Integer>();
-		for (int i = 0; i < boostPoints.length; i++) {
-			newTotalSkills.add(totalSkills.get(i) + boostPoints[i]);
-		}
-		totalSkills = newTotalSkills;
-	}
-
 	/**
 	 * Generates a list of 150 planet names from an existing text file.
 	 * 
@@ -436,5 +402,37 @@ public class Driver {
 		} //end of for-loop
 		listOfNames = chosenNames;
 		s.close();
+	}
+	
+	public void saveGame() {
+		File saveFile = new File("savedGame.txt");
+		if (saveFile.exists()) saveFile.delete();
+		BufferedWriter output = null;
+        try {
+			output = new BufferedWriter(new FileWriter(saveFile));
+			output.write(player.toString());
+			output.newLine();
+			output.write(player.getShip().toString());
+			output.newLine();
+			output.write(player.getShip().toStringCargoBay());
+			output.newLine();
+			output.write(currentSystem.toString());
+			output.newLine();
+			output.write(currentSystem.marketPriceToString());
+			output.newLine();
+			output.write(currentSystem.marketQuantityToString());
+			output.newLine();
+			for (SolarSystem ss: listOfSystems) {
+				output.write(ss.toString());
+				output.newLine();
+				output.write(ss.marketPriceToString());
+				output.newLine();
+				output.write(ss.marketQuantityToString());
+				output.newLine();
+			}
+			output.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }
