@@ -223,7 +223,7 @@ public class CreatePlayerPresenter {
 					player.setFighterSkills(Integer.parseInt(createPlayerView.fighterSpinner.getText()));
 					
 					createPlayerView.shell.dispose();
-					driver.generateMainGame();
+					
 				}
 			}
 		});
