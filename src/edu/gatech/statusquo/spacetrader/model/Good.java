@@ -109,7 +109,7 @@ public class Good {
      * @param goodName
      * @return goodType
      */
-    public GoodType getGoodType(String goodName){
+    public static GoodType getGoodType(String goodName){
         switch(goodName){
             case "WATER":
                 return GoodType.WATER;
@@ -132,6 +132,6 @@ public class Good {
         }
         
         //default good type
-        return GoodType.WATER;
+        return null;
     }
 }

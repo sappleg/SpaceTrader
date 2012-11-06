@@ -8,6 +8,9 @@ public class Ship {
 	final int fuelCapacity;
 	static int fuelLevel;
 
+	public void setFuelLevel(int fuelLevel) {
+		Ship.fuelLevel = fuelLevel;
+	}
 	public enum ShipType {
     	FLEA {
 	        public String toString() {
@@ -235,7 +238,7 @@ public class Ship {
     }
     
     public String toString() {
-    	return shipType + "," + Integer.toString(fuelLevel);
+    	return shipType + "," + Integer.toString(fuelLevel) + ",";
     }
     
     public String toStringCargoBay() {
@@ -245,4 +248,35 @@ public class Ship {
     	}
     	return out;
     }
+   /**
+    * 
+    * @param shipName
+    * @return ShipType
+    */
+    public static ShipType getShipType(String shipName) {
+    	switch(shipName){
+    	case "FLEA":
+    		return ShipType.FLEA;
+    	case "GNAT":
+    		return ShipType.GNAT;
+    	case "FIREFLY":
+    		return ShipType.FIREFLY;
+    	case "MOSQUITO":
+    		return ShipType.MOSQUITO;
+    	case "BUMBLEBEE":
+    		return ShipType.BUMBLEBEE;
+    	case "BEETLE":
+    		return ShipType.BEETLE;
+    	case "HORNET":
+    		return ShipType.HORNET;
+    	case "GRASSHOPPER":
+    		return ShipType.GRASSHOPPER;
+    	case "TERMITE":
+    		return ShipType.TERMITE;
+    	case "WASP":
+    		return ShipType.WASP;
+       	}
+    	return ShipType.FLEA;
+    }
 }
+

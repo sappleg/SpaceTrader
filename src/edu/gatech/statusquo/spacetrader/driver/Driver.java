@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
+import javax.swing.JOptionPane;
+
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
@@ -431,5 +433,124 @@ public class Driver {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	/**
+	 * loads game
+	 */
+	public void loadGame(){
+		Scanner s;
+		try {
+			s = new Scanner(new File("savedGame.txt"));
+			s.useDelimiter(",");
+			
+			//Player
+			player = new Player();
+			player.setName(s.next());
+			player.setCurrency(s.nextInt());
+			player.setTraderSkills(s.nextInt());
+			player.setEngineerSkills(s.nextInt());
+			player.setFighterSkills(s.nextInt());
+			player.setPilotSkills(s.nextInt());
+			player.setPlayerX(s.nextInt());
+			player.setPlayerY(s.nextInt());
+			
+			//Ship
+			String shipName = s.next();
+			Ship holdShip = new Ship(Ship.getShipType(shipName));
+			holdShip.setFuelLevel(s.nextInt());
+		
+			
+			//Cargo Bay
+			int maxSize = holdShip.cargoBay.length;
+			while(maxSize > 0){
+				String holdGoodName = s.next();
+				GoodType gT = Good.getGoodType(holdGoodName);
+				if(gT!=null){
+					holdShip.addCargo(1, gT);
+				}
+				maxSize--;
+			}
+			
+			
+			player.setShip(holdShip);
+			
+			//Current System
+			currentSystem = new SolarSystem();
+			currentSystem.setSystemName(s.next());
+			currentSystem.setTechLevel(s.nextInt());
+			currentSystem.setResourceLevel(s.nextInt());
+			currentSystem.setxLocation(s.nextInt());
+			currentSystem.setyLocation(s.nextInt());
+			HashMap<GoodType, Integer> currentMP = new HashMap<GoodType, Integer>();
+			HashMap<GoodType, Integer> currentMQ = new HashMap<GoodType, Integer>();
+			
+			s.nextLine();
+			currentMP.put(GoodType.WATER, s.nextInt());
+			currentMP.put(GoodType.FUR, s.nextInt());
+			currentMP.put(GoodType.FOOD, s.nextInt());
+			currentMP.put(GoodType.ORE, s.nextInt());
+			currentMP.put(GoodType.FIREARM, s.nextInt());
+			currentMP.put(GoodType.MEDICINE, s.nextInt());
+			currentMP.put(GoodType.MACHINE, s.nextInt());
+			currentMP.put(GoodType.NARCOTIC, s.nextInt());
+			currentMP.put(GoodType.ROBOT, s.nextInt());
+
+			s.nextLine();
+			currentMQ.put(GoodType.WATER, s.nextInt());
+			currentMQ.put(GoodType.FUR, s.nextInt());
+			currentMQ.put(GoodType.FOOD, s.nextInt());
+			currentMQ.put(GoodType.ORE, s.nextInt());
+			currentMQ.put(GoodType.FIREARM, s.nextInt());
+			currentMQ.put(GoodType.MEDICINE, s.nextInt());
+			currentMQ.put(GoodType.MACHINE, s.nextInt());
+			currentMQ.put(GoodType.NARCOTIC, s.nextInt());
+			currentMQ.put(GoodType.ROBOT, s.nextInt());
+			currentSystem.setMarketPrice(currentMP);
+			currentSystem.setMarketQuantity(currentMQ);
+			
+			//Solar System
+			int counter = 0;
+			while(counter < 150){
+				SolarSystem tempSystem = new SolarSystem();
+				tempSystem.setSystemName(s.next());
+				tempSystem.setTechLevel(s.nextInt());
+				tempSystem.setResourceLevel(s.nextInt());
+				tempSystem.setxLocation(s.nextInt());
+				tempSystem.setyLocation(s.nextInt());
+				HashMap<GoodType, Integer> tempMP = new HashMap<GoodType, Integer>();
+				HashMap<GoodType, Integer> tempMQ = new HashMap<GoodType, Integer>();
+				
+				s.nextLine();
+				tempMP.put(GoodType.WATER, s.nextInt());
+				tempMP.put(GoodType.FUR, s.nextInt());
+				tempMP.put(GoodType.FOOD, s.nextInt());
+				tempMP.put(GoodType.ORE, s.nextInt());
+				tempMP.put(GoodType.FIREARM, s.nextInt());
+				tempMP.put(GoodType.MEDICINE, s.nextInt());
+				tempMP.put(GoodType.MACHINE, s.nextInt());
+				tempMP.put(GoodType.NARCOTIC, s.nextInt());
+				tempMP.put(GoodType.ROBOT, s.nextInt());
+
+				s.nextLine();
+				tempMQ.put(GoodType.WATER, s.nextInt());
+				tempMQ.put(GoodType.FUR, s.nextInt());
+				tempMQ.put(GoodType.FOOD, s.nextInt());
+				tempMQ.put(GoodType.ORE, s.nextInt());
+				tempMQ.put(GoodType.FIREARM, s.nextInt());
+				tempMQ.put(GoodType.MEDICINE, s.nextInt());
+				tempMQ.put(GoodType.MACHINE, s.nextInt());
+				tempMQ.put(GoodType.NARCOTIC, s.nextInt());
+				tempMQ.put(GoodType.ROBOT, s.nextInt());
+				tempSystem.setMarketPrice(tempMP);
+				tempSystem.setMarketQuantity(tempMQ);
+				
+				listOfSystems.add(tempSystem);
+				counter++;
+			}
+					
+		} 
+		
+		catch (FileNotFoundException e){JOptionPane.showMessageDialog(null, "No Saved Game Exists");}
+			
 	}
 }
