@@ -18,8 +18,8 @@ public class Driver {
 	public static Player player;
 	public Display display;
 	public Shell shell;
-	private static ArrayList<Integer> X; // Contains randomly generated X
-	private static ArrayList<Integer> Y; // Contains randomly generated Y
+	public static ArrayList<Integer> X; // Contains randomly generated X
+	public static ArrayList<Integer> Y; // Contains randomly generated Y
 	public static ArrayList<String> listOfNames; // Contains randomly picked names
 	
 	public ShipStatisticsView shipStatisticsView;
@@ -43,8 +43,9 @@ public class Driver {
 	 * @throws IOException
 	 */
 	public Driver() throws IOException {
+
         currentSystem = new SolarSystem();
-        player = new Player();
+        
 		
 		//fill in base prices
 		basePrice = new HashMap<GoodType, Integer>();
@@ -72,14 +73,10 @@ public class Driver {
 		
 		//represents a list of solar systems
 		listOfSystems = new ArrayList<SolarSystem>();
-		generateUniverse();
-        int startLocation = (int) (Math.random()*150);
-        player.setPlayerX(X.get(startLocation));
-        player.setPlayerY(Y.get(startLocation));
-        currentSystem = player.findSystem(player.getPlayerX(),player.getPlayerY());
+	    WelcomeView welcomeView = new WelcomeView();
+	    new WelcomePresenter(this, welcomeView);
         
-		WelcomeView welcomeView = new WelcomeView();
-		new WelcomePresenter(this, welcomeView);
+
 	}
 	
 	/*
