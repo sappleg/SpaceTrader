@@ -75,5 +75,16 @@ public class WelcomePresenter {
 				
 			}
 		});
+		
+		welcomeView.btnLoadGame.addMouseListener(new MouseAdapter() {
+			public void mouseDown(MouseEvent e) {
+				welcomeView.btnStartGame.setVisible(false);
+				welcomeView.btnLoadGame.setVisible(false);
+				welcomeView.lblWelcomeToSpace.setVisible(false);
+				welcomeView.shell.dispose();
+				driver.loadGame();
+			}
+		});
+
 	}
 }

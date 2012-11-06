@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
+import javax.swing.JOptionPane;
+
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
@@ -431,5 +433,26 @@ public class Driver {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public void loadGame(){
+		Scanner s;
+		try {
+			s = new Scanner(new File("savedGame.txt"));
+			s.useDelimiter(",");
+			
+			Player player = new Player();
+			player.setName(s.next());
+			player.setCurrency(s.nextInt());
+			player.setTraderSkills(s.nextInt());
+			player.setEngineerSkills(s.nextInt());
+			player.setFighterSkills(s.nextInt());
+			player.setPilotSkills(s.nextInt());
+			player.setPlayerX(s.nextInt());
+			
+		} 
+		
+		catch (FileNotFoundException e){JOptionPane.showMessageDialog(null, "No Saved Game Exists");}
+			
 	}
 }
