@@ -102,4 +102,36 @@ public class Good {
     public String toString() {
     	return goodType.toString();
     }
+    
+    
+    /**
+     * 
+     * @param goodName
+     * @return goodType
+     */
+    public GoodType getGoodType(String goodName){
+        switch(goodName){
+            case "WATER":
+                return GoodType.WATER;
+            case "FUR":
+                return GoodType.FUR;
+            case "FOOD":
+                return GoodType.FOOD;
+            case "ORE":
+                return GoodType.ORE;
+            case "FIREARM":
+                return GoodType.FIREARM;
+            case "MEDICINE":
+                return GoodType.MEDICINE;
+            case "MACHINE":
+                return GoodType.MACHINE;
+            case "NARCOTIC":
+                return GoodType.NARCOTIC;
+            case "ROBOT":
+                return GoodType.ROBOT;
+        }
+        
+        //default good type
+        return GoodType.WATER;
+    }
 }
