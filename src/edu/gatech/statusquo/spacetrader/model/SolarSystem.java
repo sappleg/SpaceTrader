@@ -28,6 +28,18 @@ public class SolarSystem {
 	        setPlanet(new Planet("N/A"));
 	    }
 	
+	public void setxLocation(int xLocation) {
+		this.xLocation = xLocation;
+	}
+
+	public void setyLocation(int yLocation) {
+		this.yLocation = yLocation;
+	}
+
+	public void setSystemName(String systemName) {
+		this.systemName = systemName;
+	}
+
 	public SolarSystem(String systemName, Planet planet, int techLevel,
 			int resourceLevel, int xLocation, int yLocation) {
 

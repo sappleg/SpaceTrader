@@ -8,6 +8,9 @@ public class Ship {
 	final int fuelCapacity;
 	static int fuelLevel;
 
+	public void setFuelLevel(int fuelLevel) {
+		Ship.fuelLevel = fuelLevel;
+	}
 	public enum ShipType {
     	FLEA {
 	        public String toString() {

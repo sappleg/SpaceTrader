@@ -434,13 +434,16 @@ public class Driver {
 			e.printStackTrace();
 		}
 	}
-	
+	/**
+	 * loads game
+	 */
 	public void loadGame(){
 		Scanner s;
 		try {
 			s = new Scanner(new File("savedGame.txt"));
 			s.useDelimiter(",");
 			
+			//Player
 			Player player = new Player();
 			player.setName(s.next());
 			player.setCurrency(s.nextInt());
@@ -449,6 +452,25 @@ public class Driver {
 			player.setFighterSkills(s.nextInt());
 			player.setPilotSkills(s.nextInt());
 			player.setPlayerX(s.nextInt());
+			player.setPlayerY(s.nextInt());
+			
+			//Ship
+			String shipName = s.next();
+			Ship holdShip = new Ship(Ship.getShipType(shipName));
+			holdShip.setFuelLevel(s.nextInt());
+			player.setShip(holdShip);
+			
+			//Cargo Bay
+			
+			//Current System
+			currentSystem = new SolarSystem();
+			currentSystem.setSystemName(s.next());
+			currentSystem.setTechLevel(s.nextInt());
+			currentSystem.setResourceLevel(s.nextInt());
+			currentSystem.setxLocation(s.nextInt());
+			currentSystem.setyLocation(s.nextInt());
+			
+			
 			
 		} 
 		
