@@ -83,6 +83,7 @@ public class WelcomePresenter {
 				welcomeView.lblWelcomeToSpace.setVisible(false);
 				welcomeView.shell.dispose();
 				driver.loadGame();
+				driver.generateMainGame();
 			}
 		});
 

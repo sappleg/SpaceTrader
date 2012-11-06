@@ -441,10 +441,10 @@ public class Driver {
 		Scanner s;
 		try {
 			s = new Scanner(new File("savedGame.txt"));
-			s.useDelimiter(",|n");
+			s.useDelimiter(",");
 			
 			//Player
-			Player player = new Player();
+			player = new Player();
 			player.setName(s.next());
 			player.setCurrency(s.nextInt());
 			player.setTraderSkills(s.nextInt());
@@ -462,11 +462,12 @@ public class Driver {
 			
 			//Cargo Bay
 			int maxSize = holdShip.cargoBay.length;
-			Good[] currentCargo = new Good[maxSize];
 			while(maxSize > 0){
 				String holdGoodName = s.next();
 				GoodType gT = Good.getGoodType(holdGoodName);
-				holdShip.addCargo(1, gT);
+				if(gT!=null){
+					holdShip.addCargo(1, gT);
+				}
 				maxSize--;
 			}
 			
@@ -482,6 +483,8 @@ public class Driver {
 			currentSystem.setyLocation(s.nextInt());
 			HashMap<GoodType, Integer> currentMP = new HashMap<GoodType, Integer>();
 			HashMap<GoodType, Integer> currentMQ = new HashMap<GoodType, Integer>();
+			
+			s.nextLine();
 			currentMP.put(GoodType.WATER, s.nextInt());
 			currentMP.put(GoodType.FUR, s.nextInt());
 			currentMP.put(GoodType.FOOD, s.nextInt());
@@ -492,7 +495,7 @@ public class Driver {
 			currentMP.put(GoodType.NARCOTIC, s.nextInt());
 			currentMP.put(GoodType.ROBOT, s.nextInt());
 
-
+			s.nextLine();
 			currentMQ.put(GoodType.WATER, s.nextInt());
 			currentMQ.put(GoodType.FUR, s.nextInt());
 			currentMQ.put(GoodType.FOOD, s.nextInt());
@@ -516,6 +519,8 @@ public class Driver {
 				tempSystem.setyLocation(s.nextInt());
 				HashMap<GoodType, Integer> tempMP = new HashMap<GoodType, Integer>();
 				HashMap<GoodType, Integer> tempMQ = new HashMap<GoodType, Integer>();
+				
+				s.nextLine();
 				tempMP.put(GoodType.WATER, s.nextInt());
 				tempMP.put(GoodType.FUR, s.nextInt());
 				tempMP.put(GoodType.FOOD, s.nextInt());
@@ -526,7 +531,7 @@ public class Driver {
 				tempMP.put(GoodType.NARCOTIC, s.nextInt());
 				tempMP.put(GoodType.ROBOT, s.nextInt());
 
-
+				s.nextLine();
 				tempMQ.put(GoodType.WATER, s.nextInt());
 				tempMQ.put(GoodType.FUR, s.nextInt());
 				tempMQ.put(GoodType.FOOD, s.nextInt());
