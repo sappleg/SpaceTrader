@@ -455,12 +455,14 @@ public class Driver {
 			player.setPlayerY(s.nextInt());
 			
 			//Ship
+			s.nextLine();
 			String shipName = s.next();
 			Ship holdShip = new Ship(Ship.getShipType(shipName));
 			holdShip.setFuelLevel(s.nextInt());
 		
 			
 			//Cargo Bay
+			s.nextLine();
 			int maxSize = holdShip.cargoBay.length;
 			while(maxSize > 0){
 				String holdGoodName = s.next();
@@ -475,6 +477,7 @@ public class Driver {
 			player.setShip(holdShip);
 			
 			//Current System
+			s.nextLine();
 			currentSystem = new SolarSystem();
 			currentSystem.setSystemName(s.next());
 			currentSystem.setTechLevel(s.nextInt());
@@ -509,7 +512,8 @@ public class Driver {
 			currentSystem.setMarketQuantity(currentMQ);
 			
 			//Solar System
-			int counter = 0;
+			s.nextLine();
+			int counter = 0;			
 			while(counter < 150){
 				SolarSystem tempSystem = new SolarSystem();
 				tempSystem.setSystemName(s.next());
@@ -547,7 +551,7 @@ public class Driver {
 				listOfSystems.add(tempSystem);
 				counter++;
 			}
-					
+			s.close();
 		} 
 		
 		catch (FileNotFoundException e){JOptionPane.showMessageDialog(null, "No Saved Game Exists");}
