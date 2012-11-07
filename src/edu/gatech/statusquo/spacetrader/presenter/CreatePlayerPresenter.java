@@ -7,12 +7,10 @@ import org.eclipse.swt.events.KeyListener;
 import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.MouseEvent;
 
-import edu.gatech.statusquo.spacetrader.driver.*;
 import edu.gatech.statusquo.spacetrader.model.*;
 import edu.gatech.statusquo.spacetrader.view.*;
 
 public class CreatePlayerPresenter {
-	private Driver driver;
 	private CreatePlayerView createPlayerView;
 	private Player player;
 	public boolean status;
@@ -28,8 +26,7 @@ public class CreatePlayerPresenter {
 	 * @param cpv
 	 * @param p
 	 */
-	public CreatePlayerPresenter(Driver d, CreatePlayerView cpv, Player p) {
-		this.driver = d;
+	public CreatePlayerPresenter(CreatePlayerView cpv, Player p) {
 		this.createPlayerView = cpv;
 		this.player = p;
 		pointsAvailable = 15;
