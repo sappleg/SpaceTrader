@@ -97,7 +97,7 @@ public class Driver {
 	 */
 	public void generateCreatePlayer() {
 		CreatePlayerView createPlayerView = new CreatePlayerView();
-		new CreatePlayerPresenter(this, createPlayerView, player);
+		new CreatePlayerPresenter(createPlayerView, player);
 	}
 	/**
 	 * Generates main game view
