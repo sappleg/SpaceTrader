@@ -2,7 +2,7 @@ package edu.gatech.statusquo.spacetrader.model;
 
 import java.util.HashMap;
 
-import edu.gatech.statusquo.spacetrader.model.Good.GoodType;
+import edu.gatech.statusquo.spacetrader.model.Good.*;
 
 public class SolarSystem {
 

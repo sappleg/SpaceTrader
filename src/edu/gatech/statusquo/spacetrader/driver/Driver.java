@@ -338,7 +338,7 @@ public class Driver {
 			int arrayLength = holdX.size();
 
 			//will loop until good coordinates have been found
-			while (goodCoords != true) {
+			while (!goodCoords) {
 				int trueCounter = 0;
 				//randomly picks two integers for X and Y.
 				int testX = (int) (Math.random() * 201);
@@ -390,10 +390,10 @@ public class Driver {
 		//randomly selects 150 system names
 		for (int i = 0; i < amtOfStrings; i++) {
 			boolean check = true;
-			while (check == true) {
+			while (check) {
 				int random = (int) (Math.random() * planetNames.size());
 				String hold = planetNames.get(random);
-				if (chosenNames.contains(hold) == false) {
+				if (!chosenNames.contains(hold)) {
 					chosenNames.add(hold);
 					check = false;
 				}
@@ -554,7 +554,10 @@ public class Driver {
 			s.close();
 		} 
 		
-		catch (FileNotFoundException e){JOptionPane.showMessageDialog(null, "No Saved Game Exists");}
+		catch (FileNotFoundException e) {
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "No Saved Game Exists");
+		}
 			
 	}
 }
