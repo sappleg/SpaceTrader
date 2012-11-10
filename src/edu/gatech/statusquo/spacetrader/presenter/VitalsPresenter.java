@@ -54,8 +54,8 @@ public class VitalsPresenter {
 		Good[] cargoBay = ship.getCargoBay();
 		for (int i = 0; i < cargoBay.length; i++) {
 			if (cargoBay[i] != null) {
-				Good g = cargoBay[i];
-				String cargo = g.toString();
+				Good good = cargoBay[i];
+				String cargo = good.toString();
 				vitalsView.cargoList.add(cargo);
 			}
 		}

@@ -20,8 +20,8 @@ public class Driver {
 	public static Player player;
 	public Display display;
 	public Shell shell;
-	public static ArrayList<Integer> X; // Contains randomly generated X
-	public static ArrayList<Integer> Y; // Contains randomly generated Y
+	public static ArrayList<Integer> positionX; // Contains randomly generated X
+	public static ArrayList<Integer> positionY; // Contains randomly generated Y
 	public static ArrayList<String> listOfNames; // Contains randomly picked names
 	
 	public ShipStatisticsView shipStatisticsView;
@@ -150,8 +150,8 @@ public class Driver {
 		generateNames();
 
 		// copies global variables into local
-		ArrayList<Integer> xList = X;
-		ArrayList<Integer> yList = Y;
+		ArrayList<Integer> xList = positionX;
+		ArrayList<Integer> yList = positionY;
 		ArrayList<String> namesList = listOfNames;
 /*		ArrayList<SolarSystem> systemsList = new ArrayList<SolarSystem>();
 */
@@ -338,7 +338,7 @@ public class Driver {
 			int arrayLength = holdX.size();
 
 			//will loop until good coordinates have been found
-			while (goodCoords != true) {
+			while (!goodCoords) {
 				int trueCounter = 0;
 				//randomly picks two integers for X and Y.
 				int testX = (int) (Math.random() * 201);
@@ -368,8 +368,8 @@ public class Driver {
 			}
 			amtOfCoordinates--;
 		}
-		X = holdX;
-		Y = holdY;
+		positionX = holdX;
+		positionY = holdY;
 	}
 
 	/**
@@ -390,10 +390,10 @@ public class Driver {
 		//randomly selects 150 system names
 		for (int i = 0; i < amtOfStrings; i++) {
 			boolean check = true;
-			while (check == true) {
+			while (check) {
 				int random = (int) (Math.random() * planetNames.size());
 				String hold = planetNames.get(random);
-				if (chosenNames.contains(hold) == false) {
+				if (!chosenNames.contains(hold)) {
 					chosenNames.add(hold);
 					check = false;
 				}
@@ -554,7 +554,10 @@ public class Driver {
 			s.close();
 		} 
 		
-		catch (FileNotFoundException e){JOptionPane.showMessageDialog(null, "No Saved Game Exists");}
+		catch (FileNotFoundException e) {
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "No Saved Game Exists");
+		}
 			
 	}
 }
