@@ -20,8 +20,8 @@ public class Driver {
 	public static Player player;
 	public Display display;
 	public Shell shell;
-	public static ArrayList<Integer> X; // Contains randomly generated X
-	public static ArrayList<Integer> Y; // Contains randomly generated Y
+	public static ArrayList<Integer> positionX; // Contains randomly generated X
+	public static ArrayList<Integer> positionY; // Contains randomly generated Y
 	public static ArrayList<String> listOfNames; // Contains randomly picked names
 	
 	public ShipStatisticsView shipStatisticsView;
@@ -150,8 +150,8 @@ public class Driver {
 		generateNames();
 
 		// copies global variables into local
-		ArrayList<Integer> xList = X;
-		ArrayList<Integer> yList = Y;
+		ArrayList<Integer> xList = positionX;
+		ArrayList<Integer> yList = positionY;
 		ArrayList<String> namesList = listOfNames;
 /*		ArrayList<SolarSystem> systemsList = new ArrayList<SolarSystem>();
 */
@@ -368,8 +368,8 @@ public class Driver {
 			}
 			amtOfCoordinates--;
 		}
-		X = holdX;
-		Y = holdY;
+		positionX = holdX;
+		positionY = holdY;
 	}
 
 	/**

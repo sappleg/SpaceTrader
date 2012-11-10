@@ -68,8 +68,8 @@ public class WelcomePresenter {
 		        
 
 		        int startLocation = (int) (Math.random()*150);
-		        Driver.player.setPlayerX(Driver.X.get(startLocation));
-		        Driver.player.setPlayerY(Driver.Y.get(startLocation));
+		        Driver.player.setPlayerX(Driver.positionX.get(startLocation));
+		        Driver.player.setPlayerY(Driver.positionY.get(startLocation));
 		        Driver.currentSystem = Driver.player.findSystem(Driver.player.getPlayerX(),Driver.player.getPlayerY());
                 driver.generateMainGame();
 				
