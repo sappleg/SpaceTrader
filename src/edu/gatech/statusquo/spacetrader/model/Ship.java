@@ -1,6 +1,6 @@
 package edu.gatech.statusquo.spacetrader.model;
 
-import edu.gatech.statusquo.spacetrader.model.Good.GoodType;
+import edu.gatech.statusquo.spacetrader.model.Good.*;
 
 public class Ship {
 	public Good[] cargoBay;

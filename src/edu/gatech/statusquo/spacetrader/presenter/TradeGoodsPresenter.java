@@ -10,7 +10,6 @@ import edu.gatech.statusquo.spacetrader.driver.*;
 import edu.gatech.statusquo.spacetrader.model.*;
 import edu.gatech.statusquo.spacetrader.model.Good.GoodType;
 import edu.gatech.statusquo.spacetrader.view.*;
-import edu.gatech.statusquo.spacetrader.presenter.VitalsPresenter;
 
 public class TradeGoodsPresenter {
 	Shell shell;

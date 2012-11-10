@@ -1,7 +1,7 @@
 package edu.gatech.statusquo.spacetrader.model;
 
 import edu.gatech.statusquo.spacetrader.driver.Driver;
-import edu.gatech.statusquo.spacetrader.model.Ship.ShipType;
+import edu.gatech.statusquo.spacetrader.model.Ship.*;
 
 public class Player {
 
