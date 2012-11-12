@@ -38,7 +38,7 @@ public class TradeGoodsPresenter {
 		this.tradeGoodsView = tgv;
 		this.vitalsView = vv;
 		this.player = p;
-		this.solarSystem = Driver.currentSystem;
+		this.solarSystem = Driver.CurrentSystem;
 		ship = player.getShip();
 		
 		
@@ -252,7 +252,7 @@ public class TradeGoodsPresenter {
 	 * Fills market with items, quantities and prices based on criteria
 	 */
 	public static void fillTradeGoodsTable() {
-	    SolarSystem sys = Driver.currentSystem;
+	    SolarSystem sys = Driver.CurrentSystem;
 		 marketPrice = sys.getMarketPrice();
 		 marketQuantity = sys.getMarketQuantity();
 		

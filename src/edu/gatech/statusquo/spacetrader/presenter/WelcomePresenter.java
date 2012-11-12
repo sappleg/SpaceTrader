@@ -55,7 +55,7 @@ public class WelcomePresenter {
 				// need to return to driver to signify need to create next view
 				//createCharacterCreationScreen();
 				welcomeView.shell.dispose();
-				Driver.player = new Player();
+				Driver.Player = new Player();
 				driver.generateCreatePlayer();
 		    
                 try {
@@ -68,9 +68,9 @@ public class WelcomePresenter {
 		        
 
 		        int startLocation = (int) (Math.random()*150);
-		        Driver.player.setPlayerX(Driver.positionX.get(startLocation));
-		        Driver.player.setPlayerY(Driver.positionY.get(startLocation));
-		        Driver.currentSystem = Driver.player.findSystem(Driver.player.getPlayerX(),Driver.player.getPlayerY());
+		        Driver.Player.setPlayerX(Driver.PositionX.get(startLocation));
+		        Driver.Player.setPlayerY(Driver.PositionY.get(startLocation));
+		        Driver.CurrentSystem = Driver.Player.findSystem(Driver.Player.getPlayerX(),Driver.Player.getPlayerY());
                 driver.generateMainGame();
 				
 			}
