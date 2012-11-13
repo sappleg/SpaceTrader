@@ -30,7 +30,7 @@ public class SolarSystemStatsPresenter {
 	
 	   public static void setSystemInfo() {
 	       
-	       SolarSystem currentSys = Driver.currentSystem;
+	       SolarSystem currentSys = Driver.CurrentSystem;
 	      
            String[] name = {"Name", currentSys.getSystemName()};
            SolarSystemStatsView.nameItem.setText(name);
