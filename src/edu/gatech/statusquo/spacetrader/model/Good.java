@@ -29,19 +29,19 @@ public class Good {
     	}, MEDICINE {
     	    public String toString() {
     	        return "MEDICINE";
-    	    }    		
+    	    }
     	}, MACHINE {
     	    public String toString() {
     	        return "MACHINE";
-    	    }    		
+    	    }
     	}, NARCOTIC {
     	    public String toString() {
     	        return "NARCOTIC";
-    	    }    	
+    	    }
     	}, ROBOT {
     	    public String toString() {
     	        return "ROBOT";
-    	    }    		
+    	    }
     	}
     }
     

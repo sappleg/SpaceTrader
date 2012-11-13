@@ -102,7 +102,7 @@ public class LocalPlanetPresenter {
                     Driver.Player.setPlayerY(destinationY);
             
                     //random events
-                    int randomEvent = (int)((Math.random())*100);
+                    int randomEvent = (int) ((Math.random())*100);
                     
                     
                     if (randomEvent >=50 && randomEvent <= 69){
@@ -154,11 +154,11 @@ public class LocalPlanetPresenter {
                     
                     else if(randomEvent == 99){
                         //treasure encounter, 1000*(1..10) credits are added to currency
-                        int randomMult = (int)(Math.random()*10)+1;
+                        int randomMult = (int) (Math.random()*10)+1;
                         int reward = 1000*randomMult;
                         int newCurrency = Player.getCurrency() + reward;
                         Driver.Player.setCurrency(newCurrency);
-    					NotificationsView.list_1.add("You found a pirates treasure cash! You recieved " + reward + " credits.");
+    					NotificationsView.list_1.add("You found a pirates treasure cash! You recieved "+ reward + " credits.");
                         NotificationsView.list_1.select(NotificationsView.list_1.getItemCount() - 1);
                         NotificationsView.list_1.showSelection();
                     }
@@ -191,7 +191,7 @@ public class LocalPlanetPresenter {
 				
 			}
 		});
-	}	
+	}
 	
 	/**
 	 * Refreshes the local systems depending on player X and Y location.
