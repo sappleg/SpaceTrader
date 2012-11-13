@@ -215,29 +215,6 @@ public class CreatePlayerPresenter {
 				} else if (calculatePoints() < 0) {
 					checkValidityOfPoints();
 				} else {
-					// text.setVisible(false);
-					// traderSpinner.setVisible(false);
-					// engineerSpinner.setVisible(false);
-					// spinner_2.setVisible(false);
-					// spinner_3.setVisible(false);
-					// pointsAvailableLabel.setVisible(false);
-					// enterPlayerLabel.setVisible(false);
-					// lblNewLabel.setVisible(false);
-					// skillPointsLabel.setVisible(false);
-					// fighterLabel.setVisible(false);
-					// traderlabel.setVisible(false);
-					// engineerLabel.setVisible(false);
-					// pilotLabel.setVisible(false);
-					// selectDifficultyLabel.setVisible(false);
-					// beginnerButton.setVisible(false);
-					// easyButton.setVisible(false);
-					// normalButton.setVisible(false);
-					// hardButton.setVisible(false);
-					// impossibleButton.setVisible(false);
-					// skillPointsLeftLabel.setVisible(false);
-					// startGameButton.setVisible(false);
-					// resetSkillPointsButton.setVisible(false);
-					// createMainApplicationWindow();
 					player.setTraderSkills(Integer
 							.parseInt(createPlayerView.traderSpinner.getText()));
 					player.setEngineerSkills(Integer
