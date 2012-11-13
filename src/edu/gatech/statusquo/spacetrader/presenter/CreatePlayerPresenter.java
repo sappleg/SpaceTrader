@@ -19,6 +19,7 @@ public class CreatePlayerPresenter {
 	public int engineerUsed;
 	public int pilotUsed;
 	public int fighterUsed;
+	public int points;
 
 	/**
 	 * Constructor using listed parameters
@@ -35,6 +36,7 @@ public class CreatePlayerPresenter {
 		engineerUsed = 0;
 		pilotUsed = 0;
 		fighterUsed = 0;
+		points = 0;
 		status = true;
 
 		setListeners();
@@ -215,29 +217,6 @@ public class CreatePlayerPresenter {
 				} else if (calculatePoints() < 0) {
 					checkValidityOfPoints();
 				} else {
-					// text.setVisible(false);
-					// traderSpinner.setVisible(false);
-					// engineerSpinner.setVisible(false);
-					// spinner_2.setVisible(false);
-					// spinner_3.setVisible(false);
-					// pointsAvailableLabel.setVisible(false);
-					// enterPlayerLabel.setVisible(false);
-					// lblNewLabel.setVisible(false);
-					// skillPointsLabel.setVisible(false);
-					// fighterLabel.setVisible(false);
-					// traderlabel.setVisible(false);
-					// engineerLabel.setVisible(false);
-					// pilotLabel.setVisible(false);
-					// selectDifficultyLabel.setVisible(false);
-					// beginnerButton.setVisible(false);
-					// easyButton.setVisible(false);
-					// normalButton.setVisible(false);
-					// hardButton.setVisible(false);
-					// impossibleButton.setVisible(false);
-					// skillPointsLeftLabel.setVisible(false);
-					// startGameButton.setVisible(false);
-					// resetSkillPointsButton.setVisible(false);
-					// createMainApplicationWindow();
 					player.setTraderSkills(Integer
 							.parseInt(createPlayerView.traderSpinner.getText()));
 					player.setEngineerSkills(Integer
@@ -291,7 +270,8 @@ public class CreatePlayerPresenter {
 	 * inconsistency is detected for example, if the points are over 15.
 	 */
 	private void checkValidityOfPoints() {
-		if (calculatePoints() < 0) {
+		points = calculatePoints();
+		if (points < 0) {
 			JOptionPane.showMessageDialog(null,
 					"Invalid entries detected. Resetting all skill points.");
 			pointsAvailable = 15;
