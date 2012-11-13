@@ -1,4 +1,4 @@
-package edu.gatech.statusquo.spacetrader.presenter;
+package edu.gatech.statusquo.spacetrader.presenter; //Is located in the presenter package
 
 import javax.swing.JOptionPane;
 
@@ -19,9 +19,10 @@ public class CreatePlayerPresenter {
 	public int engineerUsed;
 	public int pilotUsed;
 	public int fighterUsed;
-	
+
 	/**
 	 * Constructor using listed parameters
+	 * 
 	 * @param d
 	 * @param cpv
 	 * @param p
@@ -35,16 +36,16 @@ public class CreatePlayerPresenter {
 		pilotUsed = 0;
 		fighterUsed = 0;
 		status = true;
-		
+
 		setListeners();
-		
+
 		while (!createPlayerView.shell.isDisposed()) {
 			if (!createPlayerView.display.readAndDispatch()) {
 				createPlayerView.display.sleep();
 			}
 		}
 	}
-	
+
 	/**
 	 * sets listeners
 	 */
@@ -53,7 +54,8 @@ public class CreatePlayerPresenter {
 		createPlayerView.traderSpinner.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseUp(MouseEvent e) {
-				traderUsed = Integer.parseInt(createPlayerView.traderSpinner.getText());
+				traderUsed = Integer.parseInt(createPlayerView.traderSpinner
+						.getText());
 				setSpinners();
 			}
 		});
@@ -69,7 +71,8 @@ public class CreatePlayerPresenter {
 				if (createPlayerView.traderSpinner.getText().equals("")) {
 
 				} else {
-					traderUsed = Integer.parseInt(createPlayerView.traderSpinner.getText());
+					traderUsed = Integer
+							.parseInt(createPlayerView.traderSpinner.getText());
 					setSpinners();
 				}
 			}
@@ -79,7 +82,8 @@ public class CreatePlayerPresenter {
 		createPlayerView.engineerSpinner.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseUp(MouseEvent e) {
-				engineerUsed = Integer.parseInt(createPlayerView.engineerSpinner.getText());
+				engineerUsed = Integer
+						.parseInt(createPlayerView.engineerSpinner.getText());
 				setSpinners();
 			}
 		});
@@ -95,7 +99,9 @@ public class CreatePlayerPresenter {
 				if (createPlayerView.engineerSpinner.getText().equals("")) {
 
 				} else {
-					engineerUsed = Integer.parseInt(createPlayerView.engineerSpinner.getText());
+					engineerUsed = Integer
+							.parseInt(createPlayerView.engineerSpinner
+									.getText());
 					setSpinners();
 				}
 			}
@@ -105,7 +111,8 @@ public class CreatePlayerPresenter {
 		createPlayerView.pilotSpinner.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseUp(MouseEvent e) {
-				pilotUsed = Integer.parseInt(createPlayerView.pilotSpinner.getText());
+				pilotUsed = Integer.parseInt(createPlayerView.pilotSpinner
+						.getText());
 				setSpinners();
 			}
 		});
@@ -121,7 +128,8 @@ public class CreatePlayerPresenter {
 				if (createPlayerView.pilotSpinner.getText().equals("")) {
 
 				} else {
-					pilotUsed = Integer.parseInt(createPlayerView.pilotSpinner.getText());
+					pilotUsed = Integer.parseInt(createPlayerView.pilotSpinner
+							.getText());
 					setSpinners();
 				}
 			}
@@ -130,7 +138,8 @@ public class CreatePlayerPresenter {
 		createPlayerView.fighterSpinner.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseUp(MouseEvent e) {
-				fighterUsed = Integer.parseInt(createPlayerView.fighterSpinner.getText());
+				fighterUsed = Integer.parseInt(createPlayerView.fighterSpinner
+						.getText());
 				setSpinners();
 			}
 		});
@@ -138,7 +147,7 @@ public class CreatePlayerPresenter {
 		createPlayerView.fighterSpinner.addKeyListener(new KeyListener() {
 			@Override
 			public void keyPressed(KeyEvent e) {
-				
+
 			}
 
 			@Override
@@ -146,36 +155,51 @@ public class CreatePlayerPresenter {
 				if (createPlayerView.fighterSpinner.getText().equals("")) {
 
 				} else {
-					fighterUsed = Integer.parseInt(createPlayerView.fighterSpinner.getText());
+					fighterUsed = Integer
+							.parseInt(createPlayerView.fighterSpinner.getText());
 					setSpinners();
 				}
 			}
 		});
 
-		createPlayerView.resetSkillPointsButton.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseDown(MouseEvent e) {
-				pointsAvailable = 15;
-				traderUsed = 0;
-				engineerUsed = 0;
-				pilotUsed = 0;
-				fighterUsed = 0;
-				status = true;
-				createPlayerView.traderSpinner.setEnabled(status);
-				createPlayerView.engineerSpinner.setEnabled(status);
-				createPlayerView.pilotSpinner.setEnabled(status);
-				createPlayerView.fighterSpinner.setEnabled(status);
-				createPlayerView.traderSpinner.setValues(0, 0, 15, 0, 1, 1);
-				createPlayerView.engineerSpinner.setValues(0, 0, 15, 0, 1, 1);
-				createPlayerView.pilotSpinner.setValues(0, 0, 15, 0, 1, 1);
-				createPlayerView.fighterSpinner.setValues(0, 0, 15, 0, 1, 1);
-				createPlayerView.setPointsAvailableLabel(Integer.toString(calculatePoints()));
-				player.setTraderSkills(Integer.parseInt(createPlayerView.traderSpinner.getText()));
-				player.setEngineerSkills(Integer.parseInt(createPlayerView.engineerSpinner.getText()));
-				player.setPilotSkills(Integer.parseInt(createPlayerView.pilotSpinner.getText()));
-				player.setFighterSkills(Integer.parseInt(createPlayerView.fighterSpinner.getText()));
-			}
-		});
+		createPlayerView.resetSkillPointsButton
+				.addMouseListener(new MouseAdapter() {
+					@Override
+					public void mouseDown(MouseEvent e) {
+						pointsAvailable = 15;
+						traderUsed = 0;
+						engineerUsed = 0;
+						pilotUsed = 0;
+						fighterUsed = 0;
+						status = true;
+						createPlayerView.traderSpinner.setEnabled(status);
+						createPlayerView.engineerSpinner.setEnabled(status);
+						createPlayerView.pilotSpinner.setEnabled(status);
+						createPlayerView.fighterSpinner.setEnabled(status);
+						createPlayerView.traderSpinner.setValues(0, 0, 15, 0,
+								1, 1);
+						createPlayerView.engineerSpinner.setValues(0, 0, 15, 0,
+								1, 1);
+						createPlayerView.pilotSpinner.setValues(0, 0, 15, 0, 1,
+								1);
+						createPlayerView.fighterSpinner.setValues(0, 0, 15, 0,
+								1, 1);
+						createPlayerView.setPointsAvailableLabel(Integer
+								.toString(calculatePoints()));
+						player.setTraderSkills(Integer
+								.parseInt(createPlayerView.traderSpinner
+										.getText()));
+						player.setEngineerSkills(Integer
+								.parseInt(createPlayerView.engineerSpinner
+										.getText()));
+						player.setPilotSkills(Integer
+								.parseInt(createPlayerView.pilotSpinner
+										.getText()));
+						player.setFighterSkills(Integer
+								.parseInt(createPlayerView.fighterSpinner
+										.getText()));
+					}
+				});
 
 		createPlayerView.startGameButton.addMouseListener(new MouseAdapter() {
 			@Override
@@ -188,39 +212,44 @@ public class CreatePlayerPresenter {
 				} else if (Player.getName().equals("")) {
 					JOptionPane.showMessageDialog(null,
 							"Please enter a player name.");
-				} else if(calculatePoints() < 0) {
-				    checkValidityOfPoints();
+				} else if (calculatePoints() < 0) {
+					checkValidityOfPoints();
 				} else {
-//					text.setVisible(false);
-//					traderSpinner.setVisible(false);
-//					engineerSpinner.setVisible(false);
-//					spinner_2.setVisible(false);
-//					spinner_3.setVisible(false);
-//					pointsAvailableLabel.setVisible(false);
-//					enterPlayerLabel.setVisible(false);
-//					lblNewLabel.setVisible(false);
-//					skillPointsLabel.setVisible(false);
-//					fighterLabel.setVisible(false);
-//					traderlabel.setVisible(false);
-//					engineerLabel.setVisible(false);
-//					pilotLabel.setVisible(false);
-//					selectDifficultyLabel.setVisible(false);
-//					beginnerButton.setVisible(false);
-//					easyButton.setVisible(false);
-//					normalButton.setVisible(false);
-//					hardButton.setVisible(false);
-//					impossibleButton.setVisible(false);
-//					skillPointsLeftLabel.setVisible(false);
-//					startGameButton.setVisible(false);
-//					resetSkillPointsButton.setVisible(false);
-//					createMainApplicationWindow();
-					player.setTraderSkills(Integer.parseInt(createPlayerView.traderSpinner.getText()));
-					player.setEngineerSkills(Integer.parseInt(createPlayerView.engineerSpinner.getText()));
-					player.setPilotSkills(Integer.parseInt(createPlayerView.pilotSpinner.getText()));
-					player.setFighterSkills(Integer.parseInt(createPlayerView.fighterSpinner.getText()));
-					
+					// text.setVisible(false);
+					// traderSpinner.setVisible(false);
+					// engineerSpinner.setVisible(false);
+					// spinner_2.setVisible(false);
+					// spinner_3.setVisible(false);
+					// pointsAvailableLabel.setVisible(false);
+					// enterPlayerLabel.setVisible(false);
+					// lblNewLabel.setVisible(false);
+					// skillPointsLabel.setVisible(false);
+					// fighterLabel.setVisible(false);
+					// traderlabel.setVisible(false);
+					// engineerLabel.setVisible(false);
+					// pilotLabel.setVisible(false);
+					// selectDifficultyLabel.setVisible(false);
+					// beginnerButton.setVisible(false);
+					// easyButton.setVisible(false);
+					// normalButton.setVisible(false);
+					// hardButton.setVisible(false);
+					// impossibleButton.setVisible(false);
+					// skillPointsLeftLabel.setVisible(false);
+					// startGameButton.setVisible(false);
+					// resetSkillPointsButton.setVisible(false);
+					// createMainApplicationWindow();
+					player.setTraderSkills(Integer
+							.parseInt(createPlayerView.traderSpinner.getText()));
+					player.setEngineerSkills(Integer
+							.parseInt(createPlayerView.engineerSpinner
+									.getText()));
+					player.setPilotSkills(Integer
+							.parseInt(createPlayerView.pilotSpinner.getText()));
+					player.setFighterSkills(Integer
+							.parseInt(createPlayerView.fighterSpinner.getText()));
+
 					createPlayerView.shell.dispose();
-					
+
 				}
 			}
 		});
@@ -234,17 +263,13 @@ public class CreatePlayerPresenter {
 	 *         not.
 	 */
 	private boolean canAddMorePoints() {
-		int totalPoints = traderUsed 
-				+ engineerUsed 
-				+ pilotUsed 
-				+ fighterUsed;
+		int totalPoints = traderUsed + engineerUsed + pilotUsed + fighterUsed;
 		if (totalPoints <= 14) {
 			return true;
 		}
 		return false;
 	}
-	
-	
+
 	/**
 	 * This method just takes the points from trader, explorer, pilot, and adds
 	 * them together.
@@ -253,21 +278,22 @@ public class CreatePlayerPresenter {
 	 */
 
 	private int calculatePoints() {
-		int totalPoints = Integer.parseInt(createPlayerView.traderSpinner.getText()) 
-				+ Integer.parseInt(createPlayerView.engineerSpinner.getText()) 
-				+ Integer.parseInt(createPlayerView.pilotSpinner.getText()) 
+		int totalPoints = Integer.parseInt(createPlayerView.traderSpinner
+				.getText())
+				+ Integer.parseInt(createPlayerView.engineerSpinner.getText())
+				+ Integer.parseInt(createPlayerView.pilotSpinner.getText())
 				+ Integer.parseInt(createPlayerView.fighterSpinner.getText());
 		return pointsAvailable - totalPoints;
 	}
-	
-	
+
 	/**
 	 * This will check the validity of the points and reset them if an
 	 * inconsistency is detected for example, if the points are over 15.
 	 */
 	private void checkValidityOfPoints() {
 		if (calculatePoints() < 0) {
-			JOptionPane.showMessageDialog(null, "Invalid entries detected. Resetting all skill points.");
+			JOptionPane.showMessageDialog(null,
+					"Invalid entries detected. Resetting all skill points.");
 			pointsAvailable = 15;
 			traderUsed = 0;
 			engineerUsed = 0;
@@ -282,12 +308,14 @@ public class CreatePlayerPresenter {
 			createPlayerView.engineerSpinner.setValues(0, 0, 15, 0, 1, 1);
 			createPlayerView.pilotSpinner.setValues(0, 0, 15, 0, 1, 1);
 			createPlayerView.fighterSpinner.setValues(0, 0, 15, 0, 1, 1);
-			createPlayerView.setPointsAvailableLabel(Integer.toString(calculatePoints()));
+			createPlayerView.setPointsAvailableLabel(Integer
+					.toString(calculatePoints()));
 		} else {
-			createPlayerView.setPointsAvailableLabel(Integer.toString(calculatePoints()));
+			createPlayerView.setPointsAvailableLabel(Integer
+					.toString(calculatePoints()));
 		}
 	}
-	
+
 	/**
 	 * sets spinners
 	 */
@@ -299,9 +327,10 @@ public class CreatePlayerPresenter {
 		checkValidityOfPoints();
 		status = canAddMorePoints();
 	}
-	
+
 	/**
 	 * gets available points
+	 * 
 	 * @return pointsAvailable
 	 */
 	public int getPointsAvailable() {

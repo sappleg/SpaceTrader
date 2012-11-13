@@ -185,8 +185,8 @@ public class Player {
         SolarSystem hold = new SolarSystem();
         
         
-        for (int i = 0; i<Driver.listOfSystems.size(); i++){
-            SolarSystem temp = Driver.listOfSystems.get(i);
+        for (int i = 0; i<Driver.ListOfSystems.size(); i++){
+            SolarSystem temp = Driver.ListOfSystems.get(i);
             int systemX = temp.getxLocation();
             int systemY = temp.getyLocation();
             if(currentX == systemX && currentY == systemY){

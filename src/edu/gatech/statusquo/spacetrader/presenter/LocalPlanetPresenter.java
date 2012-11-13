@@ -61,8 +61,8 @@ public class LocalPlanetPresenter {
 				String sys = LocalPlanetView.list_2.getItem(selectedPlanet);
 				SolarSystem destination = new SolarSystem();
 				
-				for(int i=0; i < Driver.listOfSystems.size(); i++){
-					SolarSystem temp = Driver.listOfSystems.get(i);
+				for(int i=0; i < Driver.ListOfSystems.size(); i++){
+					SolarSystem temp = Driver.ListOfSystems.get(i);
 					String tempName = temp.getSystemName();
 					
 					if(tempName.equals(sys)){
@@ -73,15 +73,15 @@ public class LocalPlanetPresenter {
 				
 				int destinationX = destination.getxLocation();
 				int destinationY = destination.getyLocation();
-				int playerX = Driver.player.getPlayerX();
-				int playerY = Driver.player.getPlayerY();
+				int playerX = Driver.Player.getPlayerX();
+				int playerY = Driver.Player.getPlayerY();
 				
 				int distance = (int) ((Math.pow(playerX - destinationX, 2)) + (Math
                         .pow(playerY - destinationY, 2)));
                 distance = (int) (Math.sqrt(distance));
                 
                 int fuelNeeded = distance/DISTANCEPERFUELUNIT;
-                Ship currentShip = Driver.player.getShip();
+                Ship currentShip = Driver.Player.getShip();
                 int playerFuel = currentShip.getFuelLevel();
                 
                 if(fuelNeeded > playerFuel){
@@ -98,8 +98,8 @@ public class LocalPlanetPresenter {
                     
                     
                     currentShip.subFuel(fuelNeeded);
-                    Driver.player.setPlayerX(destinationX);
-                    Driver.player.setPlayerY(destinationY);
+                    Driver.Player.setPlayerX(destinationX);
+                    Driver.Player.setPlayerY(destinationY);
             
                     //random events
                     int randomEvent = (int)((Math.random())*100);
@@ -126,7 +126,7 @@ public class LocalPlanetPresenter {
                     else if(randomEvent >= 78 && randomEvent <= 89){
                         //merchant encounter, rewards player with 1000 credits
                         int newCurrency = Player.getCurrency() + 1000;
-                        Driver.player.setCurrency(newCurrency);
+                        Driver.Player.setCurrency(newCurrency);
     					NotificationsView.list_1.add("You picked up a stranded merchant and took him to the nearest planet. He gave you 1000 credits for your troubles.");
                         NotificationsView.list_1.select(NotificationsView.list_1.getItemCount() - 1);
                         NotificationsView.list_1.showSelection();
@@ -157,7 +157,7 @@ public class LocalPlanetPresenter {
                         int randomMult = (int)(Math.random()*10)+1;
                         int reward = 1000*randomMult;
                         int newCurrency = Player.getCurrency() + reward;
-                        Driver.player.setCurrency(newCurrency);
+                        Driver.Player.setCurrency(newCurrency);
     					NotificationsView.list_1.add("You found a pirates treasure cash! You recieved " + reward + " credits.");
                         NotificationsView.list_1.select(NotificationsView.list_1.getItemCount() - 1);
                         NotificationsView.list_1.showSelection();
@@ -171,8 +171,8 @@ public class LocalPlanetPresenter {
                         NotificationsView.list_1.showSelection();
                     }
                     
-                    Driver.currentSystem = Driver.player.findSystem(Driver.player.getPlayerX(),Driver.player.getPlayerY());
-                    NotificationsView.list_1.add("You have moved to planet: "+Driver.currentSystem.getSystemName());
+                    Driver.CurrentSystem = Driver.Player.findSystem(Driver.Player.getPlayerX(),Driver.Player.getPlayerY());
+                    NotificationsView.list_1.add("You have moved to planet: "+Driver.CurrentSystem.getSystemName());
                     NotificationsView.list_1.add("Fuel Consumed Traveling: "+fuelNeeded);
                     NotificationsView.list_1.select(NotificationsView.list_1.getItemCount() - 1);
                     NotificationsView.list_1.showSelection();
@@ -206,17 +206,17 @@ public class LocalPlanetPresenter {
           */
 	    
 	        LocalPlanetView.list_2.removeAll();
-	        Ship currentShip = Driver.player.getShip();
+	        Ship currentShip = Driver.Player.getShip();
 	        int fuelCap = currentShip.getFuelCapacity();
 	        int maxDistance = fuelCap * DISTANCEPERFUELUNIT;
-	        int playerX = Driver.player.getPlayerX();
-	        int playerY = Driver.player.getPlayerY();
+	        int playerX = Driver.Player.getPlayerX();
+	        int playerY = Driver.Player.getPlayerY();
 	
 
        
-            for (int i = 0; i < Driver.listOfSystems.size(); i++)
+            for (int i = 0; i < Driver.ListOfSystems.size(); i++)
             {
-                SolarSystem sys = Driver.listOfSystems.get(i);  
+                SolarSystem sys = Driver.ListOfSystems.get(i);  
                 int sysX = sys.getxLocation();
                 int sysY = sys.getyLocation();
                 
