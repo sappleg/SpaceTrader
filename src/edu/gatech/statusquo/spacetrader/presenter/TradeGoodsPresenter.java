@@ -217,10 +217,10 @@ public class TradeGoodsPresenter {
 				
 				else{
 					ship.addFuel(quant);
-			    	player.setCurrency(Player.getCurrency() - (quant*fuelPrice));
+			    	player.setCurrency(Player.getCurrency() - (quant * fuelPrice));
 			    	VitalsPresenter.setPlayerVitals();
-				}														
-			}	
+				}
+			}
 		});
 		
 		/**

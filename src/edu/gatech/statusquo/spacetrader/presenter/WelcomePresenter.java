@@ -1,8 +1,5 @@
 package edu.gatech.statusquo.spacetrader.presenter;
 
-
-import java.io.IOException;
-
 import edu.gatech.statusquo.spacetrader.model.Player;
 import edu.gatech.statusquo.spacetrader.view.*;
 import edu.gatech.statusquo.spacetrader.driver.*;
@@ -58,14 +55,7 @@ public class WelcomePresenter {
 				Driver.Player = new Player();
 				driver.generateCreatePlayer();
 		    
-                try {
-                    Driver.generateUniverse();
-                } catch (IOException e1) {
-                    // TODO Auto-generated catch block
-                    e1.printStackTrace();
-                }
-             
-		        
+                Driver.generateUniverse();
 
 		        int startLocation = (int) (Math.random()*150);
 		        Driver.Player.setPlayerX(Driver.PositionX.get(startLocation));
