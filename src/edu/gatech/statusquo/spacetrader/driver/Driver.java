@@ -84,7 +84,83 @@ public class Driver {
 	/** Contains list of all system names */
 	public static ArrayList<SolarSystem> ListOfSystems;
 	
+	/** Contains base price for water */
+	private static final int WATERBASEPRICE = 30;
 
+	/** Contains base price for fur */
+	private static final int FURBASEPRICE = 250;
+
+	/** Contains base price for food */
+	private static final int FOODBASEPRICE = 100;
+
+	/** Contains base price for ore */
+	private static final int OREBASEPRICE = 350;
+
+	/** Contains base price for firearm */
+	private static final int FIREARMBASEPRICE = 1200;
+
+	/** Contains base price for medicine */
+	private static final int MEDICINEBASEPRICE = 650;
+
+	/** Contains base price for machine */
+	private static final int MACHINEBASEPRICE = 900;
+
+	/** Contains base price for narcotic */
+	private static final int NARCOTICBASEPRICE = 3500;
+
+	/** Contains base price for robot */
+	private static final int ROBOTBASEPRICE = 5000;
+
+	/** Contains base quantity for water */
+	private static final int WATERBASEQUANTITY = 25;
+
+	/** Contains base quantity for fur */
+	private static final int FURBASEQUANTITY = 10;
+
+	/** Contains base quantity for food */
+	private static final int FOODBASEQUANTITY = 20;
+
+	/** Contains base quantity for ore */
+	private static final int OREBASEQUANTITY = 20;
+
+	/** Contains base quantity for firearms */
+	private static final int FIREARMBASEQUANTITY = 5;
+
+	/** Contains base quantity for medicine */
+	private static final int MEDICINEBASEQUANTITY = 15;
+
+	/** Contains base quantity for machine */
+	private static final int MACHINEBASEQUANTITY = 10;
+
+	/** Contains base quantity for narcotic */
+	private static final int NARCOTICBASEQUANTITY = 5;
+
+	/** Contains base quantity for robot */
+	private static final int ROBOTBASEQUANTITY = 5;
+	
+	/** shell width */
+	private static final int SHELLWIDTH = 1024;
+	
+	/** shell height */
+	private static final int SHELLHEIGHT = 768;
+	
+	/** tech level offset */
+	private static final int TECHLEVELOFFSET = 7;
+	
+	/** resource level offset */
+	private static final int RESOURCELEVELOFFSET = 11;
+	
+	/** number of coordinates */
+	private static final int NUMCOORDINATES = 150;
+	
+	/** coordinate offset */
+	private static final int COORDINATEOFFSET = 201;
+	
+	/** square exponent */
+	private static final int SQUAREEXPONENT = 2;
+	
+	/** mimimum distance a planet must be to be considered close */
+	private static final int MINIMUMPLANETDISTANCE = 9;
 
 	/**
 	 * Driver's constructor
@@ -97,35 +173,34 @@ public class Driver {
 
 		// fill in base prices
 		BasePrice = new HashMap<GoodType, Integer>();
-		BasePrice.put(GoodType.WATER, 30);
-		BasePrice.put(GoodType.FUR, 250);
-		BasePrice.put(GoodType.FOOD, 100);
-		BasePrice.put(GoodType.ORE, 350);
-		BasePrice.put(GoodType.FIREARM, 1200);
-		BasePrice.put(GoodType.MEDICINE, 650);
-		BasePrice.put(GoodType.MACHINE, 900);
-		BasePrice.put(GoodType.NARCOTIC, 3500);
-		BasePrice.put(GoodType.ROBOT, 5000);
+		BasePrice.put(GoodType.WATER, WATERBASEPRICE);
+		BasePrice.put(GoodType.FUR, FURBASEPRICE);
+		BasePrice.put(GoodType.FOOD, FOODBASEPRICE);
+		BasePrice.put(GoodType.ORE, OREBASEPRICE);
+		BasePrice.put(GoodType.FIREARM, FIREARMBASEPRICE);
+		BasePrice.put(GoodType.MEDICINE, MEDICINEBASEPRICE);
+		BasePrice.put(GoodType.MACHINE, MACHINEBASEPRICE);
+		BasePrice.put(GoodType.NARCOTIC, NARCOTICBASEPRICE);
+		BasePrice.put(GoodType.ROBOT, ROBOTBASEPRICE);
 
 		// fill in base quantity
 		BaseQty = new HashMap<GoodType, Integer>();
-		BaseQty.put(GoodType.WATER, 25);
-		BaseQty.put(GoodType.FUR, 10);
-		BaseQty.put(GoodType.FOOD, 20);
-		BaseQty.put(GoodType.ORE, 20);
-		BaseQty.put(GoodType.FIREARM, 5);
-		BaseQty.put(GoodType.MEDICINE, 15);
-		BaseQty.put(GoodType.MACHINE, 10);
-		BaseQty.put(GoodType.NARCOTIC, 5);
-		BaseQty.put(GoodType.ROBOT, 5);
+		BaseQty.put(GoodType.WATER, WATERBASEQUANTITY);
+		BaseQty.put(GoodType.FUR, FURBASEQUANTITY);
+		BaseQty.put(GoodType.FOOD, FOODBASEQUANTITY);
+		BaseQty.put(GoodType.ORE, OREBASEQUANTITY);
+		BaseQty.put(GoodType.FIREARM, FIREARMBASEQUANTITY);
+		BaseQty.put(GoodType.MEDICINE, MEDICINEBASEQUANTITY);
+		BaseQty.put(GoodType.MACHINE, MACHINEBASEQUANTITY);
+		BaseQty.put(GoodType.NARCOTIC, NARCOTICBASEQUANTITY);
+		BaseQty.put(GoodType.ROBOT, ROBOTBASEQUANTITY);
 
 		// represents a list of solar systems
 		ListOfSystems = new ArrayList<SolarSystem>();
-		WelcomeView welcomeView = new WelcomeView();
+		final WelcomeView welcomeView = new WelcomeView();
 		new WelcomePresenter(this, welcomeView);
 
 	}
-
 
 	/**
 	 * 
@@ -139,7 +214,7 @@ public class Driver {
 	 * Generates player's view
 	 */
 	public void generateCreatePlayer() {
-		CreatePlayerView createPlayerView = new CreatePlayerView();
+		final CreatePlayerView createPlayerView = new CreatePlayerView();
 		new CreatePlayerPresenter(createPlayerView, Player);
 	}
 
@@ -150,7 +225,7 @@ public class Driver {
 		display = Display.getDefault();
 		shell = new Shell(display, SWT.TITLE | SWT.CLOSE);
 
-		shell.setSize(1024, 768);
+		shell.setSize(SHELLWIDTH, SHELLHEIGHT);
 		shell.setText("Space Trader");
 		shell.setLayout(null);
 
@@ -189,23 +264,23 @@ public class Driver {
 	 * 
 	 * @throws IOException
 	 */
-	public static void generateUniverse() throws IOException {
+	public static void generateUniverse() {
 
 		generateCoordinates();
 		generateNames();
 
 		// copies global variables into local
-		ArrayList<Integer> xList = PositionX;
-		ArrayList<Integer> yList = PositionY;
-		ArrayList<String> namesList = ListOfNames;
+		final ArrayList<Integer> xList = PositionX;
+		final ArrayList<Integer> yList = PositionY;
+		final ArrayList<String> namesList = ListOfNames;
 		/*
 		 * ArrayList<SolarSystem> systemsList = new ArrayList<SolarSystem>();
 		 */
 		// Generates a SolarSystem object using the generated.
 		// coordinates and names.
 		for (int i = 0; i < namesList.size(); i++) {
-			int techLevel = (int) (Math.random() * 7);
-			int resourceLevel = (int) (Math.random() * 11);
+			int techLevel = (int) (Math.random() * TECHLEVELOFFSET);
+			int resourceLevel = (int) (Math.random() * RESOURCELEVELOFFSET);
 			String holdName = namesList.get(i);
 			int holdX = xList.get(i);
 			int holdY = yList.get(i);
@@ -309,6 +384,9 @@ public class Driver {
 			mQtys.put(GoodType.NARCOTIC, BaseQty.get(GoodType.NARCOTIC));
 			mQtys.put(GoodType.ROBOT, BaseQty.get(GoodType.ROBOT));
 			break;
+		default:
+			System.out.println("Something went wrong in the market generation");
+			break;
 		}
 
 		// Sets prices of all goods to its basePrice.
@@ -379,6 +457,9 @@ public class Driver {
 					.get(GoodType.NARCOTIC)) * PRICEPERCENT));
 			mPrices.put(GoodType.NARCOTIC, weirdMushrooms);
 			break;
+		default:
+			System.out.println("Something went wrong in the market generation");
+			break;
 		}
 
 		s.setMarketPrice(mPrices);
@@ -392,7 +473,7 @@ public class Driver {
 	 */
 	public static void generateCoordinates() {
 
-		int amtOfCoordinates = 150; // Amount of coordinates to generate
+		int amtOfCoordinates = NUMCOORDINATES; // Amount of coordinates to generate
 		ArrayList<Integer> holdX = new ArrayList<Integer>(); // List to hold X
 																// coordinates
 		ArrayList<Integer> holdY = new ArrayList<Integer>(); // Lost to hold Y
@@ -408,8 +489,8 @@ public class Driver {
 			while (!goodCoords) {
 				int trueCounter = 0;
 				// randomly picks two integers for X and Y.
-				int testX = (int) (Math.random() * 201);
-				int testY = (int) (Math.random() * 201);
+				int testX = (int) (Math.random() * COORDINATEOFFSET);
+				int testY = (int) (Math.random() * COORDINATEOFFSET);
 				/*
 				 * Goes through current array to make sure randomly picked X and
 				 * Y are at a distance of 10 or more then all other coordinates.
@@ -418,15 +499,15 @@ public class Driver {
 					int tempX = holdX.get(i);
 					int tempY = holdY.get(i);
 
-					int distance = (int) ((Math.pow(tempX - testX, 2)) + (Math
-							.pow(tempY - testY, 2)));
+					int distance = (int) ((Math.pow(tempX - testX, SQUAREEXPONENT)) + (Math
+							.pow(tempY - testY, SQUAREEXPONENT)));
 					distance = (int) (Math.sqrt(distance));
 					/*
 					 * The randomly picked numbers are >= to coordinates at
 					 * index i then add to the trueCounter. Else break and
 					 * generate new coordinates.
 					 */
-					if (distance > 9) {
+					if (distance > MINIMUMPLANETDISTANCE) {
 						trueCounter++;
 					} else {
 						break;
@@ -449,37 +530,46 @@ public class Driver {
 	 * 
 	 */
 
-	public static void generateNames() throws IOException {
-		Scanner s = new Scanner(new File("PlanetNames.txt"));
-		ArrayList<String> planetNames = new ArrayList<String>();
-		// pulls all possible system names from file and puts them into
-		// ArrayList
-		while (s.hasNextLine()) {
-			String temp = s.nextLine();
-			planetNames.add(temp);
+	public static void generateNames() {
+		Scanner s = null;
+		try {
+			s = new Scanner(new File("PlanetNames.txt"));
+			ArrayList<String> planetNames = new ArrayList<String>();
+			// pulls all possible system names from file and puts them into
+			// ArrayList
+			while (s.hasNextLine()) {
+				String temp = s.nextLine();
+				planetNames.add(temp);
+			}
+			ArrayList<String> chosenNames = new ArrayList<String>();
+			int amtOfStrings = NUMCOORDINATES;
+			// randomly selects 150 system names
+			for (int i = 0; i < amtOfStrings; i++) {
+				boolean check = true;
+				while (check) {
+					int random = (int) (Math.random() * planetNames.size());
+					String hold = planetNames.get(random);
+					if (!chosenNames.contains(hold)) {
+						chosenNames.add(hold);
+						check = false;
+					}
+				} // end of while-loop
+			} // end of for-loop
+			ListOfNames = chosenNames;
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			if (s != null) s.close();
 		}
-		ArrayList<String> chosenNames = new ArrayList<String>();
-		int amtOfStrings = 150;
-		// randomly selects 150 system names
-		for (int i = 0; i < amtOfStrings; i++) {
-			boolean check = true;
-			while (check) {
-				int random = (int) (Math.random() * planetNames.size());
-				String hold = planetNames.get(random);
-				if (!chosenNames.contains(hold)) {
-					chosenNames.add(hold);
-					check = false;
-				}
-			} // end of while-loop
-		} // end of for-loop
-		ListOfNames = chosenNames;
-		s.close();
 	}
 
+	/**
+	 * Saves the current state of the game to a text file
+	 */
 	public void saveGame() {
 		File saveFile = new File("savedGame.txt");
-		if (saveFile.exists())
-			saveFile.delete();
+		if (saveFile.exists()) saveFile.delete();
 		BufferedWriter output = null;
 		try {
 			output = new BufferedWriter(new FileWriter(saveFile));
@@ -503,9 +593,14 @@ public class Driver {
 				output.write(ss.marketQuantityToString());
 				output.newLine();
 			}
-			output.close();
 		} catch (IOException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				if (output != null) output.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 
@@ -513,7 +608,7 @@ public class Driver {
 	 * loads game
 	 */
 	public void loadGame() {
-		Scanner s;
+		Scanner s = null;
 		try {
 			s = new Scanner(new File("savedGame.txt"));
 			s.useDelimiter(",");
@@ -587,7 +682,7 @@ public class Driver {
 			// Solar System
 			s.nextLine();
 			int counter = 0;
-			while (counter < 150) {
+			while (counter < NUMCOORDINATES) {
 				SolarSystem tempSystem = new SolarSystem();
 				tempSystem.setSystemName(s.next());
 				tempSystem.setTechLevel(s.nextInt());
@@ -624,14 +719,22 @@ public class Driver {
 				ListOfSystems.add(tempSystem);
 				counter++;
 			}
-			s.close();
-		}
-
-		catch (FileNotFoundException e) {
+		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 			JOptionPane.showMessageDialog(null, "No Saved Game Exists");
+		} finally {
+			if (s != null) s.close();
 		}
 
+	}
+	
+	/**
+	 * Driver's toString method
+	 * 
+	 * @return string
+	 */
+	public String toString() {
+		return "";
 	}
 
 }

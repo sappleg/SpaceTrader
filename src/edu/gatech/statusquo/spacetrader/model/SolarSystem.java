@@ -74,7 +74,7 @@ public class SolarSystem {
 	 */
 	public void setMarketPrice(HashMap<GoodType, Integer> hm) {
 		marketPrice = hm;
-	}	
+	}
 	
 	/**
 	 * 
