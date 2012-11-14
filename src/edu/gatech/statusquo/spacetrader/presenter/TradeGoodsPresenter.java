@@ -70,7 +70,18 @@ public class TradeGoodsPresenter {
 					NotificationsView.list_1.add("Please enter an amount in the text box");
 					return;
 				}
-				int quant = Integer.parseInt(quantText);
+				
+				int quant = 0;
+				try{
+			         quant = Integer.parseInt(quantText);
+                     if(quant<0){
+                         quant=0;
+                         NotificationsView.list_1.add("Please enter a POSITIVE integer!");
+                     }
+				}catch(NumberFormatException n){
+				    NotificationsView.list_1.add("Please enter an integer!");
+				}
+		
 				
 				/**
 				 * Check to make sure a player has selected a good before attempting a transaction 
@@ -142,7 +153,17 @@ public class TradeGoodsPresenter {
 					NotificationsView.list_1.add("Please enter an amount in the text box");
 					return;
 				}
-				int quant = Integer.parseInt(quantText);
+                int quant = 0;
+                try{
+                     quant = Integer.parseInt(quantText);
+                     if(quant<0){
+                         quant=0;
+                         NotificationsView.list_1.add("Please enter a POSITIVE integer!");
+                     }
+                }catch(NumberFormatException n){
+                    NotificationsView.list_1.add("Please enter an integer!");
+                }
+        
 				/**
 				 * Check to make sure an item is selected before attempting transaction
 				 */
@@ -196,7 +217,17 @@ public class TradeGoodsPresenter {
 					return;
 				}
 			
-				int quant = Integer.parseInt(quantText);
+                int quant = 0;
+                try{
+                     quant = Integer.parseInt(quantText);
+                     if(quant<0){
+                         quant=0;
+                         NotificationsView.list_1.add("Please enter a POSITIVE integer!");
+                     }
+                }catch(NumberFormatException n){
+                    NotificationsView.list_1.add("Please enter an integer!");
+                }
+        
 				int fuelLevel = ship.getFuelLevel();
 				int fuelCapacity = ship.getFuelCapacity();
 				
