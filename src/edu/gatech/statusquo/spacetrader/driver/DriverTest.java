@@ -29,6 +29,7 @@ public class DriverTest extends TestCase {
 
     /**
      * Run the void generateCoordinates() method test
+     * @author Vraj Patel
      */
     @Test
     public void testGenerateCoordinates() {
