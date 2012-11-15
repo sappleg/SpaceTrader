@@ -11,7 +11,7 @@ import edu.gatech.statusquo.spacetrader.model.*;
 import edu.gatech.statusquo.spacetrader.view.*;
 
 public class CreatePlayerPresenter {
-	private CreatePlayerView createPlayerView;
+//	private CreatePlayerView createPlayerView;
 	private Player player;
 	public boolean status;
 	public int pointsAvailable;
@@ -29,7 +29,7 @@ public class CreatePlayerPresenter {
 	 * @param p
 	 */
 	public CreatePlayerPresenter(CreatePlayerView cpv, Player p) {
-		this.createPlayerView = cpv;
+//		this.createPlayerView = cpv;
 		this.player = p;
 		pointsAvailable = 15;
 		traderUsed = 0;
@@ -39,200 +39,200 @@ public class CreatePlayerPresenter {
 		points = 0;
 		status = true;
 
-		setListeners();
+//		setListeners();
 
-		while (!createPlayerView.shell.isDisposed()) {
-			if (!createPlayerView.display.readAndDispatch()) {
-				createPlayerView.display.sleep();
-			}
-		}
+//		while (!createPlayerView.shell.isDisposed()) {
+//			if (!createPlayerView.display.readAndDispatch()) {
+//				createPlayerView.display.sleep();
+//			}
+//		}
 	}
 
 	/**
 	 * sets listeners
 	 */
-	private void setListeners() {
-
-		createPlayerView.traderSpinner.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseUp(MouseEvent e) {
-				traderUsed = Integer.parseInt(createPlayerView.traderSpinner
-						.getText());
-				setSpinners();
-			}
-		});
-
-		createPlayerView.traderSpinner.addKeyListener(new KeyListener() {
-			@Override
-			public void keyPressed(KeyEvent e) {
-
-			}
-
-			@Override
-			public void keyReleased(KeyEvent e) {
-				if (createPlayerView.traderSpinner.getText().equals("")) {
-
-				} else {
-					traderUsed = Integer
-							.parseInt(createPlayerView.traderSpinner.getText());
-					setSpinners();
-				}
-			}
-
-		});
-
-		createPlayerView.engineerSpinner.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseUp(MouseEvent e) {
-				engineerUsed = Integer
-						.parseInt(createPlayerView.engineerSpinner.getText());
-				setSpinners();
-			}
-		});
-
-		createPlayerView.engineerSpinner.addKeyListener(new KeyListener() {
-			@Override
-			public void keyPressed(KeyEvent e) {
-
-			}
-
-			@Override
-			public void keyReleased(KeyEvent e) {
-				if (createPlayerView.engineerSpinner.getText().equals("")) {
-
-				} else {
-					engineerUsed = Integer
-							.parseInt(createPlayerView.engineerSpinner
-									.getText());
-					setSpinners();
-				}
-			}
-
-		});
-
-		createPlayerView.pilotSpinner.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseUp(MouseEvent e) {
-				pilotUsed = Integer.parseInt(createPlayerView.pilotSpinner
-						.getText());
-				setSpinners();
-			}
-		});
-
-		createPlayerView.pilotSpinner.addKeyListener(new KeyListener() {
-			@Override
-			public void keyPressed(KeyEvent e) {
-
-			}
-
-			@Override
-			public void keyReleased(KeyEvent e) {
-				if (createPlayerView.pilotSpinner.getText().equals("")) {
-
-				} else {
-					pilotUsed = Integer.parseInt(createPlayerView.pilotSpinner
-							.getText());
-					setSpinners();
-				}
-			}
-		});
-
-		createPlayerView.fighterSpinner.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseUp(MouseEvent e) {
-				fighterUsed = Integer.parseInt(createPlayerView.fighterSpinner
-						.getText());
-				setSpinners();
-			}
-		});
-
-		createPlayerView.fighterSpinner.addKeyListener(new KeyListener() {
-			@Override
-			public void keyPressed(KeyEvent e) {
-
-			}
-
-			@Override
-			public void keyReleased(KeyEvent e) {
-				if (createPlayerView.fighterSpinner.getText().equals("")) {
-
-				} else {
-					fighterUsed = Integer
-							.parseInt(createPlayerView.fighterSpinner.getText());
-					setSpinners();
-				}
-			}
-		});
-
-		createPlayerView.resetSkillPointsButton
-				.addMouseListener(new MouseAdapter() {
-					@Override
-					public void mouseDown(MouseEvent e) {
-						pointsAvailable = 15;
-						traderUsed = 0;
-						engineerUsed = 0;
-						pilotUsed = 0;
-						fighterUsed = 0;
-						status = true;
-						createPlayerView.traderSpinner.setEnabled(status);
-						createPlayerView.engineerSpinner.setEnabled(status);
-						createPlayerView.pilotSpinner.setEnabled(status);
-						createPlayerView.fighterSpinner.setEnabled(status);
-						createPlayerView.traderSpinner.setValues(0, 0, 15, 0,
-								1, 1);
-						createPlayerView.engineerSpinner.setValues(0, 0, 15, 0,
-								1, 1);
-						createPlayerView.pilotSpinner.setValues(0, 0, 15, 0, 1,
-								1);
-						createPlayerView.fighterSpinner.setValues(0, 0, 15, 0,
-								1, 1);
-						createPlayerView.setPointsAvailableLabel(Integer
-								.toString(calculatePoints()));
-						player.setTraderSkills(Integer
-								.parseInt(createPlayerView.traderSpinner
-										.getText()));
-						player.setEngineerSkills(Integer
-								.parseInt(createPlayerView.engineerSpinner
-										.getText()));
-						player.setPilotSkills(Integer
-								.parseInt(createPlayerView.pilotSpinner
-										.getText()));
-						player.setFighterSkills(Integer
-								.parseInt(createPlayerView.fighterSpinner
-										.getText()));
-					}
-				});
-
-		createPlayerView.startGameButton.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseDown(MouseEvent e) {
-				player.setName(createPlayerView.text.getText());
-				if (canAddMorePoints()) {
-					JOptionPane.showMessageDialog(null,
-							"You have not assigned all of your skill points",
-							"Unused Skill Points", 2);
-				} else if (Player.getName().equals("")) {
-					JOptionPane.showMessageDialog(null,
-							"Please enter a player name.");
-				} else if (calculatePoints() < 0) {
-					checkValidityOfPoints();
-				} else {
-					player.setTraderSkills(Integer
-							.parseInt(createPlayerView.traderSpinner.getText()));
-					player.setEngineerSkills(Integer
-							.parseInt(createPlayerView.engineerSpinner
-									.getText()));
-					player.setPilotSkills(Integer
-							.parseInt(createPlayerView.pilotSpinner.getText()));
-					player.setFighterSkills(Integer
-							.parseInt(createPlayerView.fighterSpinner.getText()));
-
-					createPlayerView.shell.dispose();
-
-				}
-			}
-		});
-	}
+//	private void setListeners() {
+//
+//		createPlayerView.traderSpinner.addMouseListener(new MouseAdapter() {
+//			@Override
+//			public void mouseUp(MouseEvent e) {
+//				traderUsed = Integer.parseInt(createPlayerView.traderSpinner
+//						.getText());
+//				setSpinners();
+//			}
+//		});
+//
+//		createPlayerView.traderSpinner.addKeyListener(new KeyListener() {
+//			@Override
+//			public void keyPressed(KeyEvent e) {
+//
+//			}
+//
+//			@Override
+//			public void keyReleased(KeyEvent e) {
+//				if (createPlayerView.traderSpinner.getText().equals("")) {
+//
+//				} else {
+//					traderUsed = Integer
+//							.parseInt(createPlayerView.traderSpinner.getText());
+//					setSpinners();
+//				}
+//			}
+//
+//		});
+//
+//		createPlayerView.engineerSpinner.addMouseListener(new MouseAdapter() {
+//			@Override
+//			public void mouseUp(MouseEvent e) {
+//				engineerUsed = Integer
+//						.parseInt(createPlayerView.engineerSpinner.getText());
+//				setSpinners();
+//			}
+//		});
+//
+//		createPlayerView.engineerSpinner.addKeyListener(new KeyListener() {
+//			@Override
+//			public void keyPressed(KeyEvent e) {
+//
+//			}
+//
+//			@Override
+//			public void keyReleased(KeyEvent e) {
+//				if (createPlayerView.engineerSpinner.getText().equals("")) {
+//
+//				} else {
+//					engineerUsed = Integer
+//							.parseInt(createPlayerView.engineerSpinner
+//									.getText());
+//					setSpinners();
+//				}
+//			}
+//
+//		});
+//
+//		createPlayerView.pilotSpinner.addMouseListener(new MouseAdapter() {
+//			@Override
+//			public void mouseUp(MouseEvent e) {
+//				pilotUsed = Integer.parseInt(createPlayerView.pilotSpinner
+//						.getText());
+//				setSpinners();
+//			}
+//		});
+//
+//		createPlayerView.pilotSpinner.addKeyListener(new KeyListener() {
+//			@Override
+//			public void keyPressed(KeyEvent e) {
+//
+//			}
+//
+//			@Override
+//			public void keyReleased(KeyEvent e) {
+//				if (createPlayerView.pilotSpinner.getText().equals("")) {
+//
+//				} else {
+//					pilotUsed = Integer.parseInt(createPlayerView.pilotSpinner
+//							.getText());
+//					setSpinners();
+//				}
+//			}
+//		});
+//
+//		createPlayerView.fighterSpinner.addMouseListener(new MouseAdapter() {
+//			@Override
+//			public void mouseUp(MouseEvent e) {
+//				fighterUsed = Integer.parseInt(createPlayerView.fighterSpinner
+//						.getText());
+//				setSpinners();
+//			}
+//		});
+//
+//		createPlayerView.fighterSpinner.addKeyListener(new KeyListener() {
+//			@Override
+//			public void keyPressed(KeyEvent e) {
+//
+//			}
+//
+//			@Override
+//			public void keyReleased(KeyEvent e) {
+//				if (createPlayerView.fighterSpinner.getText().equals("")) {
+//
+//				} else {
+//					fighterUsed = Integer
+//							.parseInt(createPlayerView.fighterSpinner.getText());
+//					setSpinners();
+//				}
+//			}
+//		});
+//
+//		createPlayerView.resetSkillPointsButton
+//				.addMouseListener(new MouseAdapter() {
+//					@Override
+//					public void mouseDown(MouseEvent e) {
+//						pointsAvailable = 15;
+//						traderUsed = 0;
+//						engineerUsed = 0;
+//						pilotUsed = 0;
+//						fighterUsed = 0;
+//						status = true;
+//						createPlayerView.traderSpinner.setEnabled(status);
+//						createPlayerView.engineerSpinner.setEnabled(status);
+//						createPlayerView.pilotSpinner.setEnabled(status);
+//						createPlayerView.fighterSpinner.setEnabled(status);
+//						createPlayerView.traderSpinner.setValues(0, 0, 15, 0,
+//								1, 1);
+//						createPlayerView.engineerSpinner.setValues(0, 0, 15, 0,
+//								1, 1);
+//						createPlayerView.pilotSpinner.setValues(0, 0, 15, 0, 1,
+//								1);
+//						createPlayerView.fighterSpinner.setValues(0, 0, 15, 0,
+//								1, 1);
+//						createPlayerView.setPointsAvailableLabel(Integer
+//								.toString(calculatePoints()));
+//						player.setTraderSkills(Integer
+//								.parseInt(createPlayerView.traderSpinner
+//										.getText()));
+//						player.setEngineerSkills(Integer
+//								.parseInt(createPlayerView.engineerSpinner
+//										.getText()));
+//						player.setPilotSkills(Integer
+//								.parseInt(createPlayerView.pilotSpinner
+//										.getText()));
+//						player.setFighterSkills(Integer
+//								.parseInt(createPlayerView.fighterSpinner
+//										.getText()));
+//					}
+//				});
+//
+//		createPlayerView.startGameButton.addMouseListener(new MouseAdapter() {
+//			@Override
+//			public void mouseDown(MouseEvent e) {
+//				player.setName(createPlayerView.text.getText());
+//				if (canAddMorePoints()) {
+//					JOptionPane.showMessageDialog(null,
+//							"You have not assigned all of your skill points",
+//							"Unused Skill Points", 2);
+//				} else if (Player.getName().equals("")) {
+//					JOptionPane.showMessageDialog(null,
+//							"Please enter a player name.");
+//				} else if (calculatePoints() < 0) {
+//					checkValidityOfPoints();
+//				} else {
+//					player.setTraderSkills(Integer
+//							.parseInt(createPlayerView.traderSpinner.getText()));
+//					player.setEngineerSkills(Integer
+//							.parseInt(createPlayerView.engineerSpinner
+//									.getText()));
+//					player.setPilotSkills(Integer
+//							.parseInt(createPlayerView.pilotSpinner.getText()));
+//					player.setFighterSkills(Integer
+//							.parseInt(createPlayerView.fighterSpinner.getText()));
+//
+//					createPlayerView.shell.dispose();
+//
+//				}
+//			}
+//		});
+//	}
 
 	/**
 	 * This method will tell the program whether or not all the skill points
@@ -256,12 +256,9 @@ public class CreatePlayerPresenter {
 	 * @return int that is the number of points left to add to the skillset.
 	 */
 
-	private int calculatePoints() {
-		int totalPoints = Integer.parseInt(createPlayerView.traderSpinner
-				.getText())
-				+ Integer.parseInt(createPlayerView.engineerSpinner.getText())
-				+ Integer.parseInt(createPlayerView.pilotSpinner.getText())
-				+ Integer.parseInt(createPlayerView.fighterSpinner.getText());
+	int calculatePoints() {
+		pointsAvailable = 15;
+		int totalPoints = traderUsed + fighterUsed + pilotUsed + engineerUsed;
 		return pointsAvailable - totalPoints;
 	}
 
@@ -269,44 +266,35 @@ public class CreatePlayerPresenter {
 	 * This will check the validity of the points and reset them if an
 	 * inconsistency is detected for example, if the points are over 15.
 	 */
-	private void checkValidityOfPoints() {
+	boolean checkValidityOfPoints() {
 		points = calculatePoints();
 		if (points < 0) {
-			JOptionPane.showMessageDialog(null,
-					"Invalid entries detected. Resetting all skill points.");
+//			JOptionPane.showMessageDialog(null,
+//					"Invalid entries detected. Resetting all skill points.");
 			pointsAvailable = 15;
 			traderUsed = 0;
 			engineerUsed = 0;
 			pilotUsed = 0;
 			fighterUsed = 0;
 			status = true;
-			createPlayerView.traderSpinner.setEnabled(status);
-			createPlayerView.engineerSpinner.setEnabled(status);
-			createPlayerView.pilotSpinner.setEnabled(status);
-			createPlayerView.fighterSpinner.setEnabled(status);
-			createPlayerView.traderSpinner.setValues(0, 0, 15, 0, 1, 1);
-			createPlayerView.engineerSpinner.setValues(0, 0, 15, 0, 1, 1);
-			createPlayerView.pilotSpinner.setValues(0, 0, 15, 0, 1, 1);
-			createPlayerView.fighterSpinner.setValues(0, 0, 15, 0, 1, 1);
-			createPlayerView.setPointsAvailableLabel(Integer
-					.toString(calculatePoints()));
+			return false;
 		} else {
-			createPlayerView.setPointsAvailableLabel(Integer
-					.toString(calculatePoints()));
+			pointsAvailable = calculatePoints();
+			return true;
 		}
 	}
 
 	/**
 	 * sets spinners
 	 */
-	private void setSpinners() {
-		createPlayerView.traderSpinner.setEnabled(status);
-		createPlayerView.engineerSpinner.setEnabled(status);
-		createPlayerView.pilotSpinner.setEnabled(status);
-		createPlayerView.fighterSpinner.setEnabled(status);
-		checkValidityOfPoints();
-		status = canAddMorePoints();
-	}
+//	private void setSpinners() {
+//		createPlayerView.traderSpinner.setEnabled(status);
+//		createPlayerView.engineerSpinner.setEnabled(status);
+//		createPlayerView.pilotSpinner.setEnabled(status);
+//		createPlayerView.fighterSpinner.setEnabled(status);
+//		checkValidityOfPoints();
+//		status = canAddMorePoints();
+//	}
 
 	/**
 	 * gets available points
@@ -315,5 +303,13 @@ public class CreatePlayerPresenter {
 	 */
 	public int getPointsAvailable() {
 		return pointsAvailable;
+	}
+	
+	public int getPoints() {
+		return points;
+	}
+	
+	public void setPoints(int p) {
+		points = p;
 	}
 }
