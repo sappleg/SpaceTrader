@@ -73,10 +73,6 @@ public class DriverTest extends TestCase {
         
         
     }
-    /*
-     * run the void generateNames test
-     * @author Derrek Keyser
-     */
     @Test
     public void testGenerateNames(){
     	
@@ -91,9 +87,7 @@ public class DriverTest extends TestCase {
     	Driver.generateNames();
     	
     	//Check that the method generates the correct amount of names
-    	if(Driver.ListOfNames.size() != namesArraySize){
-    		fail("The wrong number of names were generated");
-    	}
+    	assertEquals(Driver.ListOfNames.size(), namesArraySize);
     	
     	//Check that the array of names contains no duplicate names
     	String testHold;
