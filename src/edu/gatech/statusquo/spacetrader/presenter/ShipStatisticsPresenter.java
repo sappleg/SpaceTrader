@@ -6,19 +6,20 @@ import edu.gatech.statusquo.spacetrader.driver.*;
 import edu.gatech.statusquo.spacetrader.view.*;
 
 public class ShipStatisticsPresenter {
-	Shell shell;
-	Driver driver;
-	ShipStatisticsView shipStatisticsView;
+    Shell shell;
+    Driver driver;
+    ShipStatisticsView shipStatisticsView;
 
-	/**
-	 * class constructor using listed parameters
-	 * @param s
-	 * @param d
-	 * @param ssv
-	 */
-	public ShipStatisticsPresenter(Shell s, Driver d, ShipStatisticsView ssv) {
-		this.shell = s;
-		this.driver = d;
-		this.shipStatisticsView = ssv;
-	}
+    /**
+     * class constructor using listed parameters
+     * 
+     * @param s
+     * @param d
+     * @param ssv
+     */
+    public ShipStatisticsPresenter(Shell s, Driver d, ShipStatisticsView ssv) {
+        this.shell = s;
+        this.driver = d;
+        this.shipStatisticsView = ssv;
+    }
 }
