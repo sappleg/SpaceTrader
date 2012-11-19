@@ -1,5 +1,7 @@
 package edu.gatech.statusquo.spacetrader.driver;
 
+import java.io.File;
+
 import org.junit.Test;
 
 import junit.framework.TestCase;
@@ -12,7 +14,7 @@ import junit.framework.TestCase;
  *
  * @generatedBy CodePro at 11/13/12 3:03 PM
  *
- * @author Vraj Patel, 
+ * @author Vraj Patel, Derrek Keyser
  *
  * @version $Revision$
  */
@@ -70,6 +72,22 @@ public class DriverTest extends TestCase {
         
         
         
+    }
+    
+    public void testGenerateNames(){
+    	
+    	//Check that PlanetNames.txt exists
+    	File testFile = new File("PlanetNames.txt");
+    	
+    	if(testFile.exists() == false) {
+    		fail("PlanetNames.txt doesn't exist");
+    	}
+    	
+    	int namesArraySize = 150;
+    	Driver.generateNames();
+    	
+    	//Check that the method generates the correct amount of names
+    	assertEquals(Driver., namesArraySize);
     }
     
   
