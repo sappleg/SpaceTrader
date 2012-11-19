@@ -73,7 +73,11 @@ public class DriverTest extends TestCase {
         
         
     }
-    
+    /*
+     * run the void generateNames test
+     * @author Derrek Keyser
+     */
+    @Test
     public void testGenerateNames(){
     	
     	//Check that PlanetNames.txt exists
@@ -87,7 +91,30 @@ public class DriverTest extends TestCase {
     	Driver.generateNames();
     	
     	//Check that the method generates the correct amount of names
-    	assertEquals(Driver., namesArraySize);
+    	if(Driver.ListOfNames.size() != namesArraySize){
+    		fail("The wrong number of names were generated");
+    	}
+    	
+    	//Check that the array of names contains no duplicate names
+    	String testHold;
+    	for(int i=0; i<Driver.ListOfNames.size(); i++){
+    		testHold = Driver.ListOfNames.get(i);
+    		for(int j = i+1; j<Driver.ListOfNames.size(); j++){
+    			if(Driver.ListOfNames.get(j).equals(testHold)){
+    				fail("ListOfNames contains duplicate elements");
+    			}
+    			else continue;
+    		}
+    		
+    	}
+    	
+    	//Check to make sure there are no null elements
+    	for(int i = 0; i < Driver.ListOfNames.size(); i++){
+    		if(Driver.ListOfNames.get(i) == null){
+    			fail("ListOfNames contains a null element");
+    		}
+    	}
+    	
     }
     
   
